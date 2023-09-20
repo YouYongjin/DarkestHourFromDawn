@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17913343, g: 0.22430126, b: 0.30607364, a: 1}
+  m_IndirectSpecularColor: {r: 0.1593056, g: 0.18396588, b: 0.20197086, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -136,9 +136,9 @@ GameObject:
   - component: {fileID: 53268540}
   - component: {fileID: 53268539}
   - component: {fileID: 53268538}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Ground1 (5)
-  m_TagString: Collision
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 71323518}
   m_Layer: 0
   m_Name: Ground1
-  m_TagString: Collision
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -484,6 +484,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 9.876164, y: 19.506912, z: 0.6703693}
   m_Center: {x: -4.92148, y: -0.06241957, z: 0.27172256}
+--- !u!54 &131515983
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131515975}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!1001 &189878434
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -514,7 +530,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: cb0be5f9453ab894f8b4f7631db89afe,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 40.103
+      value: 40.772
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cb0be5f9453ab894f8b4f7631db89afe,
         type: 3}
@@ -569,7 +585,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: cb0be5f9453ab894f8b4f7631db89afe,
         type: 3}
       propertyPath: m_TagString
-      value: Collision
+      value: Interaction
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb0be5f9453ab894f8b4f7631db89afe, type: 3}
@@ -875,14 +891,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410087039}
-  m_LocalRotation: {x: -0.5462189, y: 0.17468633, z: -0.60839415, w: -0.5486222}
+  m_LocalRotation: {x: -0.148837, y: 0.55382115, z: 0.13190065, w: -0.808537}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 54.281, y: 54.108, z: -234.743}
+  m_LocalEulerAnglesHint: {x: 5.427, y: -69.891, z: -382.325}
 --- !u!114 &410087042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1359,9 +1375,9 @@ GameObject:
   - component: {fileID: 1216905227}
   - component: {fileID: 1216905226}
   - component: {fileID: 1216905225}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Ground1 (7)
-  m_TagString: Collision
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1920,9 +1936,9 @@ GameObject:
   - component: {fileID: 1638425241}
   - component: {fileID: 1638425240}
   - component: {fileID: 1638425239}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Ground1 (6)
-  m_TagString: Collision
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2236,7 +2252,7 @@ GameObject:
   - component: {fileID: 1891481078}
   m_Layer: 0
   m_Name: Ground1 (4)
-  m_TagString: Collision
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2383,7 +2399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db2fa37ae81c27b419cc9c7e33c77c64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 3
   Flashlight: {fileID: 0}
 --- !u!54 &1897181918
 Rigidbody:
@@ -2681,9 +2697,9 @@ GameObject:
   - component: {fileID: 2096244144}
   - component: {fileID: 2096244143}
   - component: {fileID: 2096244142}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Ground1 (3)
-  m_TagString: Collision
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2795,9 +2811,9 @@ GameObject:
   - component: {fileID: 2108141268}
   - component: {fileID: 2108141267}
   - component: {fileID: 2108141266}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Ground1 (2)
-  m_TagString: Collision
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3026,7 +3042,7 @@ PrefabInstance:
     - target: {fileID: 5813693367524745538, guid: f66782bf6a3bded4abb0c24e8294fecb,
         type: 3}
       propertyPath: m_TagString
-      value: Collision
+      value: Interaction
       objectReference: {fileID: 0}
     - target: {fileID: 5813693367524745550, guid: f66782bf6a3bded4abb0c24e8294fecb,
         type: 3}

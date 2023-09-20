@@ -21,20 +21,22 @@ public class Flashlight_Interaction : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        //¹Ù´Ú¿¡ ´êÀ¸¸é
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Flashlight"))
+        if(collision.gameObject.CompareTag("Interaction"))
         {
-            isHasFlashlight = true;
-            field_Flashlight.gameObject.SetActive(false);
-            UI_Flashlight.gameObject.SetActive(true);
-            UI_FlashlightON = true;
-            if (UI_FlashlightON == true)
+            if (collision.gameObject.layer == LayerMask.NameToLayer("Flashlight"))
             {
-                Destroy(UI_Flashlight.gameObject, 3);
-            }
+                isHasFlashlight = true;
+                field_Flashlight.gameObject.SetActive(false);
+                UI_Flashlight.gameObject.SetActive(true);
+                UI_FlashlightON = true;
+                if (UI_FlashlightON == true)
+                {
+                    Destroy(UI_Flashlight.gameObject, 3);
+                }
 
-            player_Flashlight.gameObject.SetActive(true);
-        }
+                player_Flashlight.gameObject.SetActive(true);
+            }
+        }    
     }
     private void Update()
     {

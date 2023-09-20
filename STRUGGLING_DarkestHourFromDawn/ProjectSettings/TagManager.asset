@@ -9,6 +9,8 @@ TagManager:
   - StopZone
   - Collision
   - Flashlight
+  - Wall
+  - Interaction
   layers:
   - Default
   - TransparentFX

@@ -25,7 +25,7 @@ public class PlayerMoveController : MonoBehaviour
     private void OnCollisionStay(Collision collision)
     {
         //바닥에 닿으면
-        if (collision.gameObject.CompareTag("Collision"))
+        if (collision.gameObject.CompareTag("Ground"))
         {
             //이동이 가능한 상태로 변경
             isMoving = true;
@@ -41,8 +41,6 @@ public class PlayerMoveController : MonoBehaviour
     {
         iDown = Input.GetButtonDown("Interaction");
     }
-
-    // Update is called once per frame
     void Update()
     {
         //interaction();
@@ -60,8 +58,7 @@ public class PlayerMoveController : MonoBehaviour
 
             rd.AddForce(moveDistance);
         }
-    }
-    //void interaction()
+    }    //void interaction()
     //{
     //    if (iDown && Flashlight != null)
     //    {
@@ -71,4 +68,5 @@ public class PlayerMoveController : MonoBehaviour
     //        }
     //    }
     //}
+
 }
