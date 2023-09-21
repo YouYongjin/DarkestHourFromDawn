@@ -10,6 +10,8 @@ public class Flashlight_Interaction : MonoBehaviour
     bool UI_FlashlightON;
 
     public GameObject player_Flashlight;
+    public GameObject Light;
+    bool lightSwitch = true;
 
     public bool isOn;
     bool isHasFlashlight = false;
@@ -53,6 +55,21 @@ public class Flashlight_Interaction : MonoBehaviour
                 isOn = true;
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.F) && isOn)
+        {
+            if (lightSwitch)
+            {
+                Light.gameObject.SetActive(false);
+                lightSwitch = false;
+            }
+            else if (!lightSwitch)
+            {
+                Light.gameObject.SetActive(true);
+                lightSwitch = true;
+            }
+        }
+
     }
 
 }
