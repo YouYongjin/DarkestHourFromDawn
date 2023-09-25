@@ -3,20 +3,24 @@ using System.Collections.Generic;
 //using System.Numerics;
 using UnityEngine;
 
-public class PlayerMoveController : MonoBehaviour
+public class Player: MonoBehaviour
 {
     Rigidbody rd;
     CharacterController controller;
+
     public float moveSpeed = 1f;
     private bool isMoving;
     private float _moveSpeedClamp = 4f;
 
-    public GameObject Flashlight;
-    //public GameObject[] weapons;
-    //public bool[] hasWeapons;
+    //public GameObject Flashlight;
 
-    bool iDown;
-    // Start is called before the first frame update
+    bool iGet;
+
+    GameObject nearObject;
+
+    public GameObject[] eItems;
+    public bool[] hasEItems;
+
     void Start()
     {
         rd = GetComponent<Rigidbody>();
@@ -26,26 +30,21 @@ public class PlayerMoveController : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        //바닥에 닿으면
         if (collision.gameObject.CompareTag("Ground"))
         {
-            //이동이 가능한 상태로 변경
+
             isMoving = true;
         }
         else if (collision.gameObject.CompareTag("StopZone"))
         {
             isMoving = false;
         }
-
     }
 
-    //void GetInput()
-    //{
-    //    iDown = Input.GetButtonDown("Interaction");
-    //}
     void Update()
     {
-        //interaction();
+        GetInput();
+        Interaction();
 
         if (!isMoving) return;
 
@@ -57,8 +56,9 @@ public class PlayerMoveController : MonoBehaviour
 
         HorizontalMove = transform.right * Input.GetAxis("Horizontal");
         VerticalMove = transform.forward * Input.GetAxis("Vertical");
+        #endregion
 
-        //이상신, 최강산 코드
+        # region 이상신, 최강산 코드
         moveDistance = (HorizontalMove + VerticalMove).normalized;
 
         //rd.AddForce(moveDistance * moveSpeed);
@@ -67,15 +67,39 @@ public class PlayerMoveController : MonoBehaviour
         #endregion
     }
 
-    //void interaction()
-    //{
-    //    if (iDown && Flashlight != null)
-    //    {
-    //        if(this.gameObject.layer == LayerMask.NameToLayer("Flashlight"))
-    //        {
+    void GetInput()
+    {
+        iGet = Input.GetButtonDown("Interaction");
+    }
 
-    //        }
-    //    }
-    //}
+    void Interaction()
+    {
+        if(iGet && nearObject != null) 
+        {
+            if(nearObject.tag == "EItem")
+            {
+                Item item = nearObject.GetComponent<Item>();
+                int eItemIndex = item.value;
+                hasEItems[eItemIndex] = true;
 
+                Destroy(nearObject);
+            }
+        }
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "EItem")
+            nearObject = other.gameObject;
+
+            Debug.Log(nearObject.name);
+       
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "EItem")
+            nearObject = null;
+        
+    }
 }

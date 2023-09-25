@@ -11,6 +11,8 @@ TagManager:
   - Flashlight
   - Wall
   - Interaction
+  - EItem
+  - CItem
   layers:
   - Default
   - TransparentFX
