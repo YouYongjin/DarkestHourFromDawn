@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 //using System.Numerics;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class Player: MonoBehaviour
 {
@@ -24,7 +25,12 @@ public class Player: MonoBehaviour
     int equipEItemIndex = -1;
 
     public GameObject[] eItems;
+    public GameObject[] CItems;
     public bool[] hasEItems;
+    public bool[] hasCItems;
+
+
+    public int Citem;
 
     void Start()
     {
@@ -50,7 +56,8 @@ public class Player: MonoBehaviour
     {
         GetInput();
         Interaction();
-        Swap();
+        EitemSwap();
+        CitemAdd();
 
         if (!isMoving) return;
 
@@ -95,10 +102,18 @@ public class Player: MonoBehaviour
 
                 Destroy(nearObject);
             }
+            if(nearObject.tag == "CItem")
+            {
+                Item item = nearObject.GetComponent<Item>();
+                int cItemIndex = item.value;
+                hasCItems[cItemIndex] = true;
+
+                nearObject.SetActive(false);
+            }
         }
     }
 
-    void Swap()
+    void EitemSwap()
     {
         if (iSwap1 && (!hasEItems[0] || equipEItemIndex == 0))
         {
@@ -129,18 +144,38 @@ public class Player: MonoBehaviour
         }
     }
 
+    void CitemAdd()
+    {
+
+    }
+
     void OnTriggerStay(Collider other)
     {
+        // 장착형 아이템 판단
         if (other.tag == "EItem")
+        {
             nearObject = other.gameObject;
+            Debug.Log(nearObject.name + "/" + nearObject.tag);
+        }
+        // 수집형 아이템 판단 
+        if (other.tag == "CItem")
+        {
+            nearObject = other.gameObject;
+            Debug.Log(nearObject.name + "/" + nearObject.tag);
+        }
 
-            Debug.Log(nearObject.name);
-       
     }
 
     void OnTriggerExit(Collider other)
     {
         if (other.tag == "EItem")
+        {
             nearObject = null;
+        }
+
+        if (other.tag == "CItem")
+        {
+            nearObject = null;
+        }   
     }
 }

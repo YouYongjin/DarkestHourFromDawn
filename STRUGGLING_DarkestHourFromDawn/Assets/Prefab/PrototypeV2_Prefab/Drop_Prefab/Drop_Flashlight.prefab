@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1516266229016394005}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0, z: -0.0183}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44,9 +44,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
-  m_Range: 10
+  m_Color: {r: 1, g: 0.9826656, b: 0.8349056, a: 1}
+  m_Intensity: 0.04
+  m_Range: 1
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -192,7 +192,7 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.8820755, g: 0.93947315, b: 1, a: 0}
+  m_Color: {r: 1, g: 0.9843137, b: 0.8352941, a: 1}
   m_Intensity: 100
   m_Range: 10
   m_SpotAngle: 30
@@ -324,7 +324,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 25bca5b7a5865f344bd351faae8142ec, type: 2}
+  - {fileID: 2100000, guid: 588ad4bce531ba14aa71fad20cebf7cc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -360,7 +360,7 @@ GameObject:
   - component: {fileID: 3938924989180095320}
   - component: {fileID: 4598665145783212578}
   m_Layer: 9
-  m_Name: Drop_EItem_Flashlight
+  m_Name: Drop_Flashlight
   m_TagString: EItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -373,7 +373,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8093530437869020695}
-  m_LocalRotation: {x: 0.50000125, y: -0.49999875, z: -0.5000001, w: 0.49999994}
+  m_LocalRotation: {x: 0.000002719462, y: -0.7071068, z: -0.7071068, w: 0.0000008940697}
   m_LocalPosition: {x: 0.07399997, y: 0.012000188, z: 0.061999798}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -382,7 +382,7 @@ Transform:
   - {fileID: 6150856024231487883}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: -90}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: -180}
 --- !u!54 &5583711118763751471
 Rigidbody:
   m_ObjectHideFlags: 0
