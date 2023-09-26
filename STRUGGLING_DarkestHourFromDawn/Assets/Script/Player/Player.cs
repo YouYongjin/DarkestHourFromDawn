@@ -25,12 +25,12 @@ public class Player: MonoBehaviour
     int equipEItemIndex = -1;
 
     public GameObject[] eItems;
-    public GameObject[] CItems;
     public bool[] hasEItems;
     public bool[] hasCItems;
 
+    public GameObject sceneChange;
+    public GameObject puzzleTrigger;
 
-    public int Citem;
 
     void Start()
     {
@@ -99,7 +99,7 @@ public class Player: MonoBehaviour
                 Item item = nearObject.GetComponent<Item>();
                 int eItemIndex = item.value;
                 hasEItems[eItemIndex] = true;
-
+                
                 Destroy(nearObject);
             }
             if(nearObject.tag == "CItem")
@@ -146,7 +146,15 @@ public class Player: MonoBehaviour
 
     void CitemAdd()
     {
-
+        int cItemIndex = -1;
+        if (hasCItems[0] || cItemIndex == 0)
+        {
+            sceneChange.SetActive(true);
+        }
+        if (hasCItems[1] || cItemIndex == 1)
+        {
+            puzzleTrigger.SetActive(true);
+        }
     }
 
     void OnTriggerStay(Collider other)
