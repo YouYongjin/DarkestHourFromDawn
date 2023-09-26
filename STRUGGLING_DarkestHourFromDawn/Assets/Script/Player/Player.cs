@@ -15,8 +15,13 @@ public class Player: MonoBehaviour
     //public GameObject Flashlight;
 
     bool iGet;
+    bool iSwap1;
+    bool iSwap2;
+    bool iSwap3;
 
     GameObject nearObject;
+    GameObject equipObject;
+    int equipEItemIndex = -1;
 
     public GameObject[] eItems;
     public bool[] hasEItems;
@@ -45,6 +50,7 @@ public class Player: MonoBehaviour
     {
         GetInput();
         Interaction();
+        Swap();
 
         if (!isMoving) return;
 
@@ -70,6 +76,11 @@ public class Player: MonoBehaviour
     void GetInput()
     {
         iGet = Input.GetButtonDown("Interaction");
+
+        iSwap1 = Input.GetButtonDown("Swap1");
+        iSwap2 = Input.GetButtonDown("Swap2");
+        iSwap3 = Input.GetButtonDown("Swap3");
+
     }
 
     void Interaction()
@@ -87,6 +98,37 @@ public class Player: MonoBehaviour
         }
     }
 
+    void Swap()
+    {
+        if (iSwap1 && (!hasEItems[0] || equipEItemIndex == 0))
+        {
+            return; 
+        }
+        if (iSwap2 && (!hasEItems[1] || equipEItemIndex == 1))
+        {
+            return;
+        }
+        if (iSwap3 && (!hasEItems[2] || equipEItemIndex == 2))
+        {
+            return;
+        }
+
+        int eItemIndex = -1;
+        if (iSwap1) eItemIndex = 0;
+        if (iSwap2) eItemIndex = 1;
+        if (iSwap3) eItemIndex = 2;
+
+        if (iSwap1 || iSwap2 || iSwap3)
+        {
+            if (equipObject != null)
+                equipObject.SetActive(false);
+            
+            equipEItemIndex = eItemIndex;
+            equipObject = eItems[eItemIndex];
+            equipObject.SetActive(true);
+        }
+    }
+
     void OnTriggerStay(Collider other)
     {
         if (other.tag == "EItem")
@@ -100,6 +142,5 @@ public class Player: MonoBehaviour
     {
         if (other.tag == "EItem")
             nearObject = null;
-        
     }
 }
