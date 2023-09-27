@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneChange1 : MonoBehaviour
 {
+    public GameObject Scene;
     private void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.CompareTag("Player"))

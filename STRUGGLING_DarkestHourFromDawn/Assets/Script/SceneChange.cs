@@ -9,7 +9,7 @@ public class SceneChange : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            SceneManager.LoadScene("TestScene1");
+            SceneManager.LoadScene("PrototypeV1");
         }
     }
 }

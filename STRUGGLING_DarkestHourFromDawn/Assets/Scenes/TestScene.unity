@@ -900,7 +900,7 @@ PrefabInstance:
     - target: {fileID: 2307307100151419156, guid: 2c25b8530fe62484c967617b05ab2ea4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.758455
+      value: 14.102
       objectReference: {fileID: 0}
     - target: {fileID: 2307307100151419156, guid: 2c25b8530fe62484c967617b05ab2ea4,
         type: 3}
@@ -2350,7 +2350,7 @@ GameObject:
   - component: {fileID: 915130703}
   m_Layer: 0
   m_Name: SceneChange
-  m_TagString: Collision
+  m_TagString: Scene Change
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4839,8 +4839,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1897181915}
-  m_LocalRotation: {x: -0, y: 0.7071089, z: -0, w: -0.70710474}
-  m_LocalPosition: {x: 22.8, y: 1.69, z: -15.42}
+  m_LocalRotation: {x: -0, y: 0.000019073485, z: -0, w: -1}
+  m_LocalPosition: {x: 26.94, y: 1.69, z: -9.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4848,7 +4848,7 @@ Transform:
   - {fileID: 330585546}
   m_Father: {fileID: 0}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 359.998, z: 0}
 --- !u!114 &1897181917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5002,7 +5002,7 @@ PrefabInstance:
     - target: {fileID: 5462930386993513607, guid: 4aad48f305113424f9bf24b1ad603e7f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.758455
+      value: 14.102
       objectReference: {fileID: 0}
     - target: {fileID: 5462930386993513607, guid: 4aad48f305113424f9bf24b1ad603e7f,
         type: 3}
@@ -5012,7 +5012,7 @@ PrefabInstance:
     - target: {fileID: 5462930386993513607, guid: 4aad48f305113424f9bf24b1ad603e7f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -14.821
+      value: -18.7
       objectReference: {fileID: 0}
     - target: {fileID: 5462930386993513607, guid: 4aad48f305113424f9bf24b1ad603e7f,
         type: 3}
