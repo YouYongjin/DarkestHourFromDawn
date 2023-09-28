@@ -6,7 +6,7 @@ public class AniScript : MonoBehaviour
 {
     public Animator anim;
 
-    //bool Pressed;
+    bool Pressed;
 
     void Start()
     {
@@ -15,31 +15,56 @@ public class AniScript : MonoBehaviour
 
     void Update()
     {
-        #region 전진 애니메이션 
+        #region 전면 이동
         if (Input.GetKeyDown(KeyCode.W))
         {
-            //Pressed = true;
-            anim.SetTrigger("Walk");
+            Pressed = true;
+            anim.SetBool("isWalk", true);
         }
         if (Input.GetKeyUp(KeyCode.W))
         {
-            //Pressed = false;
-            anim.SetTrigger("Walk");
+            Pressed = false;
+            anim.SetBool("isWalk", false);
         }
         #endregion
 
-        #region 후진 애니메이션 
+        #region 후면 이동
         if (Input.GetKeyDown(KeyCode.S))
         {
-            //Pressed = true;
-            anim.SetTrigger("BackWalk");
+            Pressed = true;
+            anim.SetBool("isBackWalk", true);
         }
         if (Input.GetKeyUp(KeyCode.S))
         {
-            //Pressed = false;
-            anim.SetTrigger("BackWalk");
+            Pressed = false;
+            anim.SetBool("isBackWalk", false);
         }
         #endregion
 
+        #region 왼쪽 이동
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            Pressed = true;
+            anim.SetBool("isLeftWalk", true);
+        }
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            Pressed = false;
+            anim.SetBool("isLeftWalk", false);
+        }
+        #endregion
+
+        #region 오른쪽 이동
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            Pressed = true;
+            anim.SetBool("isRightWalk", true);
+        }
+        if (Input.GetKeyUp(KeyCode.D))
+        {
+            Pressed = false;
+            anim.SetBool("isRightWalk", false);
+        }
+        #endregion
     }
 }

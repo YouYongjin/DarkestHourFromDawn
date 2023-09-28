@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.Progress;
 
-public class Player: MonoBehaviour
+public class Player : MonoBehaviour
 {
     Rigidbody rd;
     CharacterController controller;
 
-    public float moveSpeed = 1f;
+    float moveSpeed = 1.2f;
     private bool isMoving;
     private float _moveSpeedClamp = 4f;
 
@@ -78,112 +78,125 @@ public class Player: MonoBehaviour
         // rd.velocity = new Vector3(Mathf.Clamp(rd.velocity.x, -_moveSpeedClamp, _moveSpeedClamp), rd.velocity.y, Mathf.Clamp(rd.velocity.z, -_moveSpeedClamp, _moveSpeedClamp));
         rd.velocity = moveDistance * moveSpeed;
         #endregion
-    }
-
-    void GetInput()
-    {
-        iGet = Input.GetButtonDown("Interaction");
-
-        iSwap1 = Input.GetButtonDown("Swap1");
-        iSwap2 = Input.GetButtonDown("Swap2");
-        iSwap3 = Input.GetButtonDown("Swap3");
-
-    }
-
-    void Interaction()
-    {
-        if(iGet && nearObject != null) 
+        if (Input.GetKeyDown(KeyCode.S))
         {
-            if(nearObject.tag == "EItem")
+            moveSpeed = moveSpeed - 0.5f;
+        }
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            moveSpeed = 1.2f;
+        }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            moveSpeed = 5f;
+        }
+
+        void GetInput()
+        {
+            iGet = Input.GetButtonDown("Interaction");
+
+            iSwap1 = Input.GetButtonDown("Swap1");
+            iSwap2 = Input.GetButtonDown("Swap2");
+            iSwap3 = Input.GetButtonDown("Swap3");
+
+        }
+
+        void Interaction()
+        {
+            if (iGet && nearObject != null)
             {
-                Item item = nearObject.GetComponent<Item>();
-                int eItemIndex = item.value;
-                hasEItems[eItemIndex] = true;
-                
-                Destroy(nearObject);
+                if (nearObject.tag == "EItem")
+                {
+                    Item item = nearObject.GetComponent<Item>();
+                    int eItemIndex = item.value;
+                    hasEItems[eItemIndex] = true;
+
+                    Destroy(nearObject);
+                }
+                if (nearObject.tag == "CItem")
+                {
+                    Item item = nearObject.GetComponent<Item>();
+                    int cItemIndex = item.value;
+                    hasCItems[cItemIndex] = true;
+
+                    nearObject.SetActive(false);
+                }
             }
-            if(nearObject.tag == "CItem")
+        }
+
+        void EitemSwap()
+        {
+            if (iSwap1 && (!hasEItems[0] || equipEItemIndex == 0))
             {
-                Item item = nearObject.GetComponent<Item>();
-                int cItemIndex = item.value;
-                hasCItems[cItemIndex] = true;
+                return;
+            }
+            if (iSwap2 && (!hasEItems[1] || equipEItemIndex == 1))
+            {
+                return;
+            }
+            if (iSwap3 && (!hasEItems[2] || equipEItemIndex == 2))
+            {
+                return;
+            }
 
-                nearObject.SetActive(false);
+            int eItemIndex = -1;
+            if (iSwap1) eItemIndex = 0;
+            if (iSwap2) eItemIndex = 1;
+            if (iSwap3) eItemIndex = 2;
+
+            if (iSwap1 || iSwap2 || iSwap3)
+            {
+                if (equipObject != null)
+                    equipObject.SetActive(false);
+
+                equipEItemIndex = eItemIndex;
+                equipObject = eItems[eItemIndex];
+                equipObject.SetActive(true);
             }
         }
-    }
 
-    void EitemSwap()
-    {
-        if (iSwap1 && (!hasEItems[0] || equipEItemIndex == 0))
+        void CitemAdd()
         {
-            return; 
-        }
-        if (iSwap2 && (!hasEItems[1] || equipEItemIndex == 1))
-        {
-            return;
-        }
-        if (iSwap3 && (!hasEItems[2] || equipEItemIndex == 2))
-        {
-            return;
+            int cItemIndex = -1;
+            if (hasCItems[0] || cItemIndex == 0)
+            {
+                sceneChange.SetActive(true);
+            }
+            if (hasCItems[1] || cItemIndex == 1)
+            {
+                puzzleTrigger.SetActive(true);
+            }
         }
 
-        int eItemIndex = -1;
-        if (iSwap1) eItemIndex = 0;
-        if (iSwap2) eItemIndex = 1;
-        if (iSwap3) eItemIndex = 2;
+        void OnTriggerStay(Collider other)
+        {
+            // 장착형 아이템 판단
+            if (other.tag == "EItem")
+            {
+                nearObject = other.gameObject;
+                Debug.Log(nearObject.name + "/" + nearObject.tag);
+            }
+            // 수집형 아이템 판단 
+            if (other.tag == "CItem")
+            {
+                nearObject = other.gameObject;
+                Debug.Log(nearObject.name + "/" + nearObject.tag);
+            }
 
-        if (iSwap1 || iSwap2 || iSwap3)
-        {
-            if (equipObject != null)
-                equipObject.SetActive(false);
-            
-            equipEItemIndex = eItemIndex;
-            equipObject = eItems[eItemIndex];
-            equipObject.SetActive(true);
-        }
-    }
-
-    void CitemAdd()
-    {
-        int cItemIndex = -1;
-        if (hasCItems[0] || cItemIndex == 0)
-        {
-            sceneChange.SetActive(true);
-        }
-        if (hasCItems[1] || cItemIndex == 1)
-        {
-            puzzleTrigger.SetActive(true);
-        }
-    }
-
-    void OnTriggerStay(Collider other)
-    {
-        // 장착형 아이템 판단
-        if (other.tag == "EItem")
-        {
-            nearObject = other.gameObject;
-            Debug.Log(nearObject.name + "/" + nearObject.tag);
-        }
-        // 수집형 아이템 판단 
-        if (other.tag == "CItem")
-        {
-            nearObject = other.gameObject;
-            Debug.Log(nearObject.name + "/" + nearObject.tag);
         }
 
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "EItem")
+        void OnTriggerExit(Collider other)
         {
-            nearObject = null;
+            if (other.tag == "EItem")
+            {
+                nearObject = null;
+            }
+
+            if (other.tag == "CItem")
+            {
+                nearObject = null;
+            }
         }
-
-        if (other.tag == "CItem")
-        {
-            nearObject = null;
-        }   
     }
 }

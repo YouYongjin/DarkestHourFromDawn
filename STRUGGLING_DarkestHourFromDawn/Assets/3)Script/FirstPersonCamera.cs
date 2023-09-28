@@ -31,7 +31,7 @@ public class FirstPersonCamera : MonoBehaviour
         // Rotate the Camera around its local X axis
 
         cameraVerticalRotation -= inputY;
-        cameraVerticalRotation = Mathf.Clamp(cameraVerticalRotation, -90f, 90f);
+        cameraVerticalRotation = Mathf.Clamp(cameraVerticalRotation, -70f, 70f);
         transform.localEulerAngles = Vector3.right * cameraVerticalRotation;
 
 
