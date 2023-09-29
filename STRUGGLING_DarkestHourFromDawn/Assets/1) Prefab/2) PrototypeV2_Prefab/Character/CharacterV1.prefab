@@ -1306,7 +1306,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8083770175762595740}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &1424879716974774243
 SkinnedMeshRenderer:
@@ -2127,14 +2127,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8621555825616632040}
-  m_LocalRotation: {x: -0, y: 0.000019073485, z: -0, w: -1}
-  m_LocalPosition: {x: 0, y: 1.202, z: 0.235}
+  m_LocalRotation: {x: 4.5929482e-11, y: 0.000019073486, z: -1.27680574e-11, w: -1}
+  m_LocalPosition: {x: 0, y: 1.202, z: 0.23499966}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8621555826493514788}
   m_Father: {fileID: 8083770175762595740}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &8621555825616632037
 Camera:
@@ -2259,8 +2259,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8621555826493514795}
-  m_LocalRotation: {x: 0.70710576, y: -0, z: -0, w: 0.7071079}
-  m_LocalPosition: {x: 0.468, y: -0.25, z: 0.03}
+  m_LocalRotation: {x: 0.70710576, y: -0.000000021700542, z: 0.000000020863872, w: 0.70710796}
+  m_LocalPosition: {x: 0.46799964, y: -0.25, z: 0.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2384,9 +2384,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8621555825616632041}
   - {fileID: 7141803168949410707}
   - {fileID: 1985342527623765728}
-  - {fileID: 8621555825616632041}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2505,7 +2505,7 @@ Transform:
   - {fileID: 1092471445336543795}
   - {fileID: 9183688329439604238}
   m_Father: {fileID: 8083770175762595740}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9078795284982965393
 GameObject:

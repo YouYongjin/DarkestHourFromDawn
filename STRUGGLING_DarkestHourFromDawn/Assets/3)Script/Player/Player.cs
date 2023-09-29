@@ -91,112 +91,109 @@ public class Player : MonoBehaviour
         {
             moveSpeed = 5f;
         }
+    }
+    void GetInput()
+    {
+        iGet = Input.GetButtonDown("Interaction");
 
-        void GetInput()
+        iSwap1 = Input.GetButtonDown("Swap1");
+        iSwap2 = Input.GetButtonDown("Swap2");
+        iSwap3 = Input.GetButtonDown("Swap3");
+
+    }
+
+    void Interaction()
+    {
+        if (iGet && nearObject != null)
         {
-            iGet = Input.GetButtonDown("Interaction");
-
-            iSwap1 = Input.GetButtonDown("Swap1");
-            iSwap2 = Input.GetButtonDown("Swap2");
-            iSwap3 = Input.GetButtonDown("Swap3");
-
-        }
-
-        void Interaction()
-        {
-            if (iGet && nearObject != null)
+            if (nearObject.tag == "EItem")
             {
-                if (nearObject.tag == "EItem")
-                {
-                    Item item = nearObject.GetComponent<Item>();
-                    int eItemIndex = item.value;
-                    hasEItems[eItemIndex] = true;
+                Item item = nearObject.GetComponent<Item>();
+                int eItemIndex = item.value;
+                hasEItems[eItemIndex] = true;
 
-                    Destroy(nearObject);
-                }
-                if (nearObject.tag == "CItem")
-                {
-                    Item item = nearObject.GetComponent<Item>();
-                    int cItemIndex = item.value;
-                    hasCItems[cItemIndex] = true;
-
-                    nearObject.SetActive(false);
-                }
+                Destroy(nearObject);
             }
-        }
-
-        void EitemSwap()
-        {
-            if (iSwap1 && (!hasEItems[0] || equipEItemIndex == 0))
+            if (nearObject.tag == "CItem")
             {
-                return;
-            }
-            if (iSwap2 && (!hasEItems[1] || equipEItemIndex == 1))
-            {
-                return;
-            }
-            if (iSwap3 && (!hasEItems[2] || equipEItemIndex == 2))
-            {
-                return;
-            }
+                Item item = nearObject.GetComponent<Item>();
+                int cItemIndex = item.value;
+                hasCItems[cItemIndex] = true;
 
-            int eItemIndex = -1;
-            if (iSwap1) eItemIndex = 0;
-            if (iSwap2) eItemIndex = 1;
-            if (iSwap3) eItemIndex = 2;
-
-            if (iSwap1 || iSwap2 || iSwap3)
-            {
-                if (equipObject != null)
-                    equipObject.SetActive(false);
-
-                equipEItemIndex = eItemIndex;
-                equipObject = eItems[eItemIndex];
-                equipObject.SetActive(true);
+                nearObject.SetActive(false);
             }
         }
+    }
 
-        void CitemAdd()
+    void EitemSwap()
+    {
+        if (iSwap1 && (!hasEItems[0] || equipEItemIndex == 0))
         {
-            int cItemIndex = -1;
-            if (hasCItems[0] || cItemIndex == 0)
-            {
-                sceneChange.SetActive(true);
-            }
-            if (hasCItems[1] || cItemIndex == 1)
-            {
-                puzzleTrigger.SetActive(true);
-            }
+            return;
+        }
+        if (iSwap2 && (!hasEItems[1] || equipEItemIndex == 1))
+        {
+            return;
+        }
+        if (iSwap3 && (!hasEItems[2] || equipEItemIndex == 2))
+        {
+            return;
         }
 
-        void OnTriggerStay(Collider other)
-        {
-            // 장착형 아이템 판단
-            if (other.tag == "EItem")
-            {
-                nearObject = other.gameObject;
-                Debug.Log(nearObject.name + "/" + nearObject.tag);
-            }
-            // 수집형 아이템 판단 
-            if (other.tag == "CItem")
-            {
-                nearObject = other.gameObject;
-                Debug.Log(nearObject.name + "/" + nearObject.tag);
-            }
+        int eItemIndex = -1;
+        if (iSwap1) eItemIndex = 0;
+        if (iSwap2) eItemIndex = 1;
+        if (iSwap3) eItemIndex = 2;
 
+        if (iSwap1 || iSwap2 || iSwap3)
+        {
+            if (equipObject != null)
+                equipObject.SetActive(false);
+
+            equipEItemIndex = eItemIndex;
+            equipObject = eItems[eItemIndex];
+            equipObject.SetActive(true);
+        }
+    }
+    void CitemAdd()
+    {
+        int cItemIndex = -1;
+        if (hasCItems[0] || cItemIndex == 0)
+        {
+            sceneChange.SetActive(true);
+        }
+        if (hasCItems[1] || cItemIndex == 1)
+        {
+            puzzleTrigger.SetActive(true);
+        }
+    }
+    void OnTriggerStay(Collider other)
+    {
+        // 장착형 아이템 판단
+        if (other.tag == "EItem")
+        {
+            nearObject = other.gameObject;
+            Debug.Log(nearObject.name + "/" + nearObject.tag);
+        }
+        // 수집형 아이템 판단 
+        if (other.tag == "CItem")
+        {
+            nearObject = other.gameObject;
+            Debug.Log(nearObject.name + "/" + nearObject.tag);
         }
 
-        void OnTriggerExit(Collider other)
-        {
-            if (other.tag == "EItem")
-            {
-                nearObject = null;
-            }
+    }
 
-            if (other.tag == "CItem")
-            {
-                nearObject = null;
-            }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "EItem")
+        {
+            nearObject = null;
+        }
+
+        if (other.tag == "CItem")
+        {
+            nearObject = null;
         }
     }
 }
