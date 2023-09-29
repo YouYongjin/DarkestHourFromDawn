@@ -31,6 +31,8 @@ public class Player : MonoBehaviour
     public GameObject sceneChange;
     public GameObject puzzleTrigger;
 
+    bool cameraSwitch = true;
+    public GameObject aniCamera;
 
     void Start()
     {
@@ -78,6 +80,7 @@ public class Player : MonoBehaviour
         // rd.velocity = new Vector3(Mathf.Clamp(rd.velocity.x, -_moveSpeedClamp, _moveSpeedClamp), rd.velocity.y, Mathf.Clamp(rd.velocity.z, -_moveSpeedClamp, _moveSpeedClamp));
         rd.velocity = moveDistance * moveSpeed;
         #endregion
+
         if (Input.GetKeyDown(KeyCode.S))
         {
             moveSpeed = moveSpeed - 0.5f;
@@ -86,11 +89,29 @@ public class Player : MonoBehaviour
         {
             moveSpeed = 1.2f;
         }
-
+        #region 개발자 단축키
+        // 이동속도 대폭 증가
         if (Input.GetKeyDown(KeyCode.M))
         {
             moveSpeed = 5f;
         }
+
+        // 카메라 애니메이션 Switch
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+
+            if (cameraSwitch)
+            {
+                aniCamera.gameObject.SetActive(false);
+                cameraSwitch = false;
+            }
+            else if (!cameraSwitch)
+            {
+                aniCamera.gameObject.SetActive(true);
+                cameraSwitch = true;
+            }
+        }
+        #endregion
     }
     void GetInput()
     {
