@@ -5,25 +5,39 @@ using UnityEngine;
 public class AniScript : MonoBehaviour
 {
     public Animator anim;
-
-    bool Pressed;
+    public AudioSource audioSource;
+    bool frontWalk;
+    bool backWalk;
+    bool leftWalk;
+    bool rightWalk;
 
     void Start()
     {
-        anim = GetComponent<Animator>();    
+        anim = GetComponent<Animator>();
     }
-
+    //void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Ground") && frontWalk)
+    //    {
+    //        Debug.Log("태그를 감지했고, frontWalk = true 입니다.");
+    //        SoundManager.instance.PlayAudioSource(audioSource, SoundManager.instance.dataBase.soundCharacter[0]);
+    //    }
+    //    if (collision.gameObject.CompareTag("Ground") && !frontWalk)
+    //    {
+    //        audioSource.Stop();
+    //    }
+    //}
     void Update()
     {
         #region 전면 이동
         if (Input.GetKeyDown(KeyCode.W))
         {
-            Pressed = true;
+            frontWalk = true;
             anim.SetBool("isWalk", true);
         }
         if (Input.GetKeyUp(KeyCode.W))
         {
-            Pressed = false;
+            frontWalk = false;
             anim.SetBool("isWalk", false);
         }
         #endregion
@@ -31,12 +45,12 @@ public class AniScript : MonoBehaviour
         #region 후면 이동
         if (Input.GetKeyDown(KeyCode.S))
         {
-            Pressed = true;
+            backWalk = true;
             anim.SetBool("isBackWalk", true);
         }
         if (Input.GetKeyUp(KeyCode.S))
         {
-            Pressed = false;
+            backWalk = false;
             anim.SetBool("isBackWalk", false);
         }
         #endregion
@@ -44,12 +58,12 @@ public class AniScript : MonoBehaviour
         #region 왼쪽 이동
         if (Input.GetKeyDown(KeyCode.A))
         {
-            Pressed = true;
+            leftWalk = true;
             anim.SetBool("isLeftWalk", true);
         }
         if (Input.GetKeyUp(KeyCode.A))
         {
-            Pressed = false;
+            leftWalk = false;
             anim.SetBool("isLeftWalk", false);
         }
         #endregion
@@ -57,12 +71,12 @@ public class AniScript : MonoBehaviour
         #region 오른쪽 이동
         if (Input.GetKeyDown(KeyCode.D))
         {
-            Pressed = true;
+            rightWalk = true;
             anim.SetBool("isRightWalk", true);
         }
         if (Input.GetKeyUp(KeyCode.D))
         {
-            Pressed = false;
+            rightWalk = false;
             anim.SetBool("isRightWalk", false);
         }
         #endregion
