@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
         GetInput();
         Interaction();
         EitemSwap();
-        CitemAdd();
+        //CitemAdd();
 
         if (!isMoving) return;
 
@@ -176,18 +176,18 @@ public class Player : MonoBehaviour
             equipObject.SetActive(true);
         }
     }
-    void CitemAdd()
-    {
-        int cItemIndex = -1;
-        if (hasCItems[0] || cItemIndex == 0)
-        {
-            sceneChange.SetActive(true);
-        }
-        if (hasCItems[1] || cItemIndex == 1)
-        {
-            puzzleTrigger.SetActive(true);
-        }
-    }
+    //void CitemAdd()
+    //{
+    //    int cItemIndex = -1;
+    //    if (hasCItems[0] || cItemIndex == 0)
+    //    {
+    //        sceneChange.SetActive(true);
+    //    }
+    //    if (hasCItems[1] || cItemIndex == 1)
+    //    {
+    //        puzzleTrigger.SetActive(true);
+    //    }
+    //}
     void OnTriggerStay(Collider other)
     {
         // 장착형 아이템 판단

@@ -2020,6 +2020,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 630101603233269628}
+  - component: {fileID: 5526210968861122137}
   m_Layer: 0
   m_Name: mixamorig6:LeftFoot
   m_TagString: Untagged
@@ -2043,6 +2044,19 @@ Transform:
   m_Father: {fileID: 6117619290135168089}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &5526210968861122137
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6705838020306239257}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.05
+  m_Center: {x: 0, y: 0.034, z: -0.11}
 --- !u!1 &6805871357419514730
 GameObject:
   m_ObjectHideFlags: 0
@@ -2211,6 +2225,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4767995651532210927}
+  - component: {fileID: 7500847415114281207}
   m_Layer: 0
   m_Name: mixamorig6:RightFoot
   m_TagString: Untagged
@@ -2234,6 +2249,19 @@ Transform:
   m_Father: {fileID: 7190433738295121036}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &7500847415114281207
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7520872741834170335}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.05
+  m_Center: {x: 0, y: 0.034, z: -0.11}
 --- !u!1 &7612530304571446359
 GameObject:
   m_ObjectHideFlags: 0
@@ -2794,6 +2822,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
   audioSource: {fileID: 9062472946709082968}
+  playerSound: {fileID: 0}
 --- !u!114 &2796593470012401127
 MonoBehaviour:
   m_ObjectHideFlags: 0
