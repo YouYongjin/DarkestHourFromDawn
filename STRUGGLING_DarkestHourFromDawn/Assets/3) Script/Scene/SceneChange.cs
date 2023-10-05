@@ -6,21 +6,21 @@ using UnityEngine.SceneManagement;
 
 public class SceneChange : MonoBehaviour
 {
-    public List<string> sceneGroup = new List<string>();
+    //public List<string> sceneGroup = new List<string>();
 
     public string sceneName;
 
     void Start()
     {
-        sceneGroup.Add("Test1");
-        sceneGroup.Add("Test2");
-        sceneGroup.Add("Test3");
+        //sceneGroup.Add("Test1");
+        //sceneGroup.Add("Test2");
+        //sceneGroup.Add("Test3");
     }
     void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            SceneManager.LoadScene("sceneName");
+            SceneManager.LoadScene("TestScene");
         }
         else if(col.gameObject.CompareTag("Player"))
         {
@@ -29,7 +29,6 @@ public class SceneChange : MonoBehaviour
                 Player player = col.transform.GetComponent<Player>();
                 GameManager.instance.CItem(player, 0, sceneName);
             //}
-
         }
     }
 }
