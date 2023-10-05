@@ -3140,6 +3140,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3148737500325042540, guid: e983974114c12b843a0ff7b0b997a82b,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3148737500325042540, guid: e983974114c12b843a0ff7b0b997a82b,
+        type: 3}
+      propertyPath: m_InnerSpotAngle
+      value: 9.275282
+      objectReference: {fileID: 0}
     - target: {fileID: 6839729167831379147, guid: e983974114c12b843a0ff7b0b997a82b,
         type: 3}
       propertyPath: m_RootOrder
