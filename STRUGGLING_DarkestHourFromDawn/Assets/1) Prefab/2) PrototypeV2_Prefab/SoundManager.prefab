@@ -57,10 +57,24 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f1cb5d83282f2904a85f73111d068616, type: 3}
   - {fileID: 8300000, guid: 1eb7cbaf61d23a64bbd36c0a38b5cb0c, type: 3}
   - {fileID: 8300000, guid: c91fcf414acc0344cb03b13996f1bf3b, type: 3}
+  - {fileID: 8300000, guid: 2297dafd2f4713c4ebbc30d6fd6691ce, type: 3}
+  - {fileID: 8300000, guid: 92b0f58197676694ebeae94bde3cd820, type: 3}
+  - {fileID: 8300000, guid: 110ddc2c31d6e894a840562c8114089e, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   soundCharacter:
-  - {fileID: 8300000, guid: caceea3cf407e1b47a4024a755887675, type: 3}
+  - {fileID: 8300000, guid: db156904bf5419647801fa24303769d2, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
