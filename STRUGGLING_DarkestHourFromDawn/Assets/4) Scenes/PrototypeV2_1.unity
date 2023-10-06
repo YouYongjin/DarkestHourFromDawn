@@ -3717,6 +3717,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6981324653326612494, guid: 9d7bfa5c1b2d943408ec01656fe25e5a,
         type: 3}
+      propertyPath: MinDistance
+      value: 6.897152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981324653326612494, guid: 9d7bfa5c1b2d943408ec01656fe25e5a,
+        type: 3}
       propertyPath: rolloffMode
       value: 0
       objectReference: {fileID: 0}
