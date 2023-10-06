@@ -6,6 +6,7 @@ public class StructureChiffonier : MonoBehaviour
 {
     public AudioSource audioSource;
     public Animator anim;
+    public GameObject Book;
     public bool frontDoor;
     public bool isChiffonierOn;
     void Start()
@@ -36,6 +37,7 @@ public class StructureChiffonier : MonoBehaviour
             anim.SetBool("isChiffonierOn", true);
             isChiffonierOn = false;
             SoundManager.instance.PlayAudioSource(audioSource, SoundManager.instance.dataBase.soundEffect[6]);
+            Book.gameObject.SetActive(true);
         }
         else if (Input.GetKeyDown(KeyCode.E) && frontDoor && !isChiffonierOn)
         {

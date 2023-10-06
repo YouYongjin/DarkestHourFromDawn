@@ -316,7 +316,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1018923442648600310}
   m_LocalRotation: {x: 4.5929482e-11, y: 0.000019073486, z: -2.7319973e-11, w: -1}
-  m_LocalPosition: {x: 0, y: 1.24, z: 0.23499966}
+  m_LocalPosition: {x: 0, y: 1.166, z: 0.23499966}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -433,8 +433,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
-  m_Radius: 0.32
-  m_Center: {x: 0, y: 0, z: 0.25}
+  m_Radius: 0.3
+  m_Center: {x: 0, y: 0, z: 0.14650151}
 --- !u!82 &2698228078282047749
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2739,6 +2739,7 @@ GameObject:
   - component: {fileID: 2796593470012401127}
   - component: {fileID: 2796593470012401126}
   - component: {fileID: 9062472946709082968}
+  - component: {fileID: 1165368391795194842}
   m_Layer: 0
   m_Name: CharacterV1
   m_TagString: Player
@@ -2790,10 +2791,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5023805
-  m_Height: 1.5552461
+  m_Radius: 0.36
+  m_Height: 1.4034997
   m_Direction: 1
-  m_Center: {x: 8.903137e-12, y: 0.76762295, z: 0.20238054}
+  m_Center: {x: 9.555377e-12, y: 0.69174975, z: 0.089999996}
 --- !u!114 &8621555825059832377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2946,6 +2947,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!135 &1165368391795194842
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8891375092320806182}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.3
+  m_Center: {x: 0, y: 1.19, z: 0.58}
 --- !u!1 &9044787418734687612
 GameObject:
   m_ObjectHideFlags: 0

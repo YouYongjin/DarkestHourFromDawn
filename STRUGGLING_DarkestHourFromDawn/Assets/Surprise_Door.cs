@@ -6,6 +6,7 @@ public class Surprise_Door : MonoBehaviour
 {
     public AudioSource audioSource;
     public Animator anim;
+    public GameObject lights;
     public bool frontDoor;
     public bool isDoorOn;
     void Start()
@@ -18,6 +19,7 @@ public class Surprise_Door : MonoBehaviour
         if (other.tag == "Player")
         {
             anim.SetBool("isDoorOn", true);
+            Destroy(lights);
         }
     }
 }
