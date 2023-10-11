@@ -5,12 +5,10 @@ using UnityEngine.UI;
 
 public class Raycast : MonoBehaviour
 {
-    public OpenDoorV2 DoorScript;
+    public OpenDoorV2 DoorOn;
+    public NoneDoorV2 DoorOff;
     RaycastHit hit;
     public LayerMask layerMask;
-    public Animator anim;
-    //public AudioSource audioSource_Door;
-    //public AudioSource audioSource;
 
     public GameObject Aim;
     GameObject nearObject;
@@ -139,21 +137,20 @@ public class Raycast : MonoBehaviour
             // Raycast로 충돌한 오브젝트의 태그가 "Door"이면?
             else if (hit.transform.gameObject.CompareTag("Door"))
             {
-                Debug.Log("문(고리) 입니다.");
+                Debug.Log("문(고리) 이며, 열 수 있습니다.");
                 if (iDown)
                 {
-                    //if (!isDoorOn)
-                    //{
-                    //    anim.SetBool("isDoorOn", true);
-                    //    isDoorOn = true;
-                    //    //SoundManager.instance.PlayAudioSource(audioSource_Door, SoundManager.instance.dataBase.soundEffect[4]);
-                    //}
-                    //else if (isDoorOn)
-                    //{
-                    //    anim.SetBool("isDoorOn", false);
-                    //    isDoorOn = false;
-                    //}
-                    DoorScript.DoorEvent();
+                    DoorOn.DoorOnEvent();
+                }
+            }
+
+            // Raycast로 충돌한 오브젝트의 태그가 "Door(None)"이면?
+            else if (hit.transform.gameObject.CompareTag("Door(None)"))
+            {
+                Debug.Log("문(고리) 이며, 열 수 없습니다.");
+                if (iDown)
+                {
+                    DoorOff.DoorOffEvent();
                 }
             }
         }

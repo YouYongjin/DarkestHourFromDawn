@@ -9,7 +9,7 @@ public class OpenDoorV2 : MonoBehaviour
     //bool isDoorOn = false;
     public Raycast ray;
 
-    public void DoorEvent()
+    public void DoorOnEvent()
     {
         if (ray.isDoorOn)
         {
