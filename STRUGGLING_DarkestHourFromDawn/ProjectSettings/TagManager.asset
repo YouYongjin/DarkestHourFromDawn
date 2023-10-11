@@ -14,6 +14,7 @@ TagManager:
   - EItem
   - CItem
   - Scene Change
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - Flashlight
   - Equip
   - Drop
-  - 
+  - interactive
   - 
   - 
   - 

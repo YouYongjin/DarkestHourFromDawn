@@ -1,37 +1,181 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Raycast : MonoBehaviour
 {
+    public OpenDoorV2 DoorScript;
     RaycastHit hit;
-    public float maxDistance = 2f; //Ray의 거리 길이
-    //public Camera camera;
     public LayerMask layerMask;
+    public Animator anim;
+    //public AudioSource audioSource_Door;
+    //public AudioSource audioSource;
+
+    public GameObject Aim;
     GameObject nearObject;
+    GameObject nowEquipItem;
 
+    // 표시할 아이템 변수
+    public GameObject[] equip_Items;
+    public GameObject[] collect_Items;
 
-    void Update()
+    // 아이템 획득 변수
+    public bool[] hasEquip_Items;
+    public bool[] hasCollect_Items;
+
+    bool iDown;
+    bool iSwap1;
+    bool iSwap2;
+    bool iSwap3;
+    bool iSwap0;
+    public bool isDoorOn = false;
+
+    public float maxDistance = 2f; //Ray의 거리 길이
+
+    void GetInput()
     {
+        iDown = Input.GetButtonDown("Interaction");
+        iSwap1 = Input.GetButtonDown("Swap1");
+        iSwap2 = Input.GetButtonDown("Swap2");
+        iSwap3 = Input.GetButtonDown("Swap3");
+
+        // 장착 아이템 Off
+        iSwap0 = Input.GetButtonDown("Swap0");
+    }
+
+    void Interaction()
+    {
+        if (iDown && nearObject != null)
+        {
+            // Raycast로 충돌하여 변수에 저장된 오브젝트의 태그가 "EItem" 일 때
+            if (nearObject.tag == "EItem")
+            {
+                // Item 클래스의 item 변수는 Raycast로 충돌하여 nearObject 변수에 저장된 오브젝트의 컴포넌트 Item 클래스를 참조한다.
+                Item item = nearObject.GetComponent<Item>();
+
+                // 장착 아이템의 정수형 변수를 선언하고 값은 지역변수 item의 정의된 정수형 변수 value 이다.
+                int eItemIndex = item.value;
+                // 부울 변수 내에 위 변수를 저장하고 true
+                hasEquip_Items[eItemIndex] = true;
+
+                Destroy(nearObject);
+            }
+            // Raycast로 충돌하여 변수에 저장된 오브젝트의 태그가 "CItem"일 때
+            if (nearObject.tag == "CItem")
+            {
+                Item item = nearObject.GetComponent<Item>();
+                int cItemIndex = item.value;
+                hasCollect_Items[cItemIndex] = true;
+
+                Destroy(nearObject);
+            }
+        }
+    }
+
+    // 장착 아이템 이벤트 함수
+    void ESwap()
+    {
+        // 스왑할 단축키의 값을 저장, 해당 값은 eItemIndex 정수형 변수
+        int eItemIndex = -1;
+
+        if (iSwap1) eItemIndex = 0;
+        if (iSwap2) eItemIndex = 1;
+        if (iSwap3) eItemIndex = 2;
+
+        // 스왑키를 아무거나 입력할 경우
+        if (iSwap1 || iSwap2 || iSwap3)
+        {
+            // 장착 아이템을 활성화 하고 있을 경우,(값이 없을 경우)
+            if (nowEquipItem != null)
+            {
+                // 스왑키 입력시, 모든 오브젝트 비활성화
+                nowEquipItem.SetActive(false);
+            }
+            // equip_items를 초기화 전체적으로 다루기 위한 변수
+            nowEquipItem = equip_Items[eItemIndex];
+            // public 으로 선언된 게임오브젝트 변수 equip_Items 내에 저장된 값을 eItemIndex(스왑키 넘버)를 입력할 때 장착 오브젝트 활성화.
+            nowEquipItem.SetActive(true);
+        }
+
+        // 수집 아이템 이벤트 함수
+        //void CSwap()
+        //{
+
+        //}
+
+
+    }
+
+    public void RayHit()
+    {
+        // Raycast Scene View 표시 형태
         Debug.DrawRay(transform.position, transform.forward * maxDistance, Color.green);
+        // Raycast 감지 형태
         if (Physics.Raycast(transform.position, transform.forward, out hit, maxDistance, layerMask))
         {
+            Color color = Aim.GetComponent<Image>().color;
+            color.a = 1f;
+            Aim.GetComponent<Image>().color = color;
+
+            // Raycast로 충돌한 오브젝트의 태그가 "EItem"이면?
             if (hit.transform.gameObject.CompareTag("EItem"))
             {
                 Debug.Log("장착 아이템 입니다.");
                 nearObject = hit.transform.gameObject;
+
                 Debug.Log(nearObject.name + "/" + nearObject.tag);
-                if (Input.GetKey(KeyCode.E))
+            }
+
+            // Raycast로 충돌한 오브젝트의 태그가 "CItem"이면?
+            else if (hit.transform.gameObject.CompareTag("CItem"))
+            {
+                Debug.Log("수집 아이템 입니다.");
+                nearObject = hit.transform.gameObject;
+
+                Debug.Log(nearObject.name + "/" + nearObject.tag);
+            }
+
+            // Raycast로 충돌한 오브젝트의 태그가 "Door"이면?
+            else if (hit.transform.gameObject.CompareTag("Door"))
+            {
+                Debug.Log("문(고리) 입니다.");
+                if (iDown)
                 {
-                    Debug.Log("삭제");
-                    Destroy(hit.transform.gameObject);
+                    //if (!isDoorOn)
+                    //{
+                    //    anim.SetBool("isDoorOn", true);
+                    //    isDoorOn = true;
+                    //    //SoundManager.instance.PlayAudioSource(audioSource_Door, SoundManager.instance.dataBase.soundEffect[4]);
+                    //}
+                    //else if (isDoorOn)
+                    //{
+                    //    anim.SetBool("isDoorOn", false);
+                    //    isDoorOn = false;
+                    //}
+                    DoorScript.DoorEvent();
                 }
             }
         }
         else
         {
             nearObject = null;
-            Debug.Log("장착 아이템에서 벗어났습니다.");
+
+            Color color = Aim.GetComponent<Image>().color;
+            color.a = 0.3f;
+            Aim.GetComponent<Image>().color = color;
+
+            Debug.Log("상호작용 할 수 있는 오브젝트가 아닙니다.");
         }
     }
+
+    void Update()
+    {
+        Interaction();
+        GetInput();
+        ESwap();
+        RayHit();
+        //CSwap();
+    }
+
 }
