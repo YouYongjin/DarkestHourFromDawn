@@ -29,6 +29,8 @@ public class Raycast : MonoBehaviour
     bool iSwap0;
     public bool isDoorOn = false;
 
+    int equipItemIndex = -1;
+
     public float maxDistance = 2f; //Ray의 거리 길이
 
     void GetInput()
@@ -74,6 +76,20 @@ public class Raycast : MonoBehaviour
     // 장착 아이템 이벤트 함수
     void ESwap()
     {
+        if (iSwap1 && (!hasEquip_Items[0] || equipItemIndex == 0))
+        {
+            return;
+        }
+        if (iSwap2 && (!hasEquip_Items[1] || equipItemIndex == 1))
+        {
+            return;
+
+        }
+        if (iSwap3 && (!hasEquip_Items[2] || equipItemIndex == 2))
+        {
+            return;
+        }
+
         // 스왑할 단축키의 값을 저장, 해당 값은 eItemIndex 정수형 변수
         int eItemIndex = -1;
 
@@ -90,6 +106,7 @@ public class Raycast : MonoBehaviour
                 // 스왑키 입력시, 모든 오브젝트 비활성화
                 nowEquipItem.SetActive(false);
             }
+            equipItemIndex = eItemIndex;
             // equip_items를 초기화 전체적으로 다루기 위한 변수
             nowEquipItem = equip_Items[eItemIndex];
             // public 으로 선언된 게임오브젝트 변수 equip_Items 내에 저장된 값을 eItemIndex(스왑키 넘버)를 입력할 때 장착 오브젝트 활성화.
