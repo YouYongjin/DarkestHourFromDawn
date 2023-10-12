@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/4) Scenes/SceneChangeTest/Test3.unity
     guid: cc8066e496071b048bf8efa05deee0eb
   - enabled: 1
-    path: Assets/4) Scenes/PrototypeV2_2.unity
+    path: Assets/4) Scenes/PrototypeV.unity
     guid: 6b48bf0ceebbd574bbb582ce0e10c3e3
   - enabled: 1
     path: Assets/4) Scenes/PrototypeV2_1.unity
