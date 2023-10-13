@@ -157,7 +157,8 @@ public class Raycast : MonoBehaviour
                 Debug.Log("문(고리) 이며, 열 수 있습니다.");
                 if (iDown)
                 {
-                    DoorOn.DoorOnEvent();
+                    hit.transform.GetComponent<OpenDoorV2>().DoorOnEvent();    
+                    //DoorOn.DoorOnEvent();
                 }
             }
 

@@ -404,6 +404,7 @@ GameObject:
   - component: {fileID: 1817818874377522296}
   - component: {fileID: 7142457466931885738}
   - component: {fileID: 7142457466931885739}
+  - component: {fileID: 875221075139535116}
   m_Layer: 10
   m_Name: Handle_Back.033
   m_TagString: Door
@@ -489,6 +490,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.28396267, y: 0.13085608, z: 0.33206618}
   m_Center: {x: -0.07621023, y: 0.00063159317, z: -0.16601485}
+--- !u!114 &875221075139535116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5127647340809943577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee58f42e036ace54c88cb332b9253210, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 6247279785047669766}
+  audioSource: {fileID: 7902713823068638982}
+  ray: {fileID: 0}
 --- !u!1 &6862000785409476140
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,7 +690,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1447243440638495313}
-  - component: {fileID: 7626792934347157761}
   m_Layer: 0
   m_Name: OpenSwitch_DoorV2
   m_TagString: Door
@@ -699,18 +714,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7626792934347157761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8613604257406253308}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee58f42e036ace54c88cb332b9253210, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 6247279785047669766}
-  audioSource: {fileID: 7902713823068638982}
-  ray: {fileID: 0}
