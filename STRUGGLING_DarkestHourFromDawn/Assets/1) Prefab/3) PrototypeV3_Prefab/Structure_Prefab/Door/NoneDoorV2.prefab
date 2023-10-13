@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3252343453585169422}
   - component: {fileID: 3252343453585169420}
   - component: {fileID: 3252343453585169421}
-  - component: {fileID: 5183710570359574155}
+  - component: {fileID: 2178817818985603964}
   m_Layer: 10
   m_Name: Handle_Back.033
   m_TagString: Door(None)
@@ -111,7 +111,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 7aac3d2207fe06e4a8f447776cd90fdf, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -217,7 +217,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5183710570359574155
+--- !u!114 &2178817818985603964
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -226,10 +226,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 654339213231034556}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b8d23e04bf7655499eb4601b1e52175, type: 3}
+  m_Script: {fileID: 11500000, guid: a2fe5d22a99630c4b8aaf43797db36a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 3252343453585169420}
   audioSource: {fileID: 3252343453585169421}
+  isDoorOff: 0
 --- !u!1 &1226957401308392585
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,7 +320,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6496471218018377972}
-  - component: {fileID: 4157971950560383576}
   m_Layer: 0
   m_Name: NoneDoorV2
   m_TagString: Door
@@ -343,20 +344,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4157971950560383576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4157971950560383577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2fe5d22a99630c4b8aaf43797db36a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 3252343453585169420}
-  isDoorOff: 0
 --- !u!1 &4604089775050633759
 GameObject:
   m_ObjectHideFlags: 0

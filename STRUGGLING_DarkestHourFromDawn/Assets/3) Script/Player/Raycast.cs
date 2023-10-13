@@ -27,7 +27,6 @@ public class Raycast : MonoBehaviour
     bool iSwap2;
     bool iSwap3;
     bool iSwap0;
-    public bool isDoorOn = false;
 
     int equipItemIndex = -1;
 
@@ -157,8 +156,9 @@ public class Raycast : MonoBehaviour
                 Debug.Log("문(고리) 이며, 열 수 있습니다.");
                 if (iDown)
                 {
-                    hit.transform.GetComponent<OpenDoorV2>().DoorOnEvent();    
+                    hit.transform.GetComponent<OpenDoorV2>().DoorOnEvent();
                     //DoorOn.DoorOnEvent();
+                    Debug.Log("문 상호작용");
                 }
             }
 
@@ -168,7 +168,7 @@ public class Raycast : MonoBehaviour
                 Debug.Log("문(고리) 이며, 열 수 없습니다.");
                 if (iDown)
                 {
-                    DoorOff.DoorOffEvent();
+                    hit.transform.GetComponent<NoneDoorV2>().DoorOffEvent();
                 }
             }
         }
