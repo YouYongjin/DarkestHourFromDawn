@@ -16,7 +16,6 @@ public class NoneDoorV2 : MonoBehaviour
             anim.SetBool("isDoorOff", false);
             isDoorOff = false;
             SoundManager.instance.PlayAudioSource(audioSource, SoundManager.instance.dataBase.soundEffect[8]);
-
         }
 
         else if (!isDoorOff)

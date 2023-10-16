@@ -171,6 +171,15 @@ public class Raycast : MonoBehaviour
                     hit.transform.GetComponent<NoneDoorV2>().DoorOffEvent();
                 }
             }
+
+            else if(hit.transform.gameObject.CompareTag("Chiffonier"))
+            {
+                Debug.Log("사물함이며, 열 수 있습니다.");
+                if (iDown)
+                {
+                    hit.transform.GetComponent<OpenChiffonierV2>().StorageOnEvent();
+                }
+            }
         }
         else
         {

@@ -17,6 +17,7 @@ TagManager:
   - Door
   - Dore(None)
   - Door(None)
+  - Chiffonier
   layers:
   - Default
   - TransparentFX
