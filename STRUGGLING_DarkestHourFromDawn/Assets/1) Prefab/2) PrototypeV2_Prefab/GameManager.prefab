@@ -205,9 +205,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1785d4681b15a441b4cb0696e9745e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  raycast: {fileID: 0}
   eDown: 0
-  eUp: 0
-  intermitUI: {fileID: 7553026615164631437}
+  intermitUI: {fileID: 2139541622892336914}
+  PCCamera: {fileID: 0}
+--- !u!1 &2139541622892336914
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1253110383797721154}
+  m_Layer: 0
+  m_Name: IntermitUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1253110383797721154
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139541622892336914}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2565537896205476602}
+  m_Father: {fileID: 9200386194297758671}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2148701633534491715
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,15 +471,15 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5114287254053921290}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2610257589695740155}
   - {fileID: 8613201833197580927}
   - {fileID: 262305494730622374}
-  m_Father: {fileID: 9200386194297758671}
+  m_Father: {fileID: 1253110383797721154}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -618,12 +656,12 @@ GameObject:
   - component: {fileID: 8037282557669959426}
   - component: {fileID: 4758589735295186748}
   m_Layer: 0
-  m_Name: IntermitUI
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &9200386194297758671
 RectTransform:
   m_ObjectHideFlags: 0
@@ -636,7 +674,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2565537896205476602}
+  - {fileID: 1253110383797721154}
   m_Father: {fileID: 2067991201832186435}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

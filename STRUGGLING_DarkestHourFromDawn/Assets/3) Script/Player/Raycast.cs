@@ -8,11 +8,13 @@ public class Raycast : MonoBehaviour
     //public OpenDoorV2 DoorOn;
     //public NoneDoorV2 DoorOff;
     RaycastHit hit;
+    public GameObject gameManager;
     public LayerMask layerMask;
 
     public GameObject Aim;
     GameObject nearObject;
     GameObject nowEquipItem;
+    public GameObject cItemUI;
 
     // 표시할 아이템 변수
     public GameObject[] equip_Items;
@@ -43,7 +45,7 @@ public class Raycast : MonoBehaviour
         iSwap0 = Input.GetButtonDown("Swap0");
     }
 
-    void Interaction()
+    public void Interaction()
     {
         if (iDown && nearObject != null)
         {
@@ -68,12 +70,15 @@ public class Raycast : MonoBehaviour
                 hasCollect_Items[cItemIndex] = true;
 
                 Destroy(nearObject);
+
+                //gameManager.GetComponent<GameManager>().CItemEvent();
             }
         }
     }
 
+
     // 장착 아이템 이벤트 함수
-    void Swap()
+    void ESwap()
     {
         if (iSwap1 && (!hasEquip_Items[0] || equipItemIndex == 0))
         {
@@ -117,8 +122,11 @@ public class Raycast : MonoBehaviour
         //{
 
         //}
+    }
 
-
+    public void GetCItem()
+    {
+        GameManager.instance.CItemEvent1(0, cItemUI);
     }
 
     public void RayHit()
@@ -197,9 +205,8 @@ public class Raycast : MonoBehaviour
     {
         Interaction();
         GetInput();
-        Swap();
+        ESwap();
         RayHit();
-        //CSwap();
+        GetCItem();
     }
-
 }

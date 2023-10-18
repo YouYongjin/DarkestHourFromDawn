@@ -15,7 +15,6 @@ public class PlayerV2 : MonoBehaviour
 
     bool cameraSwitch = true;
 
-
     GameObject nearObject;
     public GameObject aniCamera;
 

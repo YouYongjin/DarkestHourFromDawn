@@ -10,33 +10,53 @@ public class FirstPersonCamera : MonoBehaviour
     float cameraVerticalRotation = 0f;
 
     bool lockedCursor = true;
+    public bool CameraMoveOn = true;
 
+    public void CameraMove()
+    {
+        if (CameraMoveOn)
+        {
+            // Collect Mouse Input
+
+            float inputX = Input.GetAxis("Mouse X") * mouseSensitivity;
+            float inputY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+
+            // Rotate the Camera around its local X axis
+
+            cameraVerticalRotation -= inputY;
+            cameraVerticalRotation = Mathf.Clamp(cameraVerticalRotation, -80f, 80f);
+            transform.localEulerAngles = Vector3.right * cameraVerticalRotation;
+
+
+            // Rotate the Player Object and the Camera around its Y axis
+
+            player.Rotate(Vector3.up * inputX);
+        }
+    }
 
     void Start()
     {
         // Lock and Hide the Cursor
         Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        CursorLock();
+    }
 
+    void CursorLock()
+    {
+        if (CameraMoveOn)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else if (!CameraMoveOn)
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+        }
     }
 
 
     void Update()
     {
-        // Collect Mouse Input
-
-        float inputX = Input.GetAxis("Mouse X") * mouseSensitivity;
-        float inputY = Input.GetAxis("Mouse Y") * mouseSensitivity;
-
-        // Rotate the Camera around its local X axis
-
-        cameraVerticalRotation -= inputY;
-        cameraVerticalRotation = Mathf.Clamp(cameraVerticalRotation, -80f, 80f);
-        transform.localEulerAngles = Vector3.right * cameraVerticalRotation;
-
-
-        // Rotate the Player Object and the Camera around its Y axis
-
-        player.Rotate(Vector3.up * inputX);
+        CameraMove();
+        CursorLock();
     }
 }

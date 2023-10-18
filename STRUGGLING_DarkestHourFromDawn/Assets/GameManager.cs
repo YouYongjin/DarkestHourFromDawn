@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public Raycast raycast;
     public bool eDown;
     bool intermitOn = true;
     public GameObject intermitUI;
+    public GameObject PCCamera;
+    //PlayerV2 player;
 
     void Awake()
     {
@@ -47,12 +51,31 @@ public class GameManager : MonoBehaviour
             intermitUI.SetActive(true);
             Time.timeScale = 0;
             intermitOn = false;
+            PCCamera.GetComponent<FirstPersonCamera>().CameraMoveOn = false;
         }
         else if (eDown && !intermitOn)
         {
             intermitUI.SetActive(false);
             Time.timeScale = 1;
             intermitOn = true;
+            PCCamera.GetComponent<FirstPersonCamera>().CameraMoveOn = true;
+        }
+    }
+
+    public void CItemEvent1(int itemIndex, GameObject isUIOn)
+    {
+        //if (PCCamera.GetComponent<Raycast>().hasEquip_Items[0])
+        //{
+        //    Debug.Log("UI»ý¼º");
+        //}
+        //hasCollect_Item = raycast.hasCollect_Items;
+        if (raycast.hasCollect_Items[itemIndex])
+        {
+            if (itemIndex == 0)
+            {
+                isUIOn.gameObject.SetActive(true);
+                Destroy(gameObject, 5);
+            }
         }
     }
 
