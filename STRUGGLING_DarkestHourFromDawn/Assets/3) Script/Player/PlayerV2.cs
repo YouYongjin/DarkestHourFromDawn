@@ -13,10 +13,6 @@ public class PlayerV2 : MonoBehaviour
 
     //public GameObject Flashlight;
 
-    bool iGet;
-    bool iSwap1;
-    bool iSwap2;
-    bool iSwap3;
     bool cameraSwitch = true;
 
 

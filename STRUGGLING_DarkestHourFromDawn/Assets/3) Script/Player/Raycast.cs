@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class Raycast : MonoBehaviour
 {
-    public OpenDoorV2 DoorOn;
-    public NoneDoorV2 DoorOff;
+    //public OpenDoorV2 DoorOn;
+    //public NoneDoorV2 DoorOff;
     RaycastHit hit;
     public LayerMask layerMask;
 
@@ -73,7 +73,7 @@ public class Raycast : MonoBehaviour
     }
 
     // 장착 아이템 이벤트 함수
-    void ESwap()
+    void Swap()
     {
         if (iSwap1 && (!hasEquip_Items[0] || equipItemIndex == 0))
         {
@@ -197,7 +197,7 @@ public class Raycast : MonoBehaviour
     {
         Interaction();
         GetInput();
-        ESwap();
+        Swap();
         RayHit();
         //CSwap();
     }

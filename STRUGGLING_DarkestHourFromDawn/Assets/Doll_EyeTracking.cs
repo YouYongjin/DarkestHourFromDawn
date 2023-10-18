@@ -7,6 +7,7 @@ public class Doll_EyeTracking : MonoBehaviour
     public Transform target;
     public GameObject eye1;
     public GameObject eye2;
+    bool isTargetOn = true;
 
     public void LookAtTarget()
     {
@@ -16,9 +17,14 @@ public class Doll_EyeTracking : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && isTargetOn)
         {
             LookAtTarget();
         }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        isTargetOn = false;
     }
 }

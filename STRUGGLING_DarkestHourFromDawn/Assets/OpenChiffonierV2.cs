@@ -14,13 +14,19 @@ public class OpenChiffonierV2 : MonoBehaviour
         {
             anim.SetBool("isChiffonierOn", false) ;
             isChiffonierOn = false;
-            SoundManager.instance.PlayAudioSource(audioSource, SoundManager.instance.dataBase.soundEffect[6]);
         }
 
         else if (!isChiffonierOn)
         {
             anim.SetBool("isChiffonierOn", true);
             isChiffonierOn = true;
+        }
+    }
+
+    public void PlayStorageSound()
+    {
+        if (isChiffonierOn || !isChiffonierOn)
+        {
             SoundManager.instance.PlayAudioSource(audioSource, SoundManager.instance.dataBase.soundEffect[6]);
         }
     }

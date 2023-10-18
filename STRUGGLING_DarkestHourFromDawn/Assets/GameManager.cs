@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public bool eDown;
+    bool intermitOn = true;
+    public GameObject intermitUI;
 
     void Awake()
     {
@@ -30,5 +33,32 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene(SceneName);
         }
+    }
+
+    public void GetInput()
+    {
+        eDown = Input.GetButtonDown("Intermit");
+    }
+
+    public void Intermit()
+    {
+        if(eDown && intermitOn)
+        {
+            intermitUI.SetActive(true);
+            Time.timeScale = 0;
+            intermitOn = false;
+        }
+        else if (eDown && !intermitOn)
+        {
+            intermitUI.SetActive(false);
+            Time.timeScale = 1;
+            intermitOn = true;
+        }
+    }
+
+    void Update()
+    {
+        Intermit();
+        GetInput();
     }
 }
