@@ -38,6 +38,14 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(SceneName);
         }
     }
+    float timer;
+    int waitingTime;
+
+    void Start()
+    {
+        timer = 0.0f;
+        waitingTime = 5;
+    }
 
     public void GetInput()
     {
@@ -61,7 +69,7 @@ public class GameManager : MonoBehaviour
             PCCamera.GetComponent<FirstPersonCamera>().CameraMoveOn = true;
         }
     }
-
+    bool isUIOn;
     public void CItemEvent1(int itemIndex, GameObject isUIOn)
     {
         //if (PCCamera.GetComponent<Raycast>().hasEquip_Items[0])
@@ -75,7 +83,15 @@ public class GameManager : MonoBehaviour
             if (itemIndex == 0)
             {
                 isUIOn.gameObject.SetActive(true);
-                Destroy(gameObject, 5);
+            }
+
+            if(isUIOn)
+            {
+                timer += Time.deltaTime;
+                if(timer > waitingTime)
+                {
+                    isUIOn.gameObject.SetActive(false);
+                }
             }
         }
     }

@@ -24,7 +24,7 @@ public class Raycast : MonoBehaviour
     public bool[] hasEquip_Items;
     public bool[] hasCollect_Items;
 
-    bool iDown;
+    public bool iDown;
     bool iSwap1;
     bool iSwap2;
     bool iSwap3;
@@ -39,7 +39,7 @@ public class Raycast : MonoBehaviour
         hasCollect_Items = new bool[99];
     }
 
-    void GetInput()
+    public void GetInput()
     {
         iDown = Input.GetButtonDown("Interaction");
         iSwap1 = Input.GetButtonDown("Swap1");
@@ -129,9 +129,23 @@ public class Raycast : MonoBehaviour
         //}
     }
 
-    public void GetCItem()
+    bool isUIOn;
+
+    public void GetCItemOn()
     {
         GameManager.instance.CItemEvent1(0, cItemUI);
+        //isUIOn = true;
+        //if(isUIOn && iDown)
+        //{
+        //    cItemUI.gameObject.SetActive(false);
+        //}
+
+        //public void GetCItemOff()
+        //{
+        //    if(isUIOn && iDown)
+        //    {
+        //        cItemUI.gameObject.SetActive(false);
+        //    }
     }
 
     public void RayHit()
@@ -212,6 +226,6 @@ public class Raycast : MonoBehaviour
         GetInput();
         ESwap();
         RayHit();
-        GetCItem();
+        GetCItemOn();
     }
 }
