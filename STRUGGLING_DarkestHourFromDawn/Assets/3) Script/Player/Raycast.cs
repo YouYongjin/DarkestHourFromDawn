@@ -34,6 +34,11 @@ public class Raycast : MonoBehaviour
 
     public float maxDistance = 2f; //Ray의 거리 길이
 
+    private void Start()
+    {
+        hasCollect_Items = new bool[99];
+    }
+
     void GetInput()
     {
         iDown = Input.GetButtonDown("Interaction");

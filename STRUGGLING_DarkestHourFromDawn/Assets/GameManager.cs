@@ -69,6 +69,7 @@ public class GameManager : MonoBehaviour
         //    Debug.Log("UI»ý¼º");
         //}
         //hasCollect_Item = raycast.hasCollect_Items;
+
         if (raycast.hasCollect_Items[itemIndex])
         {
             if (itemIndex == 0)
