@@ -69,8 +69,9 @@ public class GameManager : MonoBehaviour
             PCCamera.GetComponent<FirstPersonCamera>().CameraMoveOn = true;
         }
     }
+    // CItem[0] '일기장' 관련 함수
     bool isUIOn;
-    public void CItemEvent1(int itemIndex, GameObject isUIOn)
+    public void CItemEvent1(int cItemIndex, GameObject isUIOn)
     {
         //if (PCCamera.GetComponent<Raycast>().hasEquip_Items[0])
         //{
@@ -78,9 +79,9 @@ public class GameManager : MonoBehaviour
         //}
         //hasCollect_Item = raycast.hasCollect_Items;
 
-        if (raycast.hasCollect_Items[itemIndex])
+        if (raycast.hasCollect_Items[cItemIndex])
         {
-            if (itemIndex == 0)
+            if (cItemIndex == 0)
             {
                 isUIOn.gameObject.SetActive(true);
             }
@@ -91,6 +92,35 @@ public class GameManager : MonoBehaviour
                 if(timer > waitingTime)
                 {
                     isUIOn.gameObject.SetActive(false);
+                }
+            }
+        }
+    }
+
+    // CItem[1] '신문기사', EItem[0] '손전등' 관련 함수
+    public void CItemEvent2(int eItemIndex,int cItemIndex, GameObject lightObj)
+    {
+        if(raycast.hasCollect_Items[cItemIndex] && raycast.hasEquip_Items[eItemIndex])
+        {
+            if (cItemIndex == 1 && eItemIndex == 0)
+            {
+                lightObj.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    public void TestEvent(bool[] hasE, bool[] hasC, int eItemIndex, int cItemIndex, GameObject light)
+    {
+        hasE = raycast.hasEquip_Items;
+        hasC = raycast.hasCollect_Items;
+        {
+            if(hasE[eItemIndex] && hasC[cItemIndex])
+            {
+                Debug.Log("완료1");
+                if (cItemIndex == 1 && eItemIndex == 0)
+                {
+                    light.gameObject.SetActive(false);
+                    Debug.Log("완료2");
                 }
             }
         }

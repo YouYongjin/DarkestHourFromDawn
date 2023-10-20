@@ -37,6 +37,7 @@ public class Raycast : MonoBehaviour
     private void Start()
     {
         hasCollect_Items = new bool[99];
+        hasEquip_Items = new bool[99];
     }
 
     public void GetInput()
@@ -131,22 +132,21 @@ public class Raycast : MonoBehaviour
 
     bool isUIOn;
 
-    public void GetCItemOn()
+    public void GetCItem0()
     {
         GameManager.instance.CItemEvent1(0, cItemUI);
-        //isUIOn = true;
-        //if(isUIOn && iDown)
-        //{
-        //    cItemUI.gameObject.SetActive(false);
-        //}
-
-        //public void GetCItemOff()
-        //{
-        //    if(isUIOn && iDown)
-        //    {
-        //        cItemUI.gameObject.SetActive(false);
-        //    }
     }
+
+    public GameObject lightObj;
+    //public void TestGetItem()
+    //{
+    //    GameManager.instance.CItemEvent2(0, 1, lightObj);
+    //}
+
+    //public void GetCItem1()
+    //{
+
+    //}
 
     public void RayHit()
     {
@@ -226,6 +226,7 @@ public class Raycast : MonoBehaviour
         GetInput();
         ESwap();
         RayHit();
-        GetCItemOn();
+        GetCItem0();
+        //GetCItem1();
     }
 }

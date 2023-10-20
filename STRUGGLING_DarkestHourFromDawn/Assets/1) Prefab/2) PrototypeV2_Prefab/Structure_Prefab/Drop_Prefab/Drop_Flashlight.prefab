@@ -130,7 +130,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6150856024231487883
 Transform:
   m_ObjectHideFlags: 0
@@ -359,7 +359,7 @@ GameObject:
   - component: {fileID: 8681229580185799140}
   - component: {fileID: 3938924989180095320}
   - component: {fileID: 4598665145783212578}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Drop_Flashlight
   m_TagString: EItem
   m_Icon: {fileID: 0}
