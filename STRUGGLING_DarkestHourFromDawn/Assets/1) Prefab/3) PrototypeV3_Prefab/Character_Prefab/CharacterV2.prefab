@@ -443,7 +443,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3989105264932977210}
   - component: {fileID: 5154051685612889674}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Mesh Object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -472,7 +472,7 @@ SkinnedMeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1711036310503314238}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1250,7 +1250,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.24
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2585,7 +2585,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2047
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -2766,12 +2766,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   Aim: {fileID: 5637197192060058680}
+  cItemUI: {fileID: 0}
   equip_Items:
   - {fileID: 3691011670527399607}
   - {fileID: 4003962470525250236}
   collect_Items: []
   hasEquip_Items: 0000
   hasCollect_Items: 
+  iDown: 0
   maxDistance: 1.5
 --- !u!95 &8054295586996204317
 Animator:

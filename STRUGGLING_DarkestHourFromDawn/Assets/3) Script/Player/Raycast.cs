@@ -137,7 +137,7 @@ public class Raycast : MonoBehaviour
         GameManager.instance.CItemEvent1(0, cItemUI);
     }
 
-    public GameObject lightObj;
+    //public GameObject lightObj;
     //public void TestGetItem()
     //{
     //    GameManager.instance.CItemEvent2(0, 1, lightObj);
@@ -188,6 +188,15 @@ public class Raycast : MonoBehaviour
                     Debug.Log("문 상호작용");
                 }
             }
+            //else if (hit.transform.gameObject.CompareTag("DoorEvent1"))
+            //{
+            //    Debug.Log("문(고리) 이며, 이벤트 문입니다.");
+            //    if (iDown)
+            //    {
+            //        hit.transform.GetComponent<InteractiveSurprise_Door>().SurpriseDoorEvent();
+            //        Debug.Log("문 상호작용");
+            //    }
+            //}
 
             // Raycast로 충돌한 오브젝트의 태그가 "Door(None)"이면?
             else if (hit.transform.gameObject.CompareTag("Door(None)"))
@@ -196,6 +205,15 @@ public class Raycast : MonoBehaviour
                 if (iDown)
                 {
                     hit.transform.GetComponent<NoneDoorV2>().DoorOffEvent();
+                }
+            }
+
+            else if (hit.transform.gameObject.CompareTag("RemakeDoor"))
+            {
+                Debug.Log("추상 클래스로 구현한 문 입니다.");
+                if (iDown)
+                {
+                    hit.transform.GetComponent<Door>().Open();
                 }
             }
 

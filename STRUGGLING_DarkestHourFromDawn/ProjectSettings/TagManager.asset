@@ -19,6 +19,8 @@ TagManager:
   - Door(None)
   - Chiffonier
   - SItem
+  - DoorEvent1
+  - RemakeDoor
   layers:
   - Default
   - TransparentFX
@@ -32,8 +34,8 @@ TagManager:
   - Drop
   - interactive
   - Player
-  - 
-  - 
+  - Name
+  - ' Postprocessing'
   - 
   - 
   - 
