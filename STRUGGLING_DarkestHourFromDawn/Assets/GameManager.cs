@@ -7,7 +7,11 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    
     public Raycast raycast;
+    public FirstPersonCamera FPC;
+    public CItemUIManager CUM;
+    
     public bool eDown;
     bool intermitOn = true;
     public GameObject intermitUI;
@@ -70,8 +74,8 @@ public class GameManager : MonoBehaviour
         }
     }
     // CItem[0] '일기장' 관련 함수
-    bool isUIOn;
-    public void CItemEvent1(int cItemIndex, GameObject isUIOn)
+
+    public void CItemEvent1(int cItemIndex/*, GameObject isUIOn*/)
     {
         //if (PCCamera.GetComponent<Raycast>().hasEquip_Items[0])
         //{
@@ -83,31 +87,54 @@ public class GameManager : MonoBehaviour
         {
             if (cItemIndex == 0)
             {
-                isUIOn.gameObject.SetActive(true);
-                Time.timeScale = 0;
-                Cursor.lockState = CursorLockMode.Locked;
+                CUM.isUIOn = true;
+                //isUIOn.gameObject.SetActive(true);
+                //Time.timeScale = 0;
+                //PCCamera.GetComponent<FirstPersonCamera>().CameraMoveOn = false;
             }
-
-            if (isUIOn)
+            if (Input.GetKeyDown("mouse 0"))
             {
-                if (Input.GetKeyDown("mouse 0"))
-                {
-                    isUIOn.gameObject.SetActive(false);
-                    Time.timeScale = 1;
-                    Cursor.lockState = CursorLockMode.Confined;
-                }
+                CUM.isUIOn = false;
+                //Destroy(isUIOn);
+                //Time.timeScale = 1;
+                //PCCamera.GetComponent<FirstPersonCamera>().CameraMoveOn = true;
+
             }
 
             //if (isUIOn)
             //{
-            //    // 대충 5초 내에 UI 없애겠다는 코든
+            //    timer += Time.deltaTime;
+            //    if (timer > waitingTime)
+            //    {
+            //        //isUIOn.gameObject.SetActive(false);
+            //    }
             //}
         }
     }
+
+    //bool isUIOn = false;
+    //public GameObject CEUI;
+    //public void CE1Controller()
+    //{
+    //    if(isUIOn)
+    //    {
+    //        CEUI.gameObject.SetActive(true);
+    //        Time.timeScale = 0;
+    //        PCCamera.GetComponent<FirstPersonCamera>().CameraMoveOn = false;
+    //    }
+    //    else if(!isUIOn)
+    //    {
+    //        CEUI.gameObject.SetActive(false);
+    //        Time.timeScale = 1;
+    //        PCCamera.GetComponent<FirstPersonCamera>().CameraMoveOn = true;
+    //    }
+
+    //}
 
     void Update()
     {
         Intermit();
         GetInput();
+        //CE1Controller();
     }
 }
