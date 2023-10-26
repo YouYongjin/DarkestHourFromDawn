@@ -28,6 +28,7 @@ public class OneShotSurpriseDoor : Door
         //{
         //    animOpen.Play("DoorV2");
         //}
+        isOpen = false;
     }
     public void DefaultAnim()
     {
