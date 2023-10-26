@@ -21,7 +21,7 @@ public class SceneEventManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Loop1")
         {
             Debug.Log("Ã¹ ¹øÂ° ¾À");
-            if (raycast.hasEquip_Items[0] && raycast.hasCollect_Items[1])
+            if (raycast.hasEquip_Items[0] && raycast.hasCollect_Items[0])
             {
                 if (!oneShotSurprise)
                 {

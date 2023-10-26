@@ -130,22 +130,17 @@ public class Raycast : MonoBehaviour
         //}
     }
 
-    bool isUIOn;
+    //bool isUIOn;
 
-    public void GetCItem0()
-    {
-        GameManager.instance.CItemEvent1(0, cItemUI);
-    }
+    //public void GetCItem0()
+    //{
+    //    GameManager.instance.CItemEvent1(0, cItemUI);
+    //}
 
     //public GameObject lightObj;
     //public void TestGetItem()
     //{
     //    GameManager.instance.CItemEvent2(0, 1, lightObj);
-    //}
-
-    //public void GetCItem1()
-    //{
-
     //}
 
     public void RayHit()
@@ -244,7 +239,6 @@ public class Raycast : MonoBehaviour
         GetInput();
         ESwap();
         RayHit();
-        GetCItem0();
         //GetCItem1();
     }
 }
