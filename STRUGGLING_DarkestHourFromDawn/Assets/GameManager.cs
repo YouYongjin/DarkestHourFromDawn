@@ -75,42 +75,42 @@ public class GameManager : MonoBehaviour
     }
     // CItem[0] '老扁厘' 包访 窃荐
 
-    public void CItemEvent1(int cItemIndex/*, GameObject isUIOn*/)
-    {
-        //if (PCCamera.GetComponent<Raycast>().hasEquip_Items[0])
-        //{
-        //    Debug.Log("UI积己");
-        //}
-        //hasCollect_Item = raycast.hasCollect_Items;
+    //public void CItemEvent1(int cItemIndex/*, GameObject isUIOn*/)
+    //{
+    //    //if (PCCamera.GetComponent<Raycast>().hasEquip_Items[0])
+    //    //{
+    //    //    Debug.Log("UI积己");
+    //    //}
+    //    //hasCollect_Item = raycast.hasCollect_Items;
 
-        if (raycast.hasCollect_Items[cItemIndex])
-        {
-            if (cItemIndex == 0)
-            {
-                CUM.isUIOn = true;
-                //isUIOn.gameObject.SetActive(true);
-                //Time.timeScale = 0;
-                //PCCamera.GetComponent<FirstPersonCamera>().CameraMoveOn = false;
-            }
-            if (Input.GetKeyDown("mouse 0"))
-            {
-                CUM.isUIOn = false;
-                //Destroy(isUIOn);
-                //Time.timeScale = 1;
-                //PCCamera.GetComponent<FirstPersonCamera>().CameraMoveOn = true;
+    //    if (raycast.hasCollect_Items[cItemIndex])
+    //    {
+    //        if (cItemIndex == 0)
+    //        {
+    //            CUM.isUIOn = true;
+    //            //isUIOn.gameObject.SetActive(true);
+    //            //Time.timeScale = 0;
+    //            //PCCamera.GetComponent<FirstPersonCamera>().CameraMoveOn = false;
+    //            if (Input.GetKeyDown("mouse 0"))
+    //            {
+    //                CUM.isUIOn = false;
+    //                //Destroy(isUIOn);
+    //                //Time.timeScale = 1;
+    //                //PCCamera.GetComponent<FirstPersonCamera>().CameraMoveOn = true;
+    //            }
+    //        }
 
-            }
 
-            //if (isUIOn)
-            //{
-            //    timer += Time.deltaTime;
-            //    if (timer > waitingTime)
-            //    {
-            //        //isUIOn.gameObject.SetActive(false);
-            //    }
-            //}
-        }
-    }
+    //        //if (isUIOn)
+    //        //{
+    //        //    timer += Time.deltaTime;
+    //        //    if (timer > waitingTime)
+    //        //    {
+    //        //        //isUIOn.gameObject.SetActive(false);
+    //        //    }
+    //        //}
+    //    }
+    //}
 
     //bool isUIOn = false;
     //public GameObject CEUI;

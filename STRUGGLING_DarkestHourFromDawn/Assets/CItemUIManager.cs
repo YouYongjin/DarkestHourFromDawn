@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,18 +8,35 @@ public class CItemUIManager : MonoBehaviour
 {
     public GameObject PCCamera;
     public GameObject cItemUI1;
+    public Raycast raycast;
    
     public bool isUIOn = false;
-
-    public void GetCItem0()
+    public bool isFunction = false;
+    public void CItemEvent1()
     {
-        if(SceneManager.GetActiveScene().name == "Loop1")
+        if (raycast.hasCollect_Items[0] && !isFunction)
         {
-            GameManager.instance.CItemEvent1(0);
+            isUIOn = true;
+            CE1Controller();
+
+            if (Input.GetKeyDown("mouse 0"))
+            {
+                isFunction = true;
+                isUIOn = false;
+                CE1Controller();
+            }
         }
     }
+
+    //public void GetCItem0()
+    //{
+    //    if (SceneManager.GetActiveScene().name == "Loop1")
+    //    {
+    //        GameManager.instance.CItemEvent1(0);
+    //    }
+    //}
    
-    public void CE1Controller()
+    void CE1Controller()
     {
         if (isUIOn)
         {
@@ -37,7 +55,8 @@ public class CItemUIManager : MonoBehaviour
 
     private void Update()
     {
-        GetCItem0();
-        CE1Controller();
+        //GetCItem0();
+        CItemEvent1();
     }
+
 }
