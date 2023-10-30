@@ -7,7 +7,7 @@ public class PlayerV2 : MonoBehaviour
     Rigidbody rd;
     CharacterController controller;
 
-    float moveSpeed = 1.2f;
+    public float moveSpeed = 1.2f;
     private bool isMoving;
     private float _moveSpeedClamp = 4f;
 
@@ -24,7 +24,8 @@ public class PlayerV2 : MonoBehaviour
         controller = GetComponent<CharacterController>();
         isMoving = false;
     }
-    void Update()
+
+    public void PCMove()
     {
         if (!isMoving) return;
 
@@ -60,6 +61,11 @@ public class PlayerV2 : MonoBehaviour
             moveSpeed = 5f;
         }
         #endregion
+    }
+
+    void Update()
+    {
+        PCMove();
     }
 
     void OnCollisionStay(Collision collision)

@@ -21,6 +21,7 @@ TagManager:
   - SItem
   - DoorEvent1
   - RemakeDoor
+  - RemakeChiffonier
   layers:
   - Default
   - TransparentFX

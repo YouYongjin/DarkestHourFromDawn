@@ -7,30 +7,41 @@ public class Flashlight_Switch : MonoBehaviour
 {
     public GameObject lightGroup;
     
-    bool lightSwitch = true;
+    public bool lightSwitch = true;
 
-    bool eIDown;
+    public bool eIDown;
 
     void GetInput()
     {
         eIDown = Input.GetButtonDown("EquipInteraction");
     }
 
-    public  void FlashLight()
+    public void FlashLight()
     {
         if (eIDown)
         {
             if (lightSwitch)
             {
-                lightGroup.gameObject.SetActive(false);
-                lightSwitch = false;
+                LightOff();
             }
             else if (!lightSwitch)
             {
-                lightGroup.gameObject.SetActive(true);
-                lightSwitch = true;
+                LightOn();
+                
             }
         }
+    }
+
+    public void LightOff()
+    {
+        lightGroup.gameObject.SetActive(false);
+        lightSwitch = false;
+    }
+
+    public void LightOn()
+    {
+        lightGroup.gameObject.SetActive(true);
+        lightSwitch = true;
     }
 
 
