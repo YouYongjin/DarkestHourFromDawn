@@ -14,19 +14,23 @@ public class CItemUIManager : MonoBehaviour
     public bool isFunction = false;
     public void CItemEvent1()
     {
-        if (raycast.hasCollect_Items[0] && !isFunction)
-        {
-            isUIOn = true;
-            CE1Controller();
-
-            if (Input.GetKeyDown("mouse 0"))
+        if (SceneManager.GetActiveScene().name == "Loop1")
+        { 
+            if (raycast.hasCollect_Items[0] && !isFunction)
             {
-                isFunction = true;
-                isUIOn = false;
+                isUIOn = true;
                 CE1Controller();
+
+                if (Input.GetKeyDown("mouse 0"))
+                {
+                    isFunction = true;
+                    isUIOn = false;
+                    CE1Controller();
+                }
             }
         }
     }
+
 
     //public void GetCItem0()
     //{
