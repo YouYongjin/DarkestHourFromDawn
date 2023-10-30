@@ -18,7 +18,7 @@ public class LightAction : MonoBehaviour
     void Update()
     {
         realTimer += Time.deltaTime;
-        if (realTimer < 6)
+        if (realTimer < 2)
         {
             SwitchLight(lightSwitch);
             timer += Time.deltaTime;

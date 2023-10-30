@@ -9,10 +9,16 @@ public class Flashlight_Switch : MonoBehaviour
     
     bool lightSwitch = true;
 
-    // Update is called once per frame
-    void Update()
+    bool eIDown;
+
+    void GetInput()
     {
-        if (Input.GetKeyDown(KeyCode.F)) 
+        eIDown = Input.GetButtonDown("EquipInteraction");
+    }
+
+    public  void FlashLight()
+    {
+        if (eIDown)
         {
             if (lightSwitch)
             {
@@ -25,5 +31,13 @@ public class Flashlight_Switch : MonoBehaviour
                 lightSwitch = true;
             }
         }
+    }
+
+
+    // Update is called once per frame
+    void Update()
+    {
+        FlashLight();
+        GetInput();
     }
 }

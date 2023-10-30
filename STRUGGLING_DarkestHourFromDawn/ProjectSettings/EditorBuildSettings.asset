@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/4) Scenes/Main/Loop1.unity
     guid: b0c3f0caa55417f4dbf0a8c31befe1d2
+  - enabled: 1
+    path: Assets/4) Scenes/Main/Loop2.unity
+    guid: 164a05d04094f9f459f3ad36ba7f84b0
   m_configObjects: {}
