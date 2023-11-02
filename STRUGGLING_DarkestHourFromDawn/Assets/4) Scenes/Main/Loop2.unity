@@ -780,11 +780,10 @@ MonoBehaviour:
   - {fileID: 615493152}
   - {fileID: 386311849}
   - {fileID: 548053226}
-  bigBear: {fileID: 393235444}
-  pcCamera: {fileID: 1535526144}
-  bigBearT: {fileID: 393235445}
-  player: {fileID: 1607901321}
   flashLight: {fileID: 1318800724}
+  SurpriseOn: 0
+  test: 0
+  realTime: 0
 --- !u!1 &202458118
 GameObject:
   m_ObjectHideFlags: 0
@@ -4759,6 +4758,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73fea959e1510354592ce556f1e9e476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bigBear: {fileID: 393235444}
+  pcCamera: {fileID: 1535526144}
+  bigBearT: {fileID: 393235445}
+  player: {fileID: 1607901321}
+  Loop2: {fileID: 199494441}
+  lookAtBear: 0
 --- !u!65 &1433789847
 BoxCollider:
   m_ObjectHideFlags: 0
