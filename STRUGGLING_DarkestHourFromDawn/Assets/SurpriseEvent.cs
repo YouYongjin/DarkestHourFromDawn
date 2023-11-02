@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SurpriseEvent : MonoBehaviour
 {
-
     public GameObject bigBear;
     public GameObject pcCamera;
 
@@ -19,13 +18,18 @@ public class SurpriseEvent : MonoBehaviour
     {
         lookAtBear = false;
     }
-
+    
     public void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
             SurpriseOn();
         }
+    }
+
+    public void SurpriseOn()
+    {
+        StartCoroutine(SurpriseEventCO());
     }
 
     IEnumerator SurpriseEventCO()
@@ -37,10 +41,16 @@ public class SurpriseEvent : MonoBehaviour
         Loop2.lightList[1].SetActive(true);
         Loop2.lightList[2].SetActive(true);
         Loop2.lightList[3].SetActive(true);
-        Loop2.lightList[4].SetActive(true);
-        yield return new WaitForSeconds(5f);
+        Loop2.lightList[4].SetActive(true);        
+        yield return new WaitForSeconds(5f);        
         lookAtBear = false;
+    }
 
+    private void Update()
+    {
+        LookAtBear();
+
+        Debug.Log("이벤트 트리거 상태 : " + lookAtBear);
     }
 
     public void LookAtBear()
@@ -48,15 +58,5 @@ public class SurpriseEvent : MonoBehaviour
         if (!lookAtBear) return;
 
         pcCamera.transform.LookAt(bigBearT);
-    }
-
-    private void Update()
-    {
-        LookAtBear();
-    }
-
-    public void SurpriseOn()
-    {
-        StartCoroutine(SurpriseEventCO());
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FirstPersonCamera : MonoBehaviour
 {
+    public SurpriseEvent supEvt;
+
     // Variables
     public Transform player;
     public float mouseSensitivity = 2f;
@@ -14,7 +16,8 @@ public class FirstPersonCamera : MonoBehaviour
 
     public void CameraMove()
     {
-        if (CameraMoveOn)
+        // 서프라이즈 이벤트 발동 시간 동안은 작동 안하도록 제어 추가
+        if (CameraMoveOn && !supEvt.lookAtBear)
         {
             // Collect Mouse Input
 
