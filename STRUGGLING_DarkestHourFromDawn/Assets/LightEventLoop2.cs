@@ -65,14 +65,14 @@ public class LightEventLoop2 : MonoBehaviour
             if (realTime >= 6.5f)
             {
                 // 이 부분은 그냥 특정 콜라이더를 밟을 때 실행 되도록 하는 것은 어떤가?
-                player.moveSpeed = 0;
-                bigBear.SetActive(true);
-                pcCamera.transform.LookAt(bigBearT);
-                lightList[0].SetActive(true);
-                lightList[1].SetActive(true);
-                lightList[2].SetActive(true);
-                lightList[3].SetActive(true);
-                lightList[4].SetActive(true);
+                //player.moveSpeed = 0;
+                //bigBear.SetActive(true);
+                //pcCamera.transform.LookAt(bigBearT);
+                //lightList[0].SetActive(true);
+                //lightList[1].SetActive(true);
+                //lightList[2].SetActive(true);
+                //lightList[3].SetActive(true);
+                //lightList[4].SetActive(true);
             }
             yield return null;
         }
