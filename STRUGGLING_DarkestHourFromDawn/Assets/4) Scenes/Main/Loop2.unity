@@ -3767,6 +3767,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 711963250921969894, guid: 29616af83f0a4434f8d5c6f755434b37,
         type: 3}
+      propertyPath: far clip plane
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 711963250921969894, guid: 29616af83f0a4434f8d5c6f755434b37,
+        type: 3}
       propertyPath: m_CullingMask.m_Bits
       value: 2047
       objectReference: {fileID: 0}
@@ -3799,6 +3804,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 2586479500009227155, guid: 29616af83f0a4434f8d5c6f755434b37,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.11
       objectReference: {fileID: 0}
     - target: {fileID: 2625523935944154677, guid: 29616af83f0a4434f8d5c6f755434b37,
         type: 3}
@@ -3875,11 +3885,21 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 224716310}
+    - target: {fileID: 4930551391319939699, guid: 29616af83f0a4434f8d5c6f755434b37,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5637197192406420417, guid: 29616af83f0a4434f8d5c6f755434b37,
         type: 3}
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 6105365488684596518, guid: 29616af83f0a4434f8d5c6f755434b37,
+        type: 3}
+      propertyPath: supEvt
+      value: 
+      objectReference: {fileID: 1433789846}
     - target: {fileID: 6513083872679702367, guid: 29616af83f0a4434f8d5c6f755434b37,
         type: 3}
       propertyPath: m_Layer
@@ -3889,6 +3909,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_VolumeLayerMask.m_Bits
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8156834878558167212, guid: 29616af83f0a4434f8d5c6f755434b37,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8156834878558167212, guid: 29616af83f0a4434f8d5c6f755434b37,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324253521884172194, guid: 29616af83f0a4434f8d5c6f755434b37,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29616af83f0a4434f8d5c6f755434b37, type: 3}
