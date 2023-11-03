@@ -34,16 +34,16 @@ public class SurpriseEvent : MonoBehaviour
 
     IEnumerator SurpriseEventCO()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.1f);
         bigBear.SetActive(true);
-        lookAtBear = true;
+        lookAtBear = true;     
+        yield return new WaitForSeconds(0.4f);        
+        lookAtBear = false;
         Loop2.lightList[0].SetActive(true);
         Loop2.lightList[1].SetActive(true);
         Loop2.lightList[2].SetActive(true);
         Loop2.lightList[3].SetActive(true);
-        Loop2.lightList[4].SetActive(true);        
-        yield return new WaitForSeconds(5f);        
-        lookAtBear = false;
+        Loop2.lightList[4].SetActive(true);
     }
 
     private void Update()

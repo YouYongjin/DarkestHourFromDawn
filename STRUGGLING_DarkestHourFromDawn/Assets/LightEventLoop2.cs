@@ -27,7 +27,6 @@ public class LightEventLoop2 : MonoBehaviour
     public void LightEvent()
     {
         StartCoroutine(LightEventCO());
-
     }
 
     public void FlashlightEvent()
