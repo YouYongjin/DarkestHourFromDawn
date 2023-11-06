@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4185374760861875204}
   - component: {fileID: 4185374760861875210}
   m_Layer: 0
-  m_Name: LightEvent
+  m_Name: Loop2_LightEvent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,6 +68,7 @@ MonoBehaviour:
   flashLight: {fileID: 0}
   SurpriseOn: 0
   test: 0
+  lightEventOn: 0
   realTime: 0
 --- !u!1 &4185374762448409271
 GameObject:
@@ -81,7 +82,7 @@ GameObject:
   - component: {fileID: 4185374762448409268}
   - component: {fileID: 4185374762448409269}
   m_Layer: 0
-  m_Name: SurpriseTrigger
+  m_Name: Loop2_SurpriseTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130,6 +131,7 @@ MonoBehaviour:
   bigBear: {fileID: 0}
   pcCamera: {fileID: 0}
   bigBearLight: {fileID: 0}
+  mirrorPiece: []
   bigBearT: {fileID: 0}
   player: {fileID: 0}
   Loop2: {fileID: 4185374760861875210}

@@ -15,6 +15,7 @@ public class LightEventLoop2 : MonoBehaviour
 
     public bool SurpriseOn;
     public bool test;
+    public bool lightEventOn;
 
     bool triggerOn = true;
 
@@ -24,6 +25,7 @@ public class LightEventLoop2 : MonoBehaviour
     {
         SurpriseOn = false;
         test = false;
+        lightEventOn = false;
     }
 
     public void LightEvent()
@@ -64,6 +66,7 @@ public class LightEventLoop2 : MonoBehaviour
         lightList[4].SetActive(false);
         yield return new WaitForSeconds(2.1f);
         test = false;
+        lightEventOn = true;
 
         //yield return null;
 
