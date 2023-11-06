@@ -173,16 +173,16 @@ public class Raycast : MonoBehaviour
             }
 
             // Raycast로 충돌한 오브젝트의 태그가 "Door"이면?
-            else if (hit.transform.gameObject.CompareTag("Door"))
-            {
-                Debug.Log("문(고리) 이며, 열 수 있습니다.");
-                if (iDown)
-                {
-                    hit.transform.GetComponent<OpenDoorV2>().DoorOnEvent();
-                    //DoorOn.DoorOnEvent();
-                    Debug.Log("문 상호작용");
-                }
-            }
+            //else if (hit.transform.gameObject.CompareTag("Door"))
+            //{
+            //    Debug.Log("문(고리) 이며, 열 수 있습니다.");
+            //    if (iDown)
+            //    {
+            //        hit.transform.GetComponent<OpenDoorV2>().DoorOnEvent();
+            //        //DoorOn.DoorOnEvent();
+            //        Debug.Log("문 상호작용");
+            //    }
+            //}
             //else if (hit.transform.gameObject.CompareTag("DoorEvent1"))
             //{
             //    Debug.Log("문(고리) 이며, 이벤트 문입니다.");
@@ -194,14 +194,14 @@ public class Raycast : MonoBehaviour
             //}
 
             // Raycast로 충돌한 오브젝트의 태그가 "Door(None)"이면?
-            else if (hit.transform.gameObject.CompareTag("Door(None)"))
-            {
-                Debug.Log("문(고리) 이며, 열 수 없습니다.");
-                if (iDown)
-                {
-                    hit.transform.GetComponent<NoneDoorV2>().DoorOffEvent();
-                }
-            }
+            //else if (hit.transform.gameObject.CompareTag("Door(None)"))
+            //{
+            //    Debug.Log("문(고리) 이며, 열 수 없습니다.");
+            //    if (iDown)
+            //    {
+            //        hit.transform.GetComponent<NoneDoorV2>().DoorOffEvent();
+            //    }
+            //}
 
             else if (hit.transform.gameObject.CompareTag("RemakeDoor"))
             {
@@ -212,12 +212,20 @@ public class Raycast : MonoBehaviour
                 }
             }
 
-            else if(hit.transform.gameObject.CompareTag("Chiffonier"))
+            //else if(hit.transform.gameObject.CompareTag("Chiffonier"))
+            //{
+            //    Debug.Log("사물함이며, 열 수 있습니다.");
+            //    if (iDown)
+            //    {
+            //        hit.transform.GetComponent<OpenChiffonierV2>().StorageOnEvent();
+            //    }
+            //}
+            else if (hit.transform.gameObject.CompareTag("RemakeChiffonier"))
             {
                 Debug.Log("사물함이며, 열 수 있습니다.");
                 if (iDown)
                 {
-                    hit.transform.GetComponent<OpenChiffonierV2>().StorageOnEvent();
+                    hit.transform.GetComponent<Chiffonier>().Open();
                 }
             }
         }

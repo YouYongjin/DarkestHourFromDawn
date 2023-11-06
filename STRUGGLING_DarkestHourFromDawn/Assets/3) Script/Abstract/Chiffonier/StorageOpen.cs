@@ -6,6 +6,7 @@ public class StorageOpen : Chiffonier
 {
     public override bool CheckOpen()
     {
+        Debug.Log("서랍장 열기");
         return true;
     }
 }
