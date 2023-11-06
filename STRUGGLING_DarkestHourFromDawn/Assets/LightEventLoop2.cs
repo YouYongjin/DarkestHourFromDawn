@@ -16,6 +16,8 @@ public class LightEventLoop2 : MonoBehaviour
     public bool SurpriseOn;
     public bool test;
 
+    bool triggerOn = true;
+
     public float realTime;
 
     void Start()
@@ -39,9 +41,10 @@ public class LightEventLoop2 : MonoBehaviour
     }
     public void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && triggerOn)
         {
             LightEvent();
+            triggerOn = false;
         }
     }
 

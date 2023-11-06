@@ -6,6 +6,7 @@ public class SurpriseEvent : MonoBehaviour
 {
     public GameObject bigBear;
     public GameObject pcCamera;
+    public GameObject bigBearLight;
 
     public Transform bigBearT;
 
@@ -14,6 +15,8 @@ public class SurpriseEvent : MonoBehaviour
 
     public bool lookAtBear;
 
+    bool triggerOn = true;
+
     private void Start()
     {
         lookAtBear = false;
@@ -21,9 +24,10 @@ public class SurpriseEvent : MonoBehaviour
     
     public void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if(other.tag == "Player" && triggerOn)
         {
             SurpriseOn();
+            triggerOn = false;
         }
     }
 
@@ -37,8 +41,9 @@ public class SurpriseEvent : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         bigBear.SetActive(true);
         lookAtBear = true;     
-        yield return new WaitForSeconds(0.4f);        
+        yield return new WaitForSeconds(0.5f);        
         lookAtBear = false;
+        bigBearLight.SetActive(false);
         Loop2.lightList[0].SetActive(true);
         Loop2.lightList[1].SetActive(true);
         Loop2.lightList[2].SetActive(true);

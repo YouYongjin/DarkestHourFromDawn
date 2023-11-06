@@ -5,15 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
-    void OnCollisionEnter()
+    void OnCollisionEnter(Collision collision)
     {
         if (SceneManager.GetActiveScene().name == "Loop1")
         {
-            //Debug.Log("ÇØ´ç ¾ÀÀº Loop1 ÀÌ¸ç, Loop2 ´ë±âÁßÀÔ´Ï´Ù.");
+            if(collision.collider.gameObject.CompareTag("Player"))
+            { 
+            //Debug.Log("í•´ë‹¹ ì”¬ì€ Loop1 ì´ë©°, Loop2 ëŒ€ê¸°ì¤‘ì…ë‹ˆë‹¤.");
             SceneManager.LoadScene("Loop2");
+        
+            }
         }
     }
-
     public void SceneList()
     {
         OnCollisionEnter();

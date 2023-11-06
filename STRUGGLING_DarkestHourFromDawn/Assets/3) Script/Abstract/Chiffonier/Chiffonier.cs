@@ -19,7 +19,7 @@ public abstract class Chiffonier : MonoBehaviour
             {
                 //anim.SetBool("isLock", true);
                 //isLock = true;
-                anim.Play("LockDoor");
+                anim.Play("StorageLock");
                 return;
             }
             //else if (isLock)
@@ -32,12 +32,12 @@ public abstract class Chiffonier : MonoBehaviour
 
         if (!isOpen)
         {
-            anim.Play("OpenDoor");
+            anim.Play("StorageOn");
             isOpen = true;
         }
         else if (isOpen)
         {
-            anim.Play("CloseDoor");
+            anim.Play("StorageOff");
             isOpen = false;
         }
     }
