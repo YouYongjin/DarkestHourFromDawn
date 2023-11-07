@@ -42,6 +42,10 @@ public class SceneEventManager : MonoBehaviour
                 LDoor.isLocked = true;
             }
         }
+        if(SceneManager.GetActiveScene().name == "Loop2")
+        {
+            raycast.hasEquip_Items[0] = true;
+        }
 
     }
 

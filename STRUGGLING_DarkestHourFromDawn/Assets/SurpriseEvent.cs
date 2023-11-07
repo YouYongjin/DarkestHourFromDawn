@@ -10,6 +10,7 @@ public class SurpriseEvent : MonoBehaviour
 
     public GameObject[] mirrorPiece;
     public GameObject mirrorDefault;
+    public GameObject mirrorCountObj;
 
     public Transform bigBearT;
 
@@ -44,7 +45,8 @@ public class SurpriseEvent : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         bigBear.SetActive(true);
         lookAtBear = true;     
-        yield return new WaitForSeconds(0.5f);        
+        yield return new WaitForSeconds(0.5f);
+        mirrorCountObj.SetActive(true);
         lookAtBear = false;
         bigBearLight.SetActive(false);
 

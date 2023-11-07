@@ -12,19 +12,9 @@ public class BrokenMirror : MonoBehaviour
     public GameObject mirrorPiece4;
     public TMP_Text mirrorCount;
 
-    int haveCount;
-    int needCount;
-
-    private void Start()
-    {
-        haveCount = 0;
-        needCount = 4;
-    }
-
     private void Update()
     {
         MirrorPieceGroup();
-        //MirrorCount();
     }
 
     void MirrorPieceGroup()
@@ -35,33 +25,42 @@ public class BrokenMirror : MonoBehaviour
         MirrorPiece4(); 
     }
 
-    void MirrorCount()
+    public void MirrorCount()
     {
-        if (raycast.hasCollect_Items[2])
+        int hasItem = 0;
+        for (int i = 1; i < 6; i++)
         {
-            mirrorCount.text = haveCount + 1 + " / 4";
-            haveCount = haveCount + 1;
-            //return;
+            if (raycast.hasCollect_Items[i])
+                hasItem++;
         }
-        if (raycast.hasCollect_Items[3])
-        {
-            mirrorCount.text = haveCount + 1 + " / 4";
-            haveCount = haveCount + 1;
-            //return;
-        }
-        if (raycast.hasCollect_Items[4])
-        {
-            mirrorCount.text = haveCount + 1 + " / 4";
-            haveCount = haveCount + 1;
-            //return;
-        }
-        if (raycast.hasCollect_Items[5])
-        {
-            mirrorCount.text = haveCount + 1 + " / 4";
-            haveCount = haveCount + 1;
-            //return;
-        }
+        mirrorCount.text = $"{hasItem} / 4";
     }
+        
+        //if (raycast.hasCollect_Items[2])
+        //{
+        //    mirrorCount.text = haveCount + 1 + " / 4";
+        //    haveCount = haveCount + 1;
+        //    //return;
+        //}
+        //if (raycast.hasCollect_Items[3])
+        //{
+        //    mirrorCount.text = haveCount + 1 + " / 4";
+        //    haveCount = haveCount + 1;
+        //    //return;
+        //}
+        //if (raycast.hasCollect_Items[4])
+        //{
+        //    mirrorCount.text = haveCount + 1 + " / 4";
+        //    haveCount = haveCount + 1;
+        //    //return;
+        //}
+        //if (raycast.hasCollect_Items[5])
+        //{
+        //    mirrorCount.text = haveCount + 1 + " / 4";
+        //    haveCount = haveCount + 1;
+        //    //return;
+        //}
+ 
 
     void MirrorPiece1()
     {

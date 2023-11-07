@@ -8,6 +8,8 @@ public class Raycast : MonoBehaviour
     //public OpenDoorV2 DoorOn;
     //public NoneDoorV2 DoorOff;
     RaycastHit hit;
+    public BrokenMirror brokenMirror;
+
     public GameObject gameManager;
     public LayerMask layerMask;
 
@@ -74,7 +76,7 @@ public class Raycast : MonoBehaviour
                 Item item = nearObject.GetComponent<Item>();
                 int cItemIndex = item.value;
                 hasCollect_Items[cItemIndex] = true;
-
+                brokenMirror.MirrorCount();
                 Destroy(nearObject);
 
                 //gameManager.GetComponent<GameManager>().CItemEvent();

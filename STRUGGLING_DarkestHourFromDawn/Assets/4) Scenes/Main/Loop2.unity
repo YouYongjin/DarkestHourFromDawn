@@ -4759,6 +4759,16 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 224716310}
+    - target: {fileID: 3944970703864845122, guid: 29616af83f0a4434f8d5c6f755434b37,
+        type: 3}
+      propertyPath: brokenMirror
+      value: 
+      objectReference: {fileID: 389140351}
+    - target: {fileID: 3944970703864845122, guid: 29616af83f0a4434f8d5c6f755434b37,
+        type: 3}
+      propertyPath: hasEquip_Items.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4930551391319939699, guid: 29616af83f0a4434f8d5c6f755434b37,
         type: 3}
       propertyPath: m_Enabled
@@ -6867,7 +6877,7 @@ GameObject:
   - component: {fileID: 1681774129}
   m_Layer: 10
   m_Name: Capsule
-  m_TagString: CItem
+  m_TagString: EItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6900,7 +6910,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  value: 6
+  value: 1
 --- !u!136 &1681774130
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8601,7 +8611,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1962352153
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10468,6 +10478,11 @@ PrefabInstance:
       propertyPath: mirrorDefault
       value: 
       objectReference: {fileID: 1715812996}
+    - target: {fileID: 4185374762448409269, guid: 67912fd8337095943bfe5f245d9c77b6,
+        type: 3}
+      propertyPath: mirrorCountObj
+      value: 
+      objectReference: {fileID: 1962352152}
     - target: {fileID: 4185374762448409269, guid: 67912fd8337095943bfe5f245d9c77b6,
         type: 3}
       propertyPath: mirrorPiece.Array.size
