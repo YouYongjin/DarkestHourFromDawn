@@ -27,12 +27,12 @@ public class Raycast : MonoBehaviour
     public bool[] hasCollect_Items;
 
     public bool iDown;
-    bool iSwap1;
-    bool iSwap2;
-    bool iSwap3;
+    public bool iSwap1;
+    public bool iSwap2;
+    public bool iSwap3;
     bool iSwap0;
 
-    int equipItemIndex = -1;
+    public int equipItemIndex = -1;
 
     public float maxDistance = 2f; //Ray의 거리 길이
 
@@ -84,13 +84,15 @@ public class Raycast : MonoBehaviour
         }
     }
 
-
+    //bool iSwap1Switch = false;
     // 장착 아이템 이벤트 함수
-    void ESwap()
+    public void ESwap()
     {
-        if (iSwap1 && (!hasEquip_Items[0] || equipItemIndex == 0))
+        if (/*iSwap1 && */(!hasEquip_Items[0] || equipItemIndex == 0))
         {
-            return;
+            //return;
+
+
         }
         if (iSwap2 && (!hasEquip_Items[1] || equipItemIndex == 1))
         {
@@ -123,7 +125,13 @@ public class Raycast : MonoBehaviour
             nowEquipItem = equip_Items[eItemIndex];
             // public 으로 선언된 게임오브젝트 변수 equip_Items 내에 저장된 값을 eItemIndex(스왑키 넘버)를 입력할 때 장착 오브젝트 활성화.
             nowEquipItem.SetActive(true);
+            //iSwap1Switch = true;
         }
+
+        //if (iSwap1Switch && iSwap1 || iSwap2 || iSwap3)
+        //{
+        //    nowEquipItem.SetActive(true);
+        //}
 
         // 수집 아이템 이벤트 함수
         //void CSwap()
@@ -229,6 +237,13 @@ public class Raycast : MonoBehaviour
                 {
                     hit.transform.GetComponent<Chiffonier>().Open();
                 }
+            }
+            else if (hit.transform.gameObject.CompareTag("ConditionDestroy")) 
+            {
+                if (equipItemIndex == 1)
+                    if(iDown)
+                    Destroy(hit.transform.gameObject);
+                
             }
         }
         else
