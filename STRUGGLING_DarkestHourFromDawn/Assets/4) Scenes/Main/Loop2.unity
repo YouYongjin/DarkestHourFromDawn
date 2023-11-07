@@ -3555,6 +3555,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 872006390111906524, guid: 0be849539f6e4af40a3d5eca5017ec23,
+        type: 3}
+      propertyPath: m_TagString
+      value: ConditionDestroy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0be849539f6e4af40a3d5eca5017ec23, type: 3}
 --- !u!4 &685970374 stripped
