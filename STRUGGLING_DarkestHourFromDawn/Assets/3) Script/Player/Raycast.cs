@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Raycast : MonoBehaviour
@@ -34,12 +35,18 @@ public class Raycast : MonoBehaviour
 
     public int equipItemIndex = -1;
 
-    public float maxDistance = 2f; //Ray의 거리 길이
+    public float maxDistance = 2.5f; //Ray의 거리 길이
 
     private void Start()
     {
         hasCollect_Items = new bool[99];
         hasEquip_Items = new bool[99];
+        //if (SceneManager.GetActiveScene().name == "Loop1")
+        //{
+        //    nearObject = null;
+        //    nowEquipItem = null;
+        //    hasEquip_Items[0] = false;
+        //}
     }
 
     public void GetInput()
@@ -76,9 +83,12 @@ public class Raycast : MonoBehaviour
                 Item item = nearObject.GetComponent<Item>();
                 int cItemIndex = item.value;
                 hasCollect_Items[cItemIndex] = true;
-                brokenMirror.MirrorCount();
                 Destroy(nearObject);
-
+                if (SceneManager.GetActiveScene().name == "Loop2")
+                {
+                    brokenMirror.MirrorCount();
+                    Destroy(nearObject);
+                }
                 //gameManager.GetComponent<GameManager>().CItemEvent();
             }
         }
@@ -90,7 +100,7 @@ public class Raycast : MonoBehaviour
     {
         if (/*iSwap1 && */(!hasEquip_Items[0] || equipItemIndex == 0))
         {
-            //return;
+            return;
 
 
         }
