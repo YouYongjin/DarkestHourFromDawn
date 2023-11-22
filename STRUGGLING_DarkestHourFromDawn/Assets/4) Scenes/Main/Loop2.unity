@@ -4571,7 +4571,17 @@ PrefabInstance:
       objectReference: {fileID: 389140351}
     - target: {fileID: 3944970703864845122, guid: 29616af83f0a4434f8d5c6f755434b37,
         type: 3}
+      propertyPath: hasCollect_Items.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3944970703864845122, guid: 29616af83f0a4434f8d5c6f755434b37,
+        type: 3}
       propertyPath: hasEquip_Items.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3944970703864845122, guid: 29616af83f0a4434f8d5c6f755434b37,
+        type: 3}
+      propertyPath: hasEquip_Items.Array.data[1]
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4930551391319939699, guid: 29616af83f0a4434f8d5c6f755434b37,
