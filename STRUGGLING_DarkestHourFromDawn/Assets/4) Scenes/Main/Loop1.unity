@@ -1352,6 +1352,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 593218008}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &224716311 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2067991201832186432, guid: 81cf1b186078b0248801e330f53901e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 593218008}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224716310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1785d4681b15a441b4cb0696e9745e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &226692183 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 1037995531000955256, guid: e7a8d4ef6bee10c4dbdb62545c710292,
@@ -1721,7 +1733,7 @@ PrefabInstance:
     - target: {fileID: 3324708372403987452, guid: 0bfa86b0d8e94bb4581a4bece801bda2,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3324708372403987453, guid: 0bfa86b0d8e94bb4581a4bece801bda2,
         type: 3}
@@ -1912,7 +1924,7 @@ Transform:
   - {fileID: 264116939}
   - {fileID: 1118203583}
   m_Father: {fileID: 1139999198}
-  m_RootOrder: 14
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &334555339
 PrefabInstance:
@@ -2520,6 +2532,7 @@ MonoBehaviour:
   PCCamera: {fileID: 1535526144}
   cItemUI1: {fileID: 1623292456}
   raycast: {fileID: 76204513}
+  cameraShake: {fileID: 1535526165}
   isUIOn: 0
   isFunction: 0
 --- !u!1001 &449197323
@@ -3839,6 +3852,11 @@ PrefabInstance:
       propertyPath: PCCamera
       value: 
       objectReference: {fileID: 1535526144}
+    - target: {fileID: 2067991201832186432, guid: 81cf1b186078b0248801e330f53901e3,
+        type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 1535526165}
     - target: {fileID: 2067991201832186433, guid: 81cf1b186078b0248801e330f53901e3,
         type: 3}
       propertyPath: m_Name
@@ -4033,6 +4051,16 @@ PrefabInstance:
       propertyPath: SEM
       value: 
       objectReference: {fileID: 1680583726}
+    - target: {fileID: 2507023038517525060, guid: 78cc0057b0c8b454c8064c5159e3be26,
+        type: 3}
+      propertyPath: raycast
+      value: 
+      objectReference: {fileID: 76204513}
+    - target: {fileID: 2507023038517525060, guid: 78cc0057b0c8b454c8064c5159e3be26,
+        type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 1535526165}
     - target: {fileID: 2507023038763421958, guid: 78cc0057b0c8b454c8064c5159e3be26,
         type: 3}
       propertyPath: m_RootOrder
@@ -6792,7 +6820,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1139999198
 Transform:
   m_ObjectHideFlags: 0
@@ -6801,17 +6829,18 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1139999197}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 45.98, y: 3.4910002, z: -30.83}
+  m_LocalPosition: {x: 71.67, y: 3.4910002, z: -30.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1690081903}
+  - {fileID: 2001452775}
   - {fileID: 1471523927}
   - {fileID: 1552354484}
   - {fileID: 1525295720}
   - {fileID: 1552145964}
   - {fileID: 1711880485}
-  - {fileID: 2001452775}
+  - {fileID: 322790621}
   - {fileID: 48354306}
   - {fileID: 321219514}
   - {fileID: 835722009}
@@ -6819,7 +6848,6 @@ Transform:
   - {fileID: 319838373}
   - {fileID: 1440669995}
   - {fileID: 598682307}
-  - {fileID: 322790621}
   - {fileID: 694198786}
   - {fileID: 1657345510}
   - {fileID: 604507127}
@@ -7928,8 +7956,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camTransform: {fileID: 1535526145}
   shakeDuration: 2
+  gameMnager: {fileID: 224716311}
   shakeAmount: 0.7
   decreaseFactor: 1
+  trigger: 0
 --- !u!1001 &1547467221
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11971,7 +12001,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1139999198}
-  m_RootOrder: 6
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!23 &2001452776
 MeshRenderer:

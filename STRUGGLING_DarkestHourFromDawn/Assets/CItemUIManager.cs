@@ -9,7 +9,9 @@ public class CItemUIManager : MonoBehaviour
     public GameObject PCCamera;
     public GameObject cItemUI1;
     public Raycast raycast;
-   
+    public CameraShake cameraShake;
+
+
     public bool isUIOn = false;
     public bool isFunction = false;
     public void CItemEvent1()
@@ -39,7 +41,7 @@ public class CItemUIManager : MonoBehaviour
     //        GameManager.instance.CItemEvent1(0);
     //    }
     //}
-   
+    public bool cameraShakeOn = false;
     void CE1Controller()
     {
         if (isUIOn)
@@ -53,6 +55,7 @@ public class CItemUIManager : MonoBehaviour
             cItemUI1.gameObject.SetActive(false);
             Time.timeScale = 1;
             PCCamera.GetComponent<FirstPersonCamera>().CameraMoveOn = true;
+            cameraShakeOn = true;
         }
 
     }

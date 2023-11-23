@@ -7,9 +7,13 @@ public class CameraShake : MonoBehaviour
 
     public Transform camTransform;
     public float shakeDuration = 0f;
+    public CItemUIManager CUIM;
+
 
     public float shakeAmount = 0.7f;
     public float decreaseFactor = 1.0f;
+
+    public bool trigger = false;
 
     Vector3 originalPos;
 
@@ -26,18 +30,47 @@ public class CameraShake : MonoBehaviour
         originalPos = camTransform.localPosition;
     }
 
+    //void ConfusePiece1()
+    //{
+    //    camTransform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
+
+    //    shakeDuration -= Time.deltaTime * decreaseFactor;
+    //}
+
+    //void ConfusePiece2()
+    //{
+    //    shakeDuration = 0f;
+    //    camTransform.localPosition = originalPos;
+    //}
+
+    public void Confuse()
+    {
+        if (CUIM.cameraShakeOn == true)
+        {
+            if (shakeDuration > 0)
+            {
+                camTransform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
+
+                shakeDuration -= Time.deltaTime * decreaseFactor;
+            }
+            else
+            {
+                camTransform.localPosition = originalPos;
+            }
+        }
+        
+    }
+
     void Update()
     {
-        if (shakeDuration > 0)
-        {
-            camTransform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
-
-            shakeDuration -= Time.deltaTime * decreaseFactor;
-        }
-        else
-        {
-            shakeDuration = 0f;
-            camTransform.localPosition = originalPos;
-        }
+        Confuse();
+    //    if (shakeDuration > 0)
+    //    {
+    //        ConfusePiece1();
+    //    }
+    //    else
+    //    {
+    //        ConfusePiece2();
+    //    }
     }
 }
