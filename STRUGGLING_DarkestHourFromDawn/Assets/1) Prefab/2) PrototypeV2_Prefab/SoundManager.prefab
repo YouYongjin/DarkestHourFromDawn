@@ -63,22 +63,27 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7a2018b6ad0ef71418ed0857bbfd6d57, type: 3}
   - {fileID: 8300000, guid: 4c561a55004eeb94bad940ff3084fa19, type: 3}
   - {fileID: 8300000, guid: bc237fb55deec26439e210b2afc138f2, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 3247648c446a66f42a0275ecc736bf85, type: 3}
+  - {fileID: 8300000, guid: 96c9f6553a2ee454bb9195c687fe5051, type: 3}
+  - {fileID: 8300000, guid: f3dee01471c946c4ca45adeac3cdb5f0, type: 3}
+  - {fileID: 8300000, guid: 990b8b48e137b6441af69cd531c85a2f, type: 3}
+  - {fileID: 8300000, guid: 9d010e8b85751424f870f8b1c9a96484, type: 3}
+  - {fileID: 8300000, guid: e660e0a7c1f79764f8e7a7b04cda5750, type: 3}
+  - {fileID: 8300000, guid: d781a78b77127b64fbc954d0d538458c, type: 3}
+  - {fileID: 8300000, guid: c893b80b225556d4cb18e60625b09fdc, type: 3}
+  - {fileID: 8300000, guid: cc931273529316f4cbb0d9db7e83da06, type: 3}
+  - {fileID: 8300000, guid: 42473ba26fc79594f86f7632975b3453, type: 3}
+  - {fileID: 8300000, guid: c0d003a57b3b37b40811f82d7d3c2500, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   soundCharacter:
   - {fileID: 8300000, guid: db156904bf5419647801fa24303769d2, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 6138cab0072ac534685a379637ebdfb4, type: 3}
+  - {fileID: 8300000, guid: e504ae06384537a488dff30ec7b83f76, type: 3}
+  - {fileID: 8300000, guid: df33cf0a03d155a4c9ce03181c626d97, type: 3}
+  - {fileID: 8300000, guid: 0e5048bd20756f54289ccd906ee40510, type: 3}
 --- !u!1 &9129118030272029621
 GameObject:
   m_ObjectHideFlags: 0
