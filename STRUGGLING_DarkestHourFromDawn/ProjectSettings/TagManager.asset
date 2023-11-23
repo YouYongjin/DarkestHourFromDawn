@@ -23,6 +23,7 @@ TagManager:
   - RemakeDoor
   - RemakeChiffonier
   - ConditionDestroy
+  - Curtain
   layers:
   - Default
   - TransparentFX

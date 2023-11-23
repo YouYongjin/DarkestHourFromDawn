@@ -6,7 +6,8 @@ using UnityEngine;
 public class Flashlight_Switch : MonoBehaviour
 {
     public GameObject lightGroup;
-    
+    public AudioSource audioSource;
+
     public bool lightSwitch = true;
 
     public bool eIDown;
@@ -23,11 +24,12 @@ public class Flashlight_Switch : MonoBehaviour
             if (lightSwitch)
             {
                 LightOff();
+                SoundManager.instance.PlayAudioSource(audioSource, SoundManager.instance.dataBase.soundCharacter[2]);
             }
             else if (!lightSwitch)
             {
                 LightOn();
-                
+                SoundManager.instance.PlayAudioSource(audioSource, SoundManager.instance.dataBase.soundCharacter[2]);
             }
         }
     }

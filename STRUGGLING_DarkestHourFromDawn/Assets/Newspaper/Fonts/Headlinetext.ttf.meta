@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: d5f5b5e8dc48d4091ae7c6c4ff8d1c84
+timeCreated: 1502970701
+licenseType: Store
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Headline Text
+  fontNames:
+  - Headline Text
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

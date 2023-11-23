@@ -254,6 +254,11 @@ public class Raycast : MonoBehaviour
                     Destroy(hit.transform.gameObject);
                 
             }
+            else if(hit.transform.gameObject.CompareTag("Curtain"))
+            {
+                if (iDown)
+                    hit.transform.GetComponent<Curtain>().Open();
+            }
         }
         else
         {
