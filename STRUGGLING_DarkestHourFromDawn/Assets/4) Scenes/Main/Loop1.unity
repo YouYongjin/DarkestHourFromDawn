@@ -1352,18 +1352,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 593218008}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &224716311 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2067991201832186432, guid: 81cf1b186078b0248801e330f53901e3,
-    type: 3}
-  m_PrefabInstance: {fileID: 593218008}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 224716310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1785d4681b15a441b4cb0696e9745e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &226692183 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 1037995531000955256, guid: e7a8d4ef6bee10c4dbdb62545c710292,
@@ -2535,6 +2523,7 @@ MonoBehaviour:
   cameraShake: {fileID: 1535526165}
   isUIOn: 0
   isFunction: 0
+  cameraShakeOn: 0
 --- !u!1001 &449197323
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7956,7 +7945,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camTransform: {fileID: 1535526145}
   shakeDuration: 2
-  gameMnager: {fileID: 224716311}
+  CUIM: {fileID: 445008430}
   shakeAmount: 0.7
   decreaseFactor: 1
   trigger: 0
