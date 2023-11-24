@@ -40,10 +40,10 @@ public class NewspaperRssLoad : MonoBehaviour
         var www = UnityWebRequest.Get(rssUrl);
         yield return www.SendWebRequest();
      
-        if(www.isNetworkError) 
-            Debug.Log(www.error);
-        else 
-            ParseData(www.downloadHandler.text);
+        //if(www.isNetworkError) 
+        //    Debug.Log(www.error);
+        //else 
+        //    ParseData(www.downloadHandler.text);
      }
 
      private void ParseData(string input)

@@ -5683,6 +5683,11 @@ PrefabInstance:
       objectReference: {fileID: 1949910520}
     - target: {fileID: 3944970703864845122, guid: 29616af83f0a4434f8d5c6f755434b37,
         type: 3}
+      propertyPath: equip_Items.Array.data[1]
+      value: 
+      objectReference: {fileID: 1039809778}
+    - target: {fileID: 3944970703864845122, guid: 29616af83f0a4434f8d5c6f755434b37,
+        type: 3}
       propertyPath: hasEquip_Items.Array.data[1]
       value: 0
       objectReference: {fileID: 0}
@@ -5843,6 +5848,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29616af83f0a4434f8d5c6f755434b37, type: 3}
+--- !u!1 &1039809778 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5006078371209951111, guid: 29616af83f0a4434f8d5c6f755434b37,
+    type: 3}
+  m_PrefabInstance: {fileID: 1039809777}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1062788664
 GameObject:
   m_ObjectHideFlags: 0

@@ -32,8 +32,12 @@ public class BrokenMirror : MonoBehaviour
         {
             if (raycast.hasCollect_Items[i])
                 hasItem++;
+            if (hasItem == 5)
+                return;
         }
         mirrorCount.text = $"{hasItem} / 4";
+        
+
     }
         
         //if (raycast.hasCollect_Items[2])
