@@ -9,9 +9,11 @@ public class CameraShake : MonoBehaviour
     public float shakeDuration = 0f;
     public CItemUIManager CUIM;
 
-
+    public AudioSource audioSource;
     public float shakeAmount = 0.7f;
     public float decreaseFactor = 1.0f;
+
+    bool soundCheck = false;
 
     public bool trigger = false;
 
@@ -52,6 +54,12 @@ public class CameraShake : MonoBehaviour
                 camTransform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
 
                 shakeDuration -= Time.deltaTime * decreaseFactor;
+                soundCheck = true;
+                if (soundCheck)
+                {
+                    SoundManager.instance.PlayAudioSource(audioSource, SoundManager.instance.dataBase.soundCharacter[1]);
+                    soundCheck = false;
+                }
             }
             else
             {
