@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SurpriseEvent : MonoBehaviour
 {
+    public AudioSource audioSource;
+
     public GameObject bigBear;
     public GameObject pcCamera;
     public GameObject bigBearLight;
@@ -44,6 +46,7 @@ public class SurpriseEvent : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         bigBear.SetActive(true);
+        SoundManager.instance.PlayAudioSource(audioSource, SoundManager.instance.dataBase.soundEffect[21]);
         lookAtBear = true;     
         yield return new WaitForSeconds(0.5f);
         mirrorCountObj.SetActive(true);

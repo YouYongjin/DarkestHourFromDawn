@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Raycast : MonoBehaviour
@@ -34,12 +35,18 @@ public class Raycast : MonoBehaviour
 
     public int equipItemIndex = -1;
 
-    public float maxDistance = 2f; //Ray의 거리 길이
+    public float maxDistance = 2.5f; //Ray의 거리 길이
 
     private void Start()
     {
         hasCollect_Items = new bool[99];
         hasEquip_Items = new bool[99];
+        //if (SceneManager.GetActiveScene().name == "Loop1")
+        //{
+        //    nearObject = null;
+        //    nowEquipItem = null;
+        //    hasEquip_Items[0] = false;
+        //}
     }
 
     public void GetInput()
@@ -76,9 +83,12 @@ public class Raycast : MonoBehaviour
                 Item item = nearObject.GetComponent<Item>();
                 int cItemIndex = item.value;
                 hasCollect_Items[cItemIndex] = true;
-                brokenMirror.MirrorCount();
                 Destroy(nearObject);
-
+                if (SceneManager.GetActiveScene().name == "Loop2")
+                {
+                    brokenMirror.MirrorCount();
+                    Destroy(nearObject);
+                }
                 //gameManager.GetComponent<GameManager>().CItemEvent();
             }
         }
@@ -88,11 +98,9 @@ public class Raycast : MonoBehaviour
     // 장착 아이템 이벤트 함수
     public void ESwap()
     {
-        if (/*iSwap1 && */(!hasEquip_Items[0] || equipItemIndex == 0))
+        if (iSwap1 && (!hasEquip_Items[0] || equipItemIndex == 0))
         {
-            //return;
-
-
+            return;
         }
         if (iSwap2 && (!hasEquip_Items[1] || equipItemIndex == 1))
         {
@@ -126,6 +134,7 @@ public class Raycast : MonoBehaviour
             // public 으로 선언된 게임오브젝트 변수 equip_Items 내에 저장된 값을 eItemIndex(스왑키 넘버)를 입력할 때 장착 오브젝트 활성화.
             nowEquipItem.SetActive(true);
             //iSwap1Switch = true;
+            //장착
         }
 
         //if (iSwap1Switch && iSwap1 || iSwap2 || iSwap3)
@@ -244,6 +253,11 @@ public class Raycast : MonoBehaviour
                     if(iDown)
                     Destroy(hit.transform.gameObject);
                 
+            }
+            else if(hit.transform.gameObject.CompareTag("Curtain"))
+            {
+                if (iDown)
+                    hit.transform.GetComponent<Curtain>().Open();
             }
         }
         else

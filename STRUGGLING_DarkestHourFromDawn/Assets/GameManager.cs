@@ -11,7 +11,9 @@ public class GameManager : MonoBehaviour
     public Raycast raycast;
     public FirstPersonCamera FPC;
     public CItemUIManager CUM;
-    
+    //public CameraShake cameraShake;
+
+
     public bool eDown;
     bool intermitOn = true;
     public GameObject intermitUI;
@@ -56,6 +58,8 @@ public class GameManager : MonoBehaviour
         eDown = Input.GetButtonDown("Intermit");
     }
 
+
+    
     public void Intermit()
     {
         if(eDown && intermitOn)

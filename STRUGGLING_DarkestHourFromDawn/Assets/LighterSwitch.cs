@@ -5,7 +5,7 @@ using UnityEngine;
 public class LighterSwitch : MonoBehaviour
 {
     public GameObject lightGroup;
-
+    public Animator anim;
     public bool lightSwitch = true;
 
     public bool eIDown;
@@ -22,11 +22,12 @@ public class LighterSwitch : MonoBehaviour
             if (lightSwitch)
             {
                 LightOff();
+                anim.Play("LighterOff");
             }
             else if (!lightSwitch)
             {
                 LightOn();
-
+                anim.Play("LighterOn");
             }
         }
     }

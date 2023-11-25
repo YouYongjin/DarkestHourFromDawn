@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class OneShotSurpriseDoor : Door
 {
     public Raycast raycast;
+    //public CameraShake cameraShake;
     public Animator animOpen;
     public SceneEventManager SEM;
     //bool OneShotSurprise = false; 
@@ -45,6 +46,5 @@ public class OneShotSurpriseDoor : Door
     public override bool CheckOpen()
     {
         return true;
-
     }
 }
