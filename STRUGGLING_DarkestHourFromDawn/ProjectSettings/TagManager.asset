@@ -24,6 +24,7 @@ TagManager:
   - RemakeChiffonier
   - ConditionDestroy
   - Curtain
+  - Closet
   layers:
   - Default
   - TransparentFX

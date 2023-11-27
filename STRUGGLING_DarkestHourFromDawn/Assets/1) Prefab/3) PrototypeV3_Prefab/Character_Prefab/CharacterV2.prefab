@@ -1202,7 +1202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ddd5ba957d081b448f715efe694b3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1.2
+  moveSpeed: 1.7
   aniCamera: {fileID: 2586479500633135425}
 --- !u!114 &5406951523387076406
 MonoBehaviour:
@@ -2932,6 +2932,7 @@ MonoBehaviour:
   camTransform: {fileID: 1194380710360480128}
   shakeDuration: 2
   CUIM: {fileID: 0}
+  audioSource: {fileID: 0}
   shakeAmount: 0.05
   decreaseFactor: 0.75
   trigger: 0
