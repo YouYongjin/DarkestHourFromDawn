@@ -259,6 +259,11 @@ public class Raycast : MonoBehaviour
                 if (iDown)
                     hit.transform.GetComponent<Curtain>().Open();
             }
+            else if(hit.transform.gameObject.CompareTag("Closet"))
+            {
+                if (iDown)
+                    hit.transform.GetComponent<Closet>().Open();
+            }
         }
         else
         {
