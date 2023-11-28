@@ -85,28 +85,28 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void Loop2TargetRotateEvent()
-    {
-        if (SceneManager.GetActiveScene().name == "Loop2")
-        {
-            if (raycast.hasCollect_Items[6])
-            {
-                //targetRotateMove.transform.LookAt(targetT);
+    //public void Loop2TargetRotateEvent()
+    //{
+    //    if (SceneManager.GetActiveScene().name == "Loop2")
+    //    {
+    //        if (raycast.hasCollect_Items[6])
+    //        {
+    //            //targetRotateMove.transform.LookAt(targetT);
 
-                //FPC.CameraMoveOn = false;
-                //targetRotateMove.TargetRotateEvent(cameraT, targetT, 10f);
-            }
+    //            //FPC.CameraMoveOn = false;
+    //            //targetRotateMove.TargetRotateEvent(cameraT, targetT, 10f);
+    //        }
 
-            //    //dollRb.AddForce(new Vector3(0, 1, 0) * maxHeight);
-            //} 
-        }
+    //        //    //dollRb.AddForce(new Vector3(0, 1, 0) * maxHeight);
+    //        //} 
+    //    }
 
-    }
+    //}
     void Update()
     {
         Intermit();
         GetInput();
         //CE1Controller();
-        Loop2TargetRotateEvent();
+        //Loop2TargetRotateEvent();
     }
 }
