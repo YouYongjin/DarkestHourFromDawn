@@ -23,6 +23,8 @@ public class CItemUIManager : MonoBehaviour
     public Transform cameraT;
     public Transform targetT;
 
+    public Rigidbody dollRb;
+
     public float maxHeight = 10f;
 
     public void CItemEvent1()
@@ -133,6 +135,8 @@ public class CItemUIManager : MonoBehaviour
         }
 
     }
+
+    bool conditionOne = false;
     void CE3Controller()
     {
         if (isUIOn)
@@ -145,6 +149,7 @@ public class CItemUIManager : MonoBehaviour
         {
             cItemUI3.gameObject.SetActive(false);
             Time.timeScale = 1;
+            conditionOne = true;
             //PCCamera.GetComponent<FirstPersonCamera>().CameraMoveOn = true;
             //cameraShakeOn = true;
             //if (cameraShake.shakeDuration <= 0f)
@@ -157,6 +162,22 @@ public class CItemUIManager : MonoBehaviour
         }
 
     }
+    bool conditionTwo = true;
+    public void TargetRotate()
+    {
+        if(conditionTwo)
+        StartCoroutine(TargetRotateCO());
+    }
+
+    IEnumerator TargetRotateCO()
+    {
+        yield return new WaitForSeconds(0.1f);
+        targetRotateMove.TargetRotateEvent(cameraT, targetT, 8f);
+        conditionTwo = false;
+        dollRb.AddForce(new Vector3(3, 2.8f, 0) * maxHeight);
+        yield return new WaitForSeconds(0.8f);
+        PCCamera.GetComponent<FirstPersonCamera>().CameraMoveOn = true;
+    }
 
     private void Update()
     {
@@ -165,7 +186,11 @@ public class CItemUIManager : MonoBehaviour
         CItemEvent2();
         CItemEvent3();
 
-        targetRotateMove.TargetRotateEvent(cameraT, targetT, 8f);
+
+        if(conditionOne)
+        {
+            TargetRotate();
+        }
     }
 
 }

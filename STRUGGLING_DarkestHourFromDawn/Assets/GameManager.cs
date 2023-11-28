@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
 
     //public Vector3 dollVector;
     public float maxHeight = 10f;
-    public Rigidbody dollRb;
+    //public Rigidbody dollRb;
     void Awake()
     {
         // �̱��� (���� ����): ��� ���� ������ �� �ִ�.
