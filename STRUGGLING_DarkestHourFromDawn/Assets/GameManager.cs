@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public Raycast raycast;
     public FirstPersonCamera FPC;
     public CItemUIManager CUM;
+    public TargetRotateMove targetRotateMove;
     //public CameraShake cameraShake;
 
 
@@ -20,9 +21,15 @@ public class GameManager : MonoBehaviour
     public GameObject PCCamera;
     //PlayerV2 player;
 
+    public Transform cameraT;
+    public Transform targetT;
+
+    //public Vector3 dollVector;
+    public float maxHeight = 10f;
+    public Rigidbody dollRb;
     void Awake()
     {
-        // ½Ì±ÛÅæ (ÇöÀç ÇüÅÂ): ¸ðµç °÷À» °³ÀÔÇÒ ¼ö ÀÖ´Ù.
+        // ï¿½Ì±ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½): ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½.
         instance = this;
     }
 
@@ -30,7 +37,7 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneName);
     }
-    // staticÀ» ÀÔ·ÂÇÒ °æ¿ì, Instance °æ·Î°¡ ¾Æ´Ñ ÇÔ¼ö¸¦ È£ÃâÇÒ ¼ö ÀÖ´Ù?
+    // staticï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½, Instance ï¿½ï¿½Î°ï¿½ ï¿½Æ´ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ È£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½?
     //public static void SceneChange(string Scenename)Stop
     //{
     //    SceneManager.LoadScene(Scenename);
@@ -38,7 +45,7 @@ public class GameManager : MonoBehaviour
 
     public void CItem(Player player, int ItemIndex, string SceneName)
     {
-        // SceneName = (SceneName)À» String ¹è¿­¿¡ ÀÔ·ÂÇÏ°í ½ÍÀ½.
+        // SceneName = (SceneName)ï¿½ï¿½ String ï¿½è¿­ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½.
         if (player.hasCItems[ItemIndex])
         {
             SceneManager.LoadScene(SceneName);
@@ -77,13 +84,23 @@ public class GameManager : MonoBehaviour
             PCCamera.GetComponent<FirstPersonCamera>().CameraMoveOn = true;
         }
     }
-    // CItem[0] 'ÀÏ±âÀå' °ü·Ã ÇÔ¼ö
+
+    public void Loop2TargetRotateEvent()
+    {
+        if (SceneManager.GetActiveScene().name == "Loop2")
+        {
+            if (raycast.hasCollect_Items[6])
+                targetRotateMove.TargetRotateEvent(cameraT, targetT, 10f);
+                dollRb.AddForce(new Vector3(0, 1, 0) * maxHeight);
+        } 
+    }
+    // CItem[0] 'ï¿½Ï±ï¿½ï¿½ï¿½' ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
 
     //public void CItemEvent1(int cItemIndex/*, GameObject isUIOn*/)
     //{
     //    //if (PCCamera.GetComponent<Raycast>().hasEquip_Items[0])
     //    //{
-    //    //    Debug.Log("UI»ý¼º");
+    //    //    Debug.Log("UIï¿½ï¿½ï¿½ï¿½");
     //    //}
     //    //hasCollect_Item = raycast.hasCollect_Items;
 
@@ -140,5 +157,6 @@ public class GameManager : MonoBehaviour
         Intermit();
         GetInput();
         //CE1Controller();
+        Loop2TargetRotateEvent();
     }
 }
