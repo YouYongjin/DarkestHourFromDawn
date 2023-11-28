@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class TargetRotateMove : MonoBehaviour
 {
@@ -15,8 +16,14 @@ public class TargetRotateMove : MonoBehaviour
     }
     public void TargetRotateEvent(Transform camera, Transform target, float speed)
     {
-        speed = 10f;
         speed = speed * Time.deltaTime;
-        transform.rotation = Quaternion.RotateTowards(camera.rotation, target.rotation, speed);
+        // transform.rotation = Quaternion.RotateTowards(camera.rotation, target.rotation, speed);
+
+        Vector3 pos = camera.position + camera.forward;
+
+        Vector3 lerpPos = Vector3.Lerp(pos, target.position, speed);
+        transform.LookAt(lerpPos);
+
+        Debug.Log("Rotate ½ÇÇà");
     }
 }

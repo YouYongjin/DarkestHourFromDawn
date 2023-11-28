@@ -49,7 +49,7 @@ public class CameraShake : MonoBehaviour
     {
         if (CUIM.cameraShakeOn == true)
         {
-            if (shakeDuration > 0)
+            if (shakeDuration > 0f)
             {
                 camTransform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
 
@@ -64,6 +64,7 @@ public class CameraShake : MonoBehaviour
             else
             {
                 camTransform.localPosition = originalPos;
+                shakeDuration = 0f;
             }
         }
         

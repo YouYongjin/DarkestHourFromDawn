@@ -90,68 +90,18 @@ public class GameManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Loop2")
         {
             if (raycast.hasCollect_Items[6])
-                targetRotateMove.TargetRotateEvent(cameraT, targetT, 10f);
-                dollRb.AddForce(new Vector3(0, 1, 0) * maxHeight);
-        } 
+            {
+                //targetRotateMove.transform.LookAt(targetT);
+
+                //FPC.CameraMoveOn = false;
+                //targetRotateMove.TargetRotateEvent(cameraT, targetT, 10f);
+            }
+
+            //    //dollRb.AddForce(new Vector3(0, 1, 0) * maxHeight);
+            //} 
+        }
+
     }
-    // CItem[0] '�ϱ���' ���� �Լ�
-
-    //public void CItemEvent1(int cItemIndex/*, GameObject isUIOn*/)
-    //{
-    //    //if (PCCamera.GetComponent<Raycast>().hasEquip_Items[0])
-    //    //{
-    //    //    Debug.Log("UI����");
-    //    //}
-    //    //hasCollect_Item = raycast.hasCollect_Items;
-
-    //    if (raycast.hasCollect_Items[cItemIndex])
-    //    {
-    //        if (cItemIndex == 0)
-    //        {
-    //            CUM.isUIOn = true;
-    //            //isUIOn.gameObject.SetActive(true);
-    //            //Time.timeScale = 0;
-    //            //PCCamera.GetComponent<FirstPersonCamera>().CameraMoveOn = false;
-    //            if (Input.GetKeyDown("mouse 0"))
-    //            {
-    //                CUM.isUIOn = false;
-    //                //Destroy(isUIOn);
-    //                //Time.timeScale = 1;
-    //                //PCCamera.GetComponent<FirstPersonCamera>().CameraMoveOn = true;
-    //            }
-    //        }
-
-
-    //        //if (isUIOn)
-    //        //{
-    //        //    timer += Time.deltaTime;
-    //        //    if (timer > waitingTime)
-    //        //    {
-    //        //        //isUIOn.gameObject.SetActive(false);
-    //        //    }
-    //        //}
-    //    }
-    //}
-
-    //bool isUIOn = false;
-    //public GameObject CEUI;
-    //public void CE1Controller()
-    //{
-    //    if(isUIOn)
-    //    {
-    //        CEUI.gameObject.SetActive(true);
-    //        Time.timeScale = 0;
-    //        PCCamera.GetComponent<FirstPersonCamera>().CameraMoveOn = false;
-    //    }
-    //    else if(!isUIOn)
-    //    {
-    //        CEUI.gameObject.SetActive(false);
-    //        Time.timeScale = 1;
-    //        PCCamera.GetComponent<FirstPersonCamera>().CameraMoveOn = true;
-    //    }
-
-    //}
-
     void Update()
     {
         Intermit();
