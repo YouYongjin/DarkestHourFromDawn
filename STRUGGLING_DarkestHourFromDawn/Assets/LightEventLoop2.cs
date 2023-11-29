@@ -5,12 +5,7 @@ using UnityEngine;
 public class LightEventLoop2 : MonoBehaviour
 {
     public GameObject[] lightList;
-    //public GameObject bigBear;
-    //public GameObject pcCamera;
 
-    //public Transform bigBearT;
-
-    //public PlayerV2 player;
     public Flashlight_Switch flashLight;
 
     public bool SurpriseOn;
@@ -67,49 +62,6 @@ public class LightEventLoop2 : MonoBehaviour
         yield return new WaitForSeconds(2.1f);
         test = false;
         lightEventOn = true;
-
-        //yield return null;
-
-        //while (realTime < 7.5)
-        //{
-        //    realTime += Time.deltaTime;
-        //    if (realTime >= 0.1f)
-        //    {
-        //        flashLight.eIDown = true;
-        //        flashLight.LightOff();
-        //        lightList[0].SetActive(false);
-        //        Debug.Log("실행");
-        //    }
-        //    if (realTime >= 0.6f)
-        //    {
-        //        lightList[1].SetActive(false);
-        //    }
-        //    if (realTime >= 1.1f)
-        //    {
-        //        lightList[2].SetActive(false);
-        //    }
-        //    if (realTime >= 1.6f)
-        //    {
-        //        lightList[3].SetActive(false);
-        //    }
-        //    if (realTime >= 2.1f)
-        //    {
-        //        lightList[4].SetActive(false);
-        //    }
-        //    if (realTime >= 6.5f)
-        //    {
-        // 이 부분은 그냥 특정 콜라이더를 밟을 때 실행 되도록 하는 것은 어떤가?
-        //player.moveSpeed = 0;
-        //bigBear.SetActive(true);
-        //pcCamera.transform.LookAt(bigBearT);
-        //lightList[0].SetActive(true);
-        //lightList[1].SetActive(true);
-        //lightList[2].SetActive(true);
-        //lightList[3].SetActive(true);
-        //lightList[4].SetActive(true);
-        //}
-        //yield return null;
-        //}
     }
 
     private void Update()
@@ -117,10 +69,3 @@ public class LightEventLoop2 : MonoBehaviour
         FlashlightEvent();
     }
 }
-
-
-//    void Update()
-//    {
-//        LightEvent();
-//    }
-//}

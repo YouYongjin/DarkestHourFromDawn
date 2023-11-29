@@ -45,6 +45,7 @@ public class CItemUIManager : MonoBehaviour
             }
         }
     }
+
     public void CItemEvent2()
     {
         if (SceneManager.GetActiveScene().name == "Loop2")
@@ -63,6 +64,7 @@ public class CItemUIManager : MonoBehaviour
             }
         }
     }
+
     public void CItemEvent3()
     {
         if (SceneManager.GetActiveScene().name == "Loop2")
@@ -82,15 +84,6 @@ public class CItemUIManager : MonoBehaviour
         }
     }
 
-
-
-    //public void GetCItem0()
-    //{
-    //    if (SceneManager.GetActiveScene().name == "Loop1")
-    //    {
-    //        GameManager.instance.CItemEvent1(0);
-    //    }
-    //}
     public bool cameraShakeOn = false;
     void CE1Controller()
     {
@@ -110,9 +103,7 @@ public class CItemUIManager : MonoBehaviour
             {
                 cameraShakeOn = false;
             }
-
         }
-
     }
     void CE2Controller()
     {
@@ -133,7 +124,6 @@ public class CItemUIManager : MonoBehaviour
                 cameraShakeOn = false;
             }
         }
-
     }
 
     bool conditionOne = false;
@@ -160,7 +150,6 @@ public class CItemUIManager : MonoBehaviour
             // 넌 잠시 짜져있어
             //targetRotateMove.TargetRotateEvent(cameraT, targetT, 8f);
         }
-
     }
     bool conditionTwo = true;
     public void TargetRotate()
@@ -181,11 +170,9 @@ public class CItemUIManager : MonoBehaviour
 
     private void Update()
     {
-        //GetCItem0();
         CItemEvent1();
         CItemEvent2();
         CItemEvent3();
-
 
         if(conditionOne)
         {

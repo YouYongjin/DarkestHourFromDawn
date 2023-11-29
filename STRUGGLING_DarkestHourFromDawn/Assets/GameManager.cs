@@ -37,11 +37,6 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneName);
     }
-    // static�� �Է��� ���, Instance ��ΰ� �ƴ� �Լ��� ȣ���� �� �ִ�?
-    //public static void SceneChange(string Scenename)Stop
-    //{
-    //    SceneManager.LoadScene(Scenename);
-    //}
 
     public void CItem(Player player, int ItemIndex, string SceneName)
     {
@@ -85,28 +80,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    //public void Loop2TargetRotateEvent()
-    //{
-    //    if (SceneManager.GetActiveScene().name == "Loop2")
-    //    {
-    //        if (raycast.hasCollect_Items[6])
-    //        {
-    //            //targetRotateMove.transform.LookAt(targetT);
-
-    //            //FPC.CameraMoveOn = false;
-    //            //targetRotateMove.TargetRotateEvent(cameraT, targetT, 10f);
-    //        }
-
-    //        //    //dollRb.AddForce(new Vector3(0, 1, 0) * maxHeight);
-    //        //} 
-    //    }
-
-    //}
     void Update()
     {
         Intermit();
         GetInput();
-        //CE1Controller();
-        //Loop2TargetRotateEvent();
     }
 }

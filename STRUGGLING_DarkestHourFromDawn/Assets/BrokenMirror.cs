@@ -39,34 +39,7 @@ public class BrokenMirror : MonoBehaviour
         
 
     }
-        
-        //if (raycast.hasCollect_Items[2])
-        //{
-        //    mirrorCount.text = haveCount + 1 + " / 4";
-        //    haveCount = haveCount + 1;
-        //    //return;
-        //}
-        //if (raycast.hasCollect_Items[3])
-        //{
-        //    mirrorCount.text = haveCount + 1 + " / 4";
-        //    haveCount = haveCount + 1;
-        //    //return;
-        //}
-        //if (raycast.hasCollect_Items[4])
-        //{
-        //    mirrorCount.text = haveCount + 1 + " / 4";
-        //    haveCount = haveCount + 1;
-        //    //return;
-        //}
-        //if (raycast.hasCollect_Items[5])
-        //{
-        //    mirrorCount.text = haveCount + 1 + " / 4";
-        //    haveCount = haveCount + 1;
-        //    //return;
-        //}
- 
-
-    void MirrorPiece1()
+     void MirrorPiece1()
     {
         if (raycast.hasCollect_Items[2])
         {

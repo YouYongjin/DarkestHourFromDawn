@@ -41,12 +41,6 @@ public class Raycast : MonoBehaviour
     {
         hasCollect_Items = new bool[99];
         hasEquip_Items = new bool[99];
-        //if (SceneManager.GetActiveScene().name == "Loop1")
-        //{
-        //    nearObject = null;
-        //    nowEquipItem = null;
-        //    hasEquip_Items[0] = false;
-        //}
     }
 
     public void GetInput()
@@ -137,30 +131,7 @@ public class Raycast : MonoBehaviour
             //장착
         }
 
-        //if (iSwap1Switch && iSwap1 || iSwap2 || iSwap3)
-        //{
-        //    nowEquipItem.SetActive(true);
-        //}
-
-        // 수집 아이템 이벤트 함수
-        //void CSwap()
-        //{
-
-        //}
     }
-
-    //bool isUIOn;
-
-    //public void GetCItem0()
-    //{
-    //    GameManager.instance.CItemEvent1(0, cItemUI);
-    //}
-
-    //public GameObject lightObj;
-    //public void TestGetItem()
-    //{
-    //    GameManager.instance.CItemEvent2(0, 1, lightObj);
-    //}
 
     public void RayHit()
     {
@@ -181,7 +152,6 @@ public class Raycast : MonoBehaviour
 
                 Debug.Log(nearObject.name + "/" + nearObject.tag);
             }
-
             // Raycast로 충돌한 오브젝트의 태그가 "CItem"이면?
             else if (hit.transform.gameObject.CompareTag("CItem"))
             {
@@ -191,37 +161,6 @@ public class Raycast : MonoBehaviour
                 Debug.Log(nearObject.name + "/" + nearObject.tag);
             }
 
-            // Raycast로 충돌한 오브젝트의 태그가 "Door"이면?
-            //else if (hit.transform.gameObject.CompareTag("Door"))
-            //{
-            //    Debug.Log("문(고리) 이며, 열 수 있습니다.");
-            //    if (iDown)
-            //    {
-            //        hit.transform.GetComponent<OpenDoorV2>().DoorOnEvent();
-            //        //DoorOn.DoorOnEvent();
-            //        Debug.Log("문 상호작용");
-            //    }
-            //}
-            //else if (hit.transform.gameObject.CompareTag("DoorEvent1"))
-            //{
-            //    Debug.Log("문(고리) 이며, 이벤트 문입니다.");
-            //    if (iDown)
-            //    {
-            //        hit.transform.GetComponent<InteractiveSurprise_Door>().SurpriseDoorEvent();
-            //        Debug.Log("문 상호작용");
-            //    }
-            //}
-
-            // Raycast로 충돌한 오브젝트의 태그가 "Door(None)"이면?
-            //else if (hit.transform.gameObject.CompareTag("Door(None)"))
-            //{
-            //    Debug.Log("문(고리) 이며, 열 수 없습니다.");
-            //    if (iDown)
-            //    {
-            //        hit.transform.GetComponent<NoneDoorV2>().DoorOffEvent();
-            //    }
-            //}
-
             else if (hit.transform.gameObject.CompareTag("RemakeDoor"))
             {
                 Debug.Log("추상 클래스로 구현한 문 입니다.");
@@ -230,15 +169,6 @@ public class Raycast : MonoBehaviour
                     hit.transform.GetComponent<Door>().Open();
                 }
             }
-
-            //else if(hit.transform.gameObject.CompareTag("Chiffonier"))
-            //{
-            //    Debug.Log("사물함이며, 열 수 있습니다.");
-            //    if (iDown)
-            //    {
-            //        hit.transform.GetComponent<OpenChiffonierV2>().StorageOnEvent();
-            //    }
-            //}
             else if (hit.transform.gameObject.CompareTag("RemakeChiffonier"))
             {
                 Debug.Log("사물함이며, 열 수 있습니다.");
@@ -283,6 +213,5 @@ public class Raycast : MonoBehaviour
         GetInput();
         ESwap();
         RayHit();
-        //GetCItem1();
     }
 }
