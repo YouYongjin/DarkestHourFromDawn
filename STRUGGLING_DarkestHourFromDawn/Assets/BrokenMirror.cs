@@ -12,6 +12,11 @@ public class BrokenMirror : MonoBehaviour
     public GameObject mirrorPiece4;
     public TMP_Text mirrorCount;
 
+    public bool piece1Check = false;
+    public bool piece2Check = false;
+    public bool piece3Check = false;
+    public bool piece4Check = false;
+
     private void Update()
     {
         MirrorPieceGroup();
@@ -44,6 +49,7 @@ public class BrokenMirror : MonoBehaviour
         if (raycast.hasCollect_Items[2])
         {
             mirrorPiece1.SetActive(true);
+            piece1Check = true;
         }
     }
     void MirrorPiece2()
@@ -51,6 +57,7 @@ public class BrokenMirror : MonoBehaviour
         if (raycast.hasCollect_Items[3])
         {
             mirrorPiece2.SetActive(true);
+            piece2Check = true;
         }
     }
     void MirrorPiece3()
@@ -58,6 +65,7 @@ public class BrokenMirror : MonoBehaviour
         if (raycast.hasCollect_Items[4])
         {
             mirrorPiece3.SetActive(true);
+            piece3Check = true;
         }
     }
     void MirrorPiece4()
@@ -65,6 +73,7 @@ public class BrokenMirror : MonoBehaviour
         if (raycast.hasCollect_Items[5])
         {
             mirrorPiece4.SetActive(true);
+            piece4Check = true;
         }
     }
 }
