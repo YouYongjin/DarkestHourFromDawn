@@ -5,6 +5,7 @@ using UnityEngine;
 public class MonologueUIManager : MonoBehaviour
 {
     public static MonologueUIManager instance;
+    public MonologueUIList monologueDatabase;
     
     public GameObject backgroundImage;
 
@@ -15,35 +16,36 @@ public class MonologueUIManager : MonoBehaviour
         instance = this;
     }
 
-    public void MonologueUIOn()
+    public void CallMonologue(float start, float end, GameObject text)
     {
-        StartCoroutine(MonologueEventCO());
+        StartCoroutine(MonologueEventCO(start, end, text));
     }
 
-    IEnumerator MonologueEventCO()
+    IEnumerator MonologueEventCO(float start, float end, GameObject text)
     {
-        yield return new WaitForSeconds(0);
-        backgroundImage.SetActive(true);
+        yield return new WaitForSeconds(start);
         UIOn = true;
-        yield return new WaitForSeconds(3);
-        backgroundImage.SetActive(false);
+        backgroundImage.SetActive(UIOn);
+        text.SetActive(UIOn);
+        yield return new WaitForSeconds(end);
         UIOn = false;
+        backgroundImage.SetActive(UIOn);
+        text.SetActive(UIOn);
     }
 
-    public MonologueUIList monologueDatabase;
 
-    public void DoMonologue(GameObject text /*= null*//*, GameObject textNum*/)
-    {
-        MonologueUIOn();
-        if(UIOn)
-        {
-            text.SetActive(true);
-        }
-        else
-        {
-            text.SetActive(false);
-        }
-    }
+    //public void DoMonologue(GameObject text = null/*, GameObject textNum*/)
+    //{
+    //    MonologueUIOn(text);
+    //    if(UIOn)
+    //    {
+    //        text.SetActive(true);
+    //    }
+    //    else
+    //    {
+    //        text.SetActive(false);
+    //    }
+    //}
 
 
     //private void Update()

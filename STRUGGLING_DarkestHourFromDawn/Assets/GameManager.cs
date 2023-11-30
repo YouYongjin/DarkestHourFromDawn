@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public FirstPersonCamera FPC;
     public CItemUIManager CUM;
     public TargetRotateMove targetRotateMove;
+    public Surprise_Doll surpriseDoll;
     //public CameraShake cameraShake;
 
 
@@ -53,6 +54,7 @@ public class GameManager : MonoBehaviour
     {
         timer = 0.0f;
         waitingTime = 5;
+        
     }
 
     public void GetInput()
@@ -86,15 +88,44 @@ public class GameManager : MonoBehaviour
         GetInput();
         // DoMonogueUIOn() 에서 업데이트 필요.
         //MonologueLoop1();
+        MonologueLoop1();
+        //monologueSwitch = false;
+        //MonologueCheck();
     }
 
+    
+    //void MonologueCheck()
+    //{
+    //    monologueSwitch = true;
+    //    if (monologueSwitch)
+    //    {
+    //        MonologueLoop1();
+    //    }
+    //}
 
-    bool monologueSwitch = false;
+    bool monologueSwitch1 = true;
+    bool monologueSwitch2 = true;
+
+
     public void MonologueLoop1()
     {
         if (SceneManager.GetActiveScene().name == "Loop1")
         {
-            MonologueUIManager.instance.DoMonologue(MonologueUIManager.instance.monologueDatabase.monologueUI[0]);
+            // 첫 번째 독백
+            if (monologueSwitch1)
+            {
+                MonologueUIManager.instance.CallMonologue(1f, 4.5f,MonologueUIManager.instance.monologueDatabase.monologueUI[0]);
+                monologueSwitch1 = false;
+            }
+            // 두번째 독백
+            if (!surpriseDoll.isSurrprise)
+            {
+                if (monologueSwitch2)
+                { 
+                    MonologueUIManager.instance.CallMonologue(1f, 4.5f, MonologueUIManager.instance.monologueDatabase.monologueUI[1]);
+                    monologueSwitch2 = false;
+                }
+            }
         }
     }
 
