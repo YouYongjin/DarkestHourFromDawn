@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public Raycast raycast;
     public FirstPersonCamera FPC;
     public CItemUIManager CUM;
+    public TargetRotateMove targetRotateMove;
+    public Surprise_Doll surpriseDoll;
     //public CameraShake cameraShake;
 
 
@@ -20,9 +22,15 @@ public class GameManager : MonoBehaviour
     public GameObject PCCamera;
     //PlayerV2 player;
 
+    public Transform cameraT;
+    public Transform targetT;
+
+    //public Vector3 dollVector;
+    public float maxHeight = 10f;
+    //public Rigidbody dollRb;
     void Awake()
     {
-        // ½Ì±ÛÅæ (ÇöÀç ÇüÅÂ): ¸ğµç °÷À» °³ÀÔÇÒ ¼ö ÀÖ´Ù.
+        // ï¿½Ì±ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½): ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½.
         instance = this;
     }
 
@@ -30,15 +38,10 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneName);
     }
-    // staticÀ» ÀÔ·ÂÇÒ °æ¿ì, Instance °æ·Î°¡ ¾Æ´Ñ ÇÔ¼ö¸¦ È£ÃâÇÒ ¼ö ÀÖ´Ù?
-    //public static void SceneChange(string Scenename)Stop
-    //{
-    //    SceneManager.LoadScene(Scenename);
-    //}
 
     public void CItem(Player player, int ItemIndex, string SceneName)
     {
-        // SceneName = (SceneName)À» String ¹è¿­¿¡ ÀÔ·ÂÇÏ°í ½ÍÀ½.
+        // SceneName = (SceneName)ï¿½ï¿½ String ï¿½è¿­ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½.
         if (player.hasCItems[ItemIndex])
         {
             SceneManager.LoadScene(SceneName);
@@ -51,6 +54,7 @@ public class GameManager : MonoBehaviour
     {
         timer = 0.0f;
         waitingTime = 5;
+        
     }
 
     public void GetInput()
@@ -77,68 +81,56 @@ public class GameManager : MonoBehaviour
             PCCamera.GetComponent<FirstPersonCamera>().CameraMoveOn = true;
         }
     }
-    // CItem[0] 'ÀÏ±âÀå' °ü·Ã ÇÔ¼ö
-
-    //public void CItemEvent1(int cItemIndex/*, GameObject isUIOn*/)
-    //{
-    //    //if (PCCamera.GetComponent<Raycast>().hasEquip_Items[0])
-    //    //{
-    //    //    Debug.Log("UI»ı¼º");
-    //    //}
-    //    //hasCollect_Item = raycast.hasCollect_Items;
-
-    //    if (raycast.hasCollect_Items[cItemIndex])
-    //    {
-    //        if (cItemIndex == 0)
-    //        {
-    //            CUM.isUIOn = true;
-    //            //isUIOn.gameObject.SetActive(true);
-    //            //Time.timeScale = 0;
-    //            //PCCamera.GetComponent<FirstPersonCamera>().CameraMoveOn = false;
-    //            if (Input.GetKeyDown("mouse 0"))
-    //            {
-    //                CUM.isUIOn = false;
-    //                //Destroy(isUIOn);
-    //                //Time.timeScale = 1;
-    //                //PCCamera.GetComponent<FirstPersonCamera>().CameraMoveOn = true;
-    //            }
-    //        }
-
-
-    //        //if (isUIOn)
-    //        //{
-    //        //    timer += Time.deltaTime;
-    //        //    if (timer > waitingTime)
-    //        //    {
-    //        //        //isUIOn.gameObject.SetActive(false);
-    //        //    }
-    //        //}
-    //    }
-    //}
-
-    //bool isUIOn = false;
-    //public GameObject CEUI;
-    //public void CE1Controller()
-    //{
-    //    if(isUIOn)
-    //    {
-    //        CEUI.gameObject.SetActive(true);
-    //        Time.timeScale = 0;
-    //        PCCamera.GetComponent<FirstPersonCamera>().CameraMoveOn = false;
-    //    }
-    //    else if(!isUIOn)
-    //    {
-    //        CEUI.gameObject.SetActive(false);
-    //        Time.timeScale = 1;
-    //        PCCamera.GetComponent<FirstPersonCamera>().CameraMoveOn = true;
-    //    }
-
-    //}
 
     void Update()
     {
         Intermit();
         GetInput();
-        //CE1Controller();
+        // DoMonogueUIOn() ì—ì„œ ì—…ë°ì´íŠ¸ í•„ìš”.
+        //MonologueLoop1();
+        MonologueLoop1();
+        //monologueSwitch = false;
+        //MonologueCheck();
+    }
+
+    
+    //void MonologueCheck()
+    //{
+    //    monologueSwitch = true;
+    //    if (monologueSwitch)
+    //    {
+    //        MonologueLoop1();
+    //    }
+    //}
+
+    bool monologueSwitch1 = true;
+    bool monologueSwitch2 = true;
+
+
+    public void MonologueLoop1()
+    {
+        if (SceneManager.GetActiveScene().name == "Loop1")
+        {
+            // ì²« ë²ˆì§¸ ë…ë°±
+            if (monologueSwitch1)
+            {
+                MonologueUIManager.instance.CallMonologue(1f, 4.5f,MonologueUIManager.instance.monologueDatabase.monologueUI[0]);
+                monologueSwitch1 = false;
+            }
+            // ë‘ë²ˆì§¸ ë…ë°±
+            if (!surpriseDoll.isSurrprise)
+            {
+                if (monologueSwitch2)
+                { 
+                    MonologueUIManager.instance.CallMonologue(1f, 4.5f, MonologueUIManager.instance.monologueDatabase.monologueUI[1]);
+                    monologueSwitch2 = false;
+                }
+            }
+        }
+    }
+
+    public void MonologueLoop2()
+    {
+
     }
 }

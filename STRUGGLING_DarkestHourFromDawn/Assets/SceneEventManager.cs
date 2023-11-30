@@ -12,9 +12,6 @@ public class SceneEventManager : MonoBehaviour
     public bool oneShotSurprise = false;
     public GameObject lightOn;
 
-    //public GameObject doorEvent1;
-
-
     public void Loop2Root()
     {
         // ¾À Ã¼Å©
@@ -42,9 +39,17 @@ public class SceneEventManager : MonoBehaviour
                 LDoor.isLocked = true;
             }
         }
-        if(SceneManager.GetActiveScene().name == "Loop2")
+        else if(SceneManager.GetActiveScene().name == "Loop2")
         {
             raycast.hasEquip_Items[0] = true;
+            if (raycast.hasEquip_Items[6])
+            {
+                LDoor.isLocked = false;
+            }
+            else
+            {
+                LDoor.isLocked = true;
+            }
         }
 
     }

@@ -10,14 +10,23 @@ public class CItemUIManager : MonoBehaviour
     public GameObject cItemUI1;
     public GameObject cItemUI2;
     public GameObject cItemUI3;
+    
     public Raycast raycast;
     public CameraShake cameraShake;
-
+    public TargetRotateMove targetRotateMove;
 
     public bool isUIOn = false;
     public bool isFunction1 = false;
     public bool isFunction2 = false;
     public bool isFunction3 = false;
+
+    public Transform cameraT;
+    public Transform targetT;
+
+    public Rigidbody dollRb;
+
+    public float maxHeight = 10f;
+
     public void CItemEvent1()
     {
         if (SceneManager.GetActiveScene().name == "Loop1")
@@ -36,6 +45,7 @@ public class CItemUIManager : MonoBehaviour
             }
         }
     }
+
     public void CItemEvent2()
     {
         if (SceneManager.GetActiveScene().name == "Loop2")
@@ -54,6 +64,7 @@ public class CItemUIManager : MonoBehaviour
             }
         }
     }
+
     public void CItemEvent3()
     {
         if (SceneManager.GetActiveScene().name == "Loop2")
@@ -73,15 +84,6 @@ public class CItemUIManager : MonoBehaviour
         }
     }
 
-
-
-    //public void GetCItem0()
-    //{
-    //    if (SceneManager.GetActiveScene().name == "Loop1")
-    //    {
-    //        GameManager.instance.CItemEvent1(0);
-    //    }
-    //}
     public bool cameraShakeOn = false;
     void CE1Controller()
     {
@@ -97,13 +99,11 @@ public class CItemUIManager : MonoBehaviour
             Time.timeScale = 1;
             PCCamera.GetComponent<FirstPersonCamera>().CameraMoveOn = true;
             cameraShakeOn = true;
-            if (cameraShake.shakeDuration <= 0)
+            if (cameraShake.shakeDuration <= 0f)
             {
                 cameraShakeOn = false;
             }
-
         }
-
     }
     void CE2Controller()
     {
@@ -119,13 +119,14 @@ public class CItemUIManager : MonoBehaviour
             Time.timeScale = 1;
             PCCamera.GetComponent<FirstPersonCamera>().CameraMoveOn = true;
             cameraShakeOn = true;
-            if (cameraShake.shakeDuration <= 0)
+            if (cameraShake.shakeDuration <= 0f)
             {
                 cameraShakeOn = false;
             }
         }
-
     }
+
+    bool conditionOne = false;
     void CE3Controller()
     {
         if (isUIOn)
@@ -138,22 +139,45 @@ public class CItemUIManager : MonoBehaviour
         {
             cItemUI3.gameObject.SetActive(false);
             Time.timeScale = 1;
-            PCCamera.GetComponent<FirstPersonCamera>().CameraMoveOn = true;
-            cameraShakeOn = true;
-            if (cameraShake.shakeDuration <= 0)
-            {
-                cameraShakeOn = false;
-            }
-        }
+            conditionOne = true;
+            //PCCamera.GetComponent<FirstPersonCamera>().CameraMoveOn = true;
+            //cameraShakeOn = true;
+            //if (cameraShake.shakeDuration <= 0f)
+            //{
+            //    cameraShakeOn = false;
+            //}
 
+            // 넌 잠시 짜져있어
+            //targetRotateMove.TargetRotateEvent(cameraT, targetT, 8f);
+        }
+    }
+    bool conditionTwo = true;
+    public void TargetRotate()
+    {
+        if(conditionTwo)
+        StartCoroutine(TargetRotateCO());
+    }
+
+    IEnumerator TargetRotateCO()
+    {
+        yield return new WaitForSeconds(0.1f);
+        targetRotateMove.TargetRotateEvent(cameraT, targetT, 8f);
+        conditionTwo = false;
+        dollRb.AddForce(new Vector3(3, 2.8f, 0) * maxHeight);
+        yield return new WaitForSeconds(0.8f);
+        PCCamera.GetComponent<FirstPersonCamera>().CameraMoveOn = true;
     }
 
     private void Update()
     {
-        //GetCItem0();
         CItemEvent1();
         CItemEvent2();
         CItemEvent3();
+
+        if(conditionOne)
+        {
+            TargetRotate();
+        }
     }
 
 }

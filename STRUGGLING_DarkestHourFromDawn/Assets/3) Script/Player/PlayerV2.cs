@@ -35,8 +35,8 @@ public class PlayerV2 : MonoBehaviour
 
         Vector3 moveDistance = Vector3.zero;
 
-        HorizontalMove = transform.right * Input.GetAxis("Horizontal");
-        VerticalMove = transform.forward * Input.GetAxis("Vertical");
+        HorizontalMove = transform.right * Input.GetAxisRaw("Horizontal");
+        VerticalMove = transform.forward * Input.GetAxisRaw("Vertical");
         #endregion
 
         # region 이상신, 최강산 코드
