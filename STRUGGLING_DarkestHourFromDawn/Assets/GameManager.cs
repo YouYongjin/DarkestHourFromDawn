@@ -84,5 +84,22 @@ public class GameManager : MonoBehaviour
     {
         Intermit();
         GetInput();
+        // DoMonogueUIOn() 에서 업데이트 필요.
+        //MonologueLoop1();
+    }
+
+
+    bool monologueSwitch = false;
+    public void MonologueLoop1()
+    {
+        if (SceneManager.GetActiveScene().name == "Loop1")
+        {
+            MonologueUIManager.instance.DoMonologue(MonologueUIManager.instance.monologueDatabase.monologueUI[0]);
+        }
+    }
+
+    public void MonologueLoop2()
+    {
+
     }
 }

@@ -32,16 +32,20 @@ public class MonologueUIManager : MonoBehaviour
 
     public MonologueUIList monologueDatabase;
 
-    public void DoMonologue(GameObject textNum)
+    public void DoMonologue(GameObject text /*= null*//*, GameObject textNum*/)
     {
         MonologueUIOn();
         if(UIOn)
         {
-            textNum.SetActive(true);
+            text.SetActive(true);
+        }
+        else
+        {
+            text.SetActive(false);
         }
     }
 
-    // 매개변수에 인수 값이 없음
+
     //private void Update()
     //{
     //    DoMonologue();
