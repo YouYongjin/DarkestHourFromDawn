@@ -32,24 +32,4 @@ public class MonologueUIManager : MonoBehaviour
         backgroundImage.SetActive(UIOn);
         text.SetActive(UIOn);
     }
-
-
-    //public void DoMonologue(GameObject text = null/*, GameObject textNum*/)
-    //{
-    //    MonologueUIOn(text);
-    //    if(UIOn)
-    //    {
-    //        text.SetActive(true);
-    //    }
-    //    else
-    //    {
-    //        text.SetActive(false);
-    //    }
-    //}
-
-
-    //private void Update()
-    //{
-    //    DoMonologue();
-    //}
 }
