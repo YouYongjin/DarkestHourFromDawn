@@ -163,7 +163,7 @@ public class CItemUIManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         targetRotateMove.TargetRotateEvent(cameraT, targetT, 8f);
         conditionTwo = false;
-        dollRb.AddForce(new Vector3(7, 7f, 0) * maxHeight);
+        dollRb.AddForce(new Vector3(3, 3.2f, 0) * maxHeight);
         yield return new WaitForSeconds(0.8f);
         PCCamera.GetComponent<FirstPersonCamera>().CameraMoveOn = true;
     }
