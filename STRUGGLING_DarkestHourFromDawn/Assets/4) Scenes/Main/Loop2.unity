@@ -5596,6 +5596,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: OpenDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 5072045590527912010, guid: 0a7794bf747151f428b54a363b77b2ec,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a7794bf747151f428b54a363b77b2ec, type: 3}
 --- !u!4 &1178863328 stripped
@@ -7351,7 +7356,7 @@ PrefabInstance:
     - target: {fileID: 7857605194131132114, guid: f933136bafb376d4bb4f252af371bf67,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.3753499
+      value: -1.41
       objectReference: {fileID: 0}
     - target: {fileID: 7857605194131132114, guid: f933136bafb376d4bb4f252af371bf67,
         type: 3}

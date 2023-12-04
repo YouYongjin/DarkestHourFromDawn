@@ -40,7 +40,7 @@ public class LightAction : MonoBehaviour
     {
         if(Switch)
         {
-            light.intensity = 0.81f;
+            light.intensity = 0.2f;
         }
         else
         {
