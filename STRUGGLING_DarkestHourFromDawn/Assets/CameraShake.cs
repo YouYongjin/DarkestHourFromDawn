@@ -13,7 +13,7 @@ public class CameraShake : MonoBehaviour
     public float shakeAmount = 0.7f;
     public float decreaseFactor = 1.0f;
 
-    bool soundCheck = false;
+    bool soundCheck = true;
 
     public bool trigger = false;
 
@@ -41,7 +41,6 @@ public class CameraShake : MonoBehaviour
                 camTransform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
 
                 shakeDuration -= Time.deltaTime * decreaseFactor;
-                soundCheck = true;
                 if (soundCheck)
                 {
                     SoundManager.instance.PlayAudioSource(audioSource, SoundManager.instance.dataBase.soundCharacter[1]);

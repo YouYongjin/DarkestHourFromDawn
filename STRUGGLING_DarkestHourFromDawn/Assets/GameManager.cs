@@ -94,7 +94,31 @@ public class GameManager : MonoBehaviour
     bool monologueSwitch8 = true;
     bool monologueSwitch9 = true;
     bool monologueSwitch10 = true;
+    bool monologueSwitchLobby1 = true;
+    bool monologueSwitchLobby2 = true;
 
+
+    public void MonologueLobby()
+    {
+        if (SceneManager.GetActiveScene().name == "Lobby")
+        {
+            // 로비 첫 번째 독백
+            if(CUM.isFunction4)
+            {
+                if(monologueSwitchLobby1)
+                {
+                    MonologueUIManager.instance.CallMonologue(0.5f, 3f, MonologueUIManager.instance.monologueDatabase.lobbyUI[0]);
+                    monologueSwitchLobby1 = false;
+                }
+
+                if (monologueSwitchLobby2)
+                {
+                    MonologueUIManager.instance.CallMonologue(3.55f, 3.25f, MonologueUIManager.instance.monologueDatabase.lobbyUI[3]);
+                    monologueSwitchLobby2 = false;
+                }
+            }
+        }
+    }
 
     public void MonologueLoop1()
     {
@@ -201,5 +225,6 @@ public class GameManager : MonoBehaviour
         GetInput();
         MonologueLoop1();
         MonologueLoop2();
+        MonologueLobby();
     }
 }

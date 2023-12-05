@@ -25,6 +25,7 @@ TagManager:
   - ConditionDestroy
   - Curtain
   - Closet
+  - Bell
   layers:
   - Default
   - TransparentFX
