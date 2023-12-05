@@ -12,6 +12,7 @@ public class CItemUIManager : MonoBehaviour
     public GameObject cItemUI3;
     public GameObject cItemUI4;
 
+    public GameLoading GL;
     public Raycast raycast;
     public CameraShake cameraShake;
     public TargetRotateMove targetRotateMove;
@@ -200,7 +201,11 @@ public class CItemUIManager : MonoBehaviour
         CItemEvent1();
         CItemEvent2();
         CItemEvent3();
-        CItemEvent4();
+
+        if(GL.checkbool)
+        {
+            CItemEvent4();
+        }
 
         if (conditionOne)
         {
