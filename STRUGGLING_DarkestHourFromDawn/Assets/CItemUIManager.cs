@@ -10,7 +10,8 @@ public class CItemUIManager : MonoBehaviour
     public GameObject cItemUI1;
     public GameObject cItemUI2;
     public GameObject cItemUI3;
-    
+    public GameObject cItemUI4;
+
     public Raycast raycast;
     public CameraShake cameraShake;
     public TargetRotateMove targetRotateMove;
@@ -19,6 +20,7 @@ public class CItemUIManager : MonoBehaviour
     public bool isFunction1 = false;
     public bool isFunction2 = false;
     public bool isFunction3 = false;
+    public bool isFunction4 = false;
 
     public Transform cameraT;
     public Transform targetT;
@@ -84,6 +86,22 @@ public class CItemUIManager : MonoBehaviour
         }
     }
 
+    public void CItemEvent4()
+    {
+        if (SceneManager.GetActiveScene().name == "Lobby" && !isFunction4)
+        {
+            isUIOn = true;
+            CE4Controller();
+
+            if (Input.GetKeyDown("mouse 0"))
+            {
+                isFunction4 = true;
+                isUIOn = false;
+                CE4Controller();
+            }
+        }
+    }
+
     public bool cameraShakeOn = false;
     void CE1Controller()
     {
@@ -140,17 +158,26 @@ public class CItemUIManager : MonoBehaviour
             cItemUI3.gameObject.SetActive(false);
             Time.timeScale = 1;
             conditionOne = true;
-            //PCCamera.GetComponent<FirstPersonCamera>().CameraMoveOn = true;
-            //cameraShakeOn = true;
-            //if (cameraShake.shakeDuration <= 0f)
-            //{
-            //    cameraShakeOn = false;
-            //}
-
-            // 넌 잠시 짜져있어
-            //targetRotateMove.TargetRotateEvent(cameraT, targetT, 8f);
         }
     }
+
+    void CE4Controller()
+    {
+        if (isUIOn)
+        {
+            cItemUI4.gameObject.SetActive(true);
+            Time.timeScale = 0;
+            PCCamera.GetComponent<FirstPersonCamera>().CameraMoveOn = false;
+        }
+        else if (!isUIOn)
+        {
+            cItemUI4.gameObject.SetActive(false);
+            Time.timeScale = 1;
+            PCCamera.GetComponent<FirstPersonCamera>().CameraMoveOn = true;
+        }
+    }
+
+
     bool conditionTwo = true;
     public void TargetRotate()
     {
@@ -173,8 +200,9 @@ public class CItemUIManager : MonoBehaviour
         CItemEvent1();
         CItemEvent2();
         CItemEvent3();
+        CItemEvent4();
 
-        if(conditionOne)
+        if (conditionOne)
         {
             TargetRotate();
         }
