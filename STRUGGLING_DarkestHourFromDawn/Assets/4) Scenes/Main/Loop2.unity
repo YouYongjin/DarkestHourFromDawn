@@ -7380,6 +7380,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grandmother's Room
       objectReference: {fileID: 0}
+    - target: {fileID: 3716644766191665948, guid: f933136bafb376d4bb4f252af371bf67,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 58b88f580bd8e144fa40931baa25806b, type: 2}
+    - target: {fileID: 3716644766889189952, guid: f933136bafb376d4bb4f252af371bf67,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c192c6ac7c7a520438b12ab5a0f8ef19, type: 2}
+    - target: {fileID: 3716644766903978451, guid: f933136bafb376d4bb4f252af371bf67,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 58b88f580bd8e144fa40931baa25806b, type: 2}
     - target: {fileID: 4242014580903587483, guid: f933136bafb376d4bb4f252af371bf67,
         type: 3}
       propertyPath: closet
@@ -7395,6 +7410,11 @@ PrefabInstance:
       propertyPath: surpriseDoll
       value: 
       objectReference: {fileID: 1056390352}
+    - target: {fileID: 4299465970444428161, guid: f933136bafb376d4bb4f252af371bf67,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 983f34f80ef679a4cb2a52c95d53b7e9, type: 2}
     - target: {fileID: 6270123296976575483, guid: f933136bafb376d4bb4f252af371bf67,
         type: 3}
       propertyPath: m_IsActive
@@ -9863,7 +9883,7 @@ PrefabInstance:
     - target: {fileID: 1715034868091724753, guid: f3eb26a2ba52c774b994e43db57600ce,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.374
+      value: -0.691
       objectReference: {fileID: 0}
     - target: {fileID: 3777765550593716184, guid: f3eb26a2ba52c774b994e43db57600ce,
         type: 3}
@@ -9874,6 +9894,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.23223495
+      objectReference: {fileID: 0}
+    - target: {fileID: 7257997201604694816, guid: f3eb26a2ba52c774b994e43db57600ce,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.44201672
+      objectReference: {fileID: 0}
+    - target: {fileID: 7257997201604694816, guid: f3eb26a2ba52c774b994e43db57600ce,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.5972768
+      objectReference: {fileID: 0}
+    - target: {fileID: 7257997201604694816, guid: f3eb26a2ba52c774b994e43db57600ce,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.7264151
+      objectReference: {fileID: 0}
+    - target: {fileID: 7257997201604694816, guid: f3eb26a2ba52c774b994e43db57600ce,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 7257997201604694816, guid: f3eb26a2ba52c774b994e43db57600ce,
+        type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7956114002129879642, guid: f3eb26a2ba52c774b994e43db57600ce,
         type: 3}
