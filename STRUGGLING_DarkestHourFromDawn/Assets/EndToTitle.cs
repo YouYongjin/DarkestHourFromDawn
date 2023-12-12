@@ -11,7 +11,8 @@ public class EndToTitle : MonoBehaviour
     }
     public void Mouse()
     {
-        Cursor.lockState = CursorLockMode.Confined;
+        if (SceneManager.GetActiveScene().name == "End")
+            Cursor.lockState = CursorLockMode.Confined;
     }
 
     void Update()
