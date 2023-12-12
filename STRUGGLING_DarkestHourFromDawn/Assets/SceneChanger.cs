@@ -21,7 +21,7 @@ public class SceneChanger : MonoBehaviour
             if (collision.collider.gameObject.CompareTag("Player"))
             {
                 //Debug.Log("해당 씬은 Loop1 이며, Loop2 대기중입니다.");
-                SceneManager.LoadScene("Loop3");
+                SceneManager.LoadScene("End");
 
             }
         }

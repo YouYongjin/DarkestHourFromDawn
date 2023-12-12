@@ -42,7 +42,7 @@ public class SceneEventManager : MonoBehaviour
         else if(SceneManager.GetActiveScene().name == "Loop2")
         {
             raycast.hasEquip_Items[0] = true;
-            if (raycast.hasEquip_Items[6])
+            if (raycast.hasCollect_Items[6])
             {
                 LDoor.isLocked = false;
             }

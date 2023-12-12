@@ -2866,12 +2866,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brokenMirror: {fileID: 0}
+  surpriseEvent: {fileID: 0}
   gameManager: {fileID: 0}
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
+  lighterSwitch: {fileID: 0}
   Aim: {fileID: 5637197192060058680}
   cItemUI: {fileID: 0}
+  fireShader: {fileID: 0}
   equip_Items:
   - {fileID: 3691011670527399607}
   - {fileID: 6703670971557473182}
