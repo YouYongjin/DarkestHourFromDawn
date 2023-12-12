@@ -5,6 +5,7 @@ using UnityEngine;
 public class SurpriseEvent : MonoBehaviour
 {
     public AudioSource audioSource;
+    public AudioSource mirrorBrokenAudio;
 
     public GameObject bigBear;
     public GameObject pcCamera;
@@ -64,6 +65,9 @@ public class SurpriseEvent : MonoBehaviour
         mirrorPiece[2].SetActive(true);
         mirrorPiece[3].SetActive(true);
         mirrorDefault.SetActive(false);
+
+        SoundManager.instance.PlayAudioSource(mirrorBrokenAudio, SoundManager.instance.dataBase.soundEffect[26]);
+
     }
 
     private void Update()

@@ -1,14 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+//using System.Diagnostics;
 using UnityEngine;
 
 public class LighterSwitch : MonoBehaviour
 {
     public GameObject lightGroup;
     public Animator anim;
-    public bool lightSwitch = true;
+    public bool lightSwitch;
 
     public bool eIDown;
+
+    void Awake()
+    {
+        lightSwitch = false;
+    }
 
     void GetInput()
     {
@@ -23,11 +29,13 @@ public class LighterSwitch : MonoBehaviour
             {
                 LightOff();
                 anim.Play("LighterOff");
+                Debug.Log(lightSwitch);
             }
             else if (!lightSwitch)
             {
                 LightOn();
                 anim.Play("LighterOn");
+                Debug.Log(lightSwitch);
             }
         }
     }

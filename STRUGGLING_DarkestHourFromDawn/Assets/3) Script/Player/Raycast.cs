@@ -10,14 +10,17 @@ public class Raycast : MonoBehaviour
     //public NoneDoorV2 DoorOff;
     RaycastHit hit;
     public BrokenMirror brokenMirror;
+    public SurpriseEvent surpriseEvent;
 
     public GameObject gameManager;
     public LayerMask layerMask;
+    public LighterSwitch lighterSwitch;
 
     public GameObject Aim;
     GameObject nearObject;
     GameObject nowEquipItem;
     public GameObject cItemUI;
+    public GameObject fireShader;
 
     // 표시할 아이템 변수
     public GameObject[] equip_Items;
@@ -180,8 +183,13 @@ public class Raycast : MonoBehaviour
             else if (hit.transform.gameObject.CompareTag("ConditionDestroy")) 
             {
                 if (equipItemIndex == 1)
-                    if(iDown)
-                    Destroy(hit.transform.gameObject);
+                {
+                    if(lighterSwitch.lightSwitch)
+                    {
+                        if (iDown)
+                            StartCoroutine(DestroyFireCO());
+                    }
+                }
                 
             }
             else if(hit.transform.gameObject.CompareTag("Curtain"))
@@ -205,6 +213,14 @@ public class Raycast : MonoBehaviour
 
             Debug.Log("상호작용 할 수 있는 오브젝트가 아닙니다.");
         }
+    }
+    IEnumerator DestroyFireCO()
+    {
+        yield return new WaitForSeconds(0.0f);
+        fireShader.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        fireShader.SetActive(false);
+        surpriseEvent.bigBear.SetActive(false);
     }
 
     void Update()

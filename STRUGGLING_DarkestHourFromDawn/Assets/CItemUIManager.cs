@@ -12,6 +12,8 @@ public class CItemUIManager : MonoBehaviour
     public GameObject cItemUI3;
     public GameObject cItemUI4;
 
+    public AudioSource audioSource;
+
     public GameLoading GL;
     public Raycast raycast;
     public CameraShake cameraShake;
@@ -82,6 +84,7 @@ public class CItemUIManager : MonoBehaviour
                     isFunction3 = true;
                     isUIOn = false;
                     CE3Controller();
+                    SoundManager.instance.PlayAudioSource(audioSource, SoundManager.instance.dataBase.soundEffect[17]);
                 }
             }
         }
@@ -191,7 +194,7 @@ public class CItemUIManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         targetRotateMove.TargetRotateEvent(cameraT, targetT, 8f);
         conditionTwo = false;
-        dollRb.AddForce(new Vector3(3, 3.2f, 0) * maxHeight);
+        dollRb.AddForce(new Vector3(8, 7.5f, 0) * maxHeight);
         yield return new WaitForSeconds(0.8f);
         PCCamera.GetComponent<FirstPersonCamera>().CameraMoveOn = true;
     }
