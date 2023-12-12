@@ -144,6 +144,9 @@ public class Raycast : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward, out hit, maxDistance, layerMask))
         {
             Color color = Aim.GetComponent<Image>().color;
+            color.r = 1f;
+            color.g = 1f;
+            color.b = 0;
             color.a = 1f;
             Aim.GetComponent<Image>().color = color;
 
@@ -208,6 +211,9 @@ public class Raycast : MonoBehaviour
             nearObject = null;
 
             Color color = Aim.GetComponent<Image>().color;
+            color.r = 1f;
+            color.g = 1f;
+            color.b = 1f;
             color.a = 0.3f;
             Aim.GetComponent<Image>().color = color;
 
