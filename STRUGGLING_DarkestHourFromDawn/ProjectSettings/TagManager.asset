@@ -26,6 +26,7 @@ TagManager:
   - Curtain
   - Closet
   - Bell
+  - BigRabbitDoll
   layers:
   - Default
   - TransparentFX

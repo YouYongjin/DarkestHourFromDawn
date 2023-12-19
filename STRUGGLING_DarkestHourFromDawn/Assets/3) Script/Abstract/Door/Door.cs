@@ -10,6 +10,7 @@ public abstract class Door : MonoBehaviour
     bool isLock = false;
     bool isSurprise = false;
 
+
     //private void Start()
     //{
     //    isOpen = false;

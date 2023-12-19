@@ -136,6 +136,7 @@ public class Raycast : MonoBehaviour
 
     }
 
+    public bool lobbyCondition3 = false;
     public void RayHit()
     {
         // Raycast Scene View 표시 형태
@@ -167,12 +168,17 @@ public class Raycast : MonoBehaviour
                 Debug.Log(nearObject.name + "/" + nearObject.tag);
             }
 
+            
             else if (hit.transform.gameObject.CompareTag("RemakeDoor"))
             {
                 Debug.Log("추상 클래스로 구현한 문 입니다.");
                 if (iDown)
                 {
                     hit.transform.GetComponent<Door>().Open();
+                    if(SceneManager.GetActiveScene().name == "Lobby")
+                    {
+                        lobbyCondition3 = true;
+                    }
                 }
             }
             else if (hit.transform.gameObject.CompareTag("RemakeChiffonier"))
@@ -209,6 +215,11 @@ public class Raycast : MonoBehaviour
             {
                 if (iDown)
                     hit.transform.GetComponent<Bell>().BellSound();
+            }
+            else if (hit.transform.gameObject.CompareTag("BigRabbitDoll"))
+            {
+                if (iDown)
+                    hit.transform.GetComponent<BigRabbitDoll>().DollSound();
             }
         }
         else

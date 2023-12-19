@@ -8,6 +8,7 @@ public class SceneEventManager : MonoBehaviour
     public Raycast raycast;
     public OneShotSurpriseDoor ASSDoor;
     public DoorLock LDoor;
+    public QuestUIManager QUM;
 
     public bool oneShotSurprise = false;
     public GameObject lightOn;
@@ -39,7 +40,7 @@ public class SceneEventManager : MonoBehaviour
                 LDoor.isLocked = true;
             }
         }
-        else if(SceneManager.GetActiveScene().name == "Loop2")
+        else if (SceneManager.GetActiveScene().name == "Loop2")
         {
             raycast.hasEquip_Items[0] = true;
             if (raycast.hasCollect_Items[6])
@@ -47,6 +48,17 @@ public class SceneEventManager : MonoBehaviour
                 LDoor.isLocked = false;
             }
             else
+            {
+                LDoor.isLocked = true;
+            }
+        }
+        else if (SceneManager.GetActiveScene().name == "Lobby")
+        {
+            if (QUM.conditionCheck1 && QUM.conditionCheck2 && QUM.conditionCheck3)
+            {
+                LDoor.isLocked = false;
+            }
+            else 
             {
                 LDoor.isLocked = true;
             }
