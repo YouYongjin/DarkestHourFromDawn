@@ -183,27 +183,32 @@ public class Raycast : MonoBehaviour
                     hit.transform.GetComponent<Chiffonier>().Open();
                 }
             }
-            else if (hit.transform.gameObject.CompareTag("ConditionDestroy")) 
+            else if (hit.transform.gameObject.CompareTag("ConditionDestroy"))
             {
                 if (equipItemIndex == 1)
                 {
-                    if(lighterSwitch.lightSwitch)
+                    if (lighterSwitch.lightSwitch)
                     {
                         if (iDown)
                             StartCoroutine(DestroyFireCO());
                     }
                 }
-                
+
             }
-            else if(hit.transform.gameObject.CompareTag("Curtain"))
+            else if (hit.transform.gameObject.CompareTag("Curtain"))
             {
                 if (iDown)
                     hit.transform.GetComponent<Curtain>().Open();
             }
-            else if(hit.transform.gameObject.CompareTag("Closet"))
+            else if (hit.transform.gameObject.CompareTag("Closet"))
             {
                 if (iDown)
                     hit.transform.GetComponent<Closet>().Open();
+            }
+            else if (hit.transform.gameObject.CompareTag("Bell"))
+            {
+                if (iDown)
+                    hit.transform.GetComponent<Bell>().BellSound();
             }
         }
         else
