@@ -8,13 +8,20 @@ public class Flashlight_Switch : MonoBehaviour
     public GameObject lightGroup;
     public AudioSource audioSource;
 
-    public bool lightSwitch = true;
-
+    public bool lightSwitch;
+    public bool loopCondition2;
     public bool eIDown;
 
     void GetInput()
     {
         eIDown = Input.GetButtonDown("EquipInteraction");
+    }
+
+    public void Start()
+    {
+        lightSwitch = false;
+        loopCondition2 = false;
+        //lightGroup.SetActive(false);
     }
 
     public void FlashLight()
@@ -30,6 +37,7 @@ public class Flashlight_Switch : MonoBehaviour
             {
                 LightOn();
                 SoundManager.instance.PlayAudioSource(audioSource, SoundManager.instance.dataBase.soundCharacter[2]);
+                loopCondition2 = true;
             }
         }
     }
@@ -52,5 +60,9 @@ public class Flashlight_Switch : MonoBehaviour
     {
         FlashLight();
         GetInput();
+        if(loopCondition2)
+        {
+            loopCondition2 = true;
+        }
     }
 }

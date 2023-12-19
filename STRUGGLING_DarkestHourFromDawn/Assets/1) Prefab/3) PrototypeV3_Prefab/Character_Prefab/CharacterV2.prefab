@@ -2887,6 +2887,7 @@ MonoBehaviour:
   iSwap3: 0
   equipItemIndex: -1
   maxDistance: 1.5
+  lobbyCondition3: 0
 --- !u!95 &8054295586996204317
 Animator:
   serializedVersion: 5
@@ -4032,6 +4033,11 @@ PrefabInstance:
       value: EItem_Flashlight
       objectReference: {fileID: 0}
     - target: {fileID: 1062662495959391176, guid: e983974114c12b843a0ff7b0b997a82b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3148737498765005899, guid: e983974114c12b843a0ff7b0b997a82b,
         type: 3}
       propertyPath: m_IsActive
       value: 0
