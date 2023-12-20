@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.023841202, g: 0.045563243, b: 0.0987877, a: 1}
+  m_IndirectSpecularColor: {r: 0.023841538, g: 0.045562126, b: 0.09879434, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6104,6 +6104,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 37420754}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &720106885 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5470490401435454272, guid: 29616af83f0a4434f8d5c6f755434b37,
+    type: 3}
+  m_PrefabInstance: {fileID: 1039809777}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7eea8d616a97294e9a435d6eab2e37a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &729111486
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19479,5 +19491,10 @@ PrefabInstance:
       propertyPath: raycast
       value: 
       objectReference: {fileID: 76204513}
+    - target: {fileID: 4941966089101348023, guid: 1306498fb3983454182ad30d06b20282,
+        type: 3}
+      propertyPath: flashlight
+      value: 
+      objectReference: {fileID: 720106885}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1306498fb3983454182ad30d06b20282, type: 3}

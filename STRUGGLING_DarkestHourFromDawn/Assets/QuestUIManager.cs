@@ -266,18 +266,26 @@ public class QuestUIManager : MonoBehaviour
                     NoneImage2();
                     loop2Mission = false;
                 }
+
                 if (raycast.iSwap1)
                 {
                     ColorImage1();
                 }
-                
+
                 // 작동 안됨.. 해결좀 ㅠ_ㅠ
-                if (raycast.iSwap1 && Interaction)
+                if (Interaction)
                 {
                     ColorImage2();
                 }
 
+                
+
             }
+        }
+
+        else if (SceneManager.GetActiveScene().name == "Loop2")
+        {
+
         }
     }
 }
