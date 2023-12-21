@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEditor.PackageManager;
 
 public class QuestUIManager : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class QuestUIManager : MonoBehaviour
     public Flashlight_Switch flashlight;
     public SurpriseEvent SE;
     public Loop2MirrorTrigger LMT;
+    public Loop2BoolTrigger LBT;
 
     public GameObject main;
     public GameObject lobbyQuestList;
@@ -22,7 +24,7 @@ public class QuestUIManager : MonoBehaviour
     public GameObject loop1_2QuestList;
     public GameObject loop2_1QuestList;
     public GameObject loop2_2QuestList;
-
+    public GameObject loop2_3QuestList;
 
     public GameObject checkCondition1;
     public GameObject checkCondition2;
@@ -35,10 +37,12 @@ public class QuestUIManager : MonoBehaviour
     public bool aimCheck2_2;
     public bool aimCheck3_1;
     public bool aimCheck3_2;
+    public bool aimCheck3_3;
 
     public bool conditionCheck1 = false;
     public bool conditionCheck2 = false;
     public bool conditionCheck3 = false;
+    public bool conditionCheck4 = false;
 
 
     void Awake()
@@ -218,6 +222,7 @@ public class QuestUIManager : MonoBehaviour
     bool loop2Mission = true;
     bool loop2_1Mission = true;
     bool loop2_2Mission = true;
+    bool loop2_2_2Mission = true;
 
     public bool Interaction;
     void Condition()
@@ -281,7 +286,6 @@ public class QuestUIManager : MonoBehaviour
                     ColorImage1();
                 }
 
-                // 작동 안됨.. 해결좀 ㅠ_ㅠ
                 if (Interaction)
                 {
                     ColorImage2();
@@ -301,15 +305,39 @@ public class QuestUIManager : MonoBehaviour
             }
             else if(!loop2_1Mission)
             {
-                loop2_2QuestList.SetActive(true);
-                if (LMT.EventOn)
+                if(loop2_2Mission)
                 {
-                    ColorImage1();
-                }
+                    loop2_2QuestList.SetActive(true);
+                    if (LMT.EventOn)
+                    {
+                        ColorImage1();
+                    }
 
-                if (raycast.hasEquip_Items[1])
+                    if (raycast.hasEquip_Items[1])
+                    {
+                        ColorImage2();
+                        loop2_2Mission = false;
+                    }
+                }
+                else if (!loop2_2Mission  && raycast.EventOn)
                 {
-                    ColorImage2();
+                    if(loop2_2_2Mission)
+                    {
+                        loop2_2QuestList.SetActive(false);
+                        loop2_3QuestList.SetActive(true);
+                        NoneImage1();
+                        NoneImage2();
+                        loop2_2_2Mission = false;
+                    }
+
+                    if (!LBT.trigger)
+                    {
+                        ColorImage1();
+                    }
+                    if (raycast.hasCollect_Items[6])
+                    {
+                        ColorImage2();
+                    }
                 }
             }
         }

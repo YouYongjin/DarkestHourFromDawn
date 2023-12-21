@@ -236,6 +236,8 @@ public class Raycast : MonoBehaviour
             Debug.Log("상호작용 할 수 있는 오브젝트가 아닙니다.");
         }
     }
+
+    public bool EventOn = false;
     IEnumerator DestroyFireCO()
     {
         yield return new WaitForSeconds(0.0f);
@@ -243,6 +245,7 @@ public class Raycast : MonoBehaviour
         yield return new WaitForSeconds(3f);
         fireShader.SetActive(false);
         surpriseEvent.bigBear.SetActive(false);
+        EventOn = true;
     }
 
     void Update()

@@ -14,11 +14,11 @@ public class ConditionLockStorage : Chiffonier
         if (raycast.hasCollect_Items[2] && raycast.hasCollect_Items[3] && raycast.hasCollect_Items[4] && raycast.hasCollect_Items[5]) 
         {
             Debug.Log("true");
+            lockCollider.SetActive(false);
             return true;
         }
         Debug.Log("false");
         isLocked = false;
-        lockCollider.SetActive(isLocked);
         return false;
         //if (!raycast.hasCollect_Items[2]) return !isLocked;
         //if (!raycast.hasCollect_Items[3]) return !isLocked;
