@@ -43,10 +43,12 @@ public class SurpriseEvent : MonoBehaviour
         StartCoroutine(SurpriseEventCO());
     }
 
+    public bool quest2_1_1 = false;
     IEnumerator SurpriseEventCO()
     {
         yield return new WaitForSeconds(0.1f);
         bigBear.SetActive(true);
+        quest2_1_1 = true;
         SoundManager.instance.PlayAudioSource(audioSource, SoundManager.instance.dataBase.soundEffect[21]);
         lookAtBear = true;     
         yield return new WaitForSeconds(0.5f);

@@ -12,6 +12,8 @@ public class BrokenMirror : MonoBehaviour
     public GameObject mirrorPiece4;
     public TMP_Text mirrorCount;
 
+    public AudioSource audioSource;
+
     public bool piece1Check = false;
     public bool piece2Check = false;
     public bool piece3Check = false;
@@ -38,7 +40,8 @@ public class BrokenMirror : MonoBehaviour
             if (raycast.hasCollect_Items[i])
                 hasItem++;
             if (hasItem == 5)
-                return;
+                //SoundManager.instance.PlayAudioSource(audioSource, SoundManager.instance.dataBase.soundEffect[6]);
+            return;
         }
         mirrorCount.text = $"{hasItem} / 4";
         

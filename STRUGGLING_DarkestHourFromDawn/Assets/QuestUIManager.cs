@@ -13,12 +13,15 @@ public class QuestUIManager : MonoBehaviour
     public BigRabbitDoll BRD;
     public MonologueTrigger1 MT1;
     public Flashlight_Switch flashlight;
+    public SurpriseEvent SE;
+    public Loop2MirrorTrigger LMT;
 
     public GameObject main;
     public GameObject lobbyQuestList;
     public GameObject loop1_1QuestList;
     public GameObject loop1_2QuestList;
-    public GameObject loop2QuestList;
+    public GameObject loop2_1QuestList;
+    public GameObject loop2_2QuestList;
 
 
     public GameObject checkCondition1;
@@ -30,7 +33,8 @@ public class QuestUIManager : MonoBehaviour
     public bool aimCheck1;
     public bool aimCheck2_1;
     public bool aimCheck2_2;
-    public bool aimCheck3;
+    public bool aimCheck3_1;
+    public bool aimCheck3_2;
 
     public bool conditionCheck1 = false;
     public bool conditionCheck2 = false;
@@ -42,7 +46,8 @@ public class QuestUIManager : MonoBehaviour
         aimCheck1 = true;
         aimCheck2_1 = true;
         aimCheck2_2 = true;
-        aimCheck3 = true;
+        aimCheck3_1 = true;
+        aimCheck3_2 = true;
         //Interaction = flashlight.eIDown;
     }
 
@@ -67,7 +72,8 @@ public class QuestUIManager : MonoBehaviour
 
         else if (SceneManager.GetActiveScene().name == "Loop2")
         {
-            loop2QuestList.SetActive(true);
+            loop2_1QuestList.SetActive(true);
+            checkCondition3.SetActive(false);
         }
 
     }
@@ -102,10 +108,10 @@ public class QuestUIManager : MonoBehaviour
         else if (SceneManager.GetActiveScene().name == "Loop2")
         {
             main.SetActive(true);
-            if (aimCheck3)
+            if (aimCheck3_1)
             {
                 SoundManager.instance.PlayAudioSource(audioSource, SoundManager.instance.dataBase.soundBGM[12]);
-                aimCheck3 = false;
+                aimCheck3_1 = false;
             }
         }
     }
@@ -210,6 +216,8 @@ public class QuestUIManager : MonoBehaviour
     //}
     bool loop1Mission = true;
     bool loop2Mission = true;
+    bool loop2_1Mission = true;
+    bool loop2_2Mission = true;
 
     public bool Interaction;
     void Condition()
@@ -257,6 +265,7 @@ public class QuestUIManager : MonoBehaviour
                     }
                 }
             }
+
             else if (!loop1Mission)
             {
                 loop1_2QuestList.SetActive(true);
@@ -277,15 +286,32 @@ public class QuestUIManager : MonoBehaviour
                 {
                     ColorImage2();
                 }
-
-                
-
             }
         }
 
         else if (SceneManager.GetActiveScene().name == "Loop2")
         {
+            if(loop2_1Mission)
+            {
+                if(SE.lookAtBear)
+                {
+                    loop2_1QuestList.SetActive(false);
+                    loop2_1Mission = false;
+                }
+            }
+            else if(!loop2_1Mission)
+            {
+                loop2_2QuestList.SetActive(true);
+                if (LMT.EventOn)
+                {
+                    ColorImage1();
+                }
 
+                if (raycast.hasEquip_Items[1])
+                {
+                    ColorImage2();
+                }
+            }
         }
     }
 }
